@@ -5,6 +5,26 @@
   "alpaca_en_demo": {
     "file_name": "alpaca_en_demo.json"
   },
+  "qwen3_sft_train_dataset": {
+    "file_name": "qwen3_sft_train.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_test_dataset": {
+    "file_name": "qwen3_sft_test.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
   "alpaca_zh_demo": {
     "file_name": "alpaca_zh_demo.json"
   },

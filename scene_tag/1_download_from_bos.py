@@ -345,9 +345,9 @@ def test_bos_connection():
 
 def main():
     """主函数"""
-    EXCEL_PATH = "/root/workspace/人工标注视频数据.xlsx"
-    DOWNLOAD_DIR = "/root/workspace/downloaded_videos"
-    
+    EXCEL_PATH = "/root/workspace/人工标注视频数据_对比实验_12tags_.xlsx"
+    # DOWNLOAD_DIR = "/root/workspace/downloaded_videos_for_inference"
+    DOWNLOAD_DIR = "/root/workspace/downloaded_videos_2fps"
     print("=" * 60)
     print("BOS视频下载工具 (Excel驱动)")
     print("=" * 60)
@@ -518,6 +518,6 @@ if __name__ == "__main__":
         print("使用测试文件运行下载脚本...")
         EXCEL_PATH = test_excel
     else:
-        EXCEL_PATH = "/root/workspace/人工标注视频数据.xlsx"
+        EXCEL_PATH = "/root/workspace/人工标注视频数据_对比实验_12tags_.xlsx"
     
     main()

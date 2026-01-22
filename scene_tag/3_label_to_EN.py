@@ -394,9 +394,9 @@ class AnnotationProcessor:
 
 def main():
     """主函数"""
-    ANNOTATIONS_DIR = "/root/workspace/vqa_annotations/annotations"
-    MAPPING_FILE = "/root/workspace/中英对照表.xlsx"
-    OUTPUT_DIR = "/root/workspace/vqa_dataset_prepared"
+    ANNOTATIONS_DIR = "/root/workspace/vqa_annotations_2fps/annotations" 
+    MAPPING_FILE = "/root/workspace/中英对照表_12tags.xlsx"
+    OUTPUT_DIR = "/root/workspace/vqa_dataset_prepared_2fps"
     
     print("=" * 60)
     print("视频VQA标注标签转换工具")

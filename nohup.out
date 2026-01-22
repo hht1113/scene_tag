@@ -1,0 +1,4 @@
+usage: big_junction_batch.py [-h] [--output-dir OUTPUT_DIR]
+                             [--raw-root RAW_ROOT] [--batch-size BATCH_SIZE]
+                             [--force]
+big_junction_batch.py: error: unrecognized arguments: mine_junction.log

@@ -18,34 +18,73 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# System Prompt定义
-SYSTEM_PROMPT = """You are an expert in autonomous driving scene annotation. 
-Based on a 60-second video, you need to identify the ego vehicle's actions. 
+# 类别定义 - 可独立扩展的部分
+DRIVING_MANEUVER_CATEGORIES = {
+    "TrafficLight_StraightStopOrGo": "Ego vehicle stops or starts at a traffic light for straight-line movement",
+    "TrafficLight_LeftTurnStopOrGo": "Ego vehicle stops or starts at a traffic light for left-turn movement",
+    "LaneChange_NavForIntersection": "Lane change for navigation purposes approaching an intersection",
+    "LaneChange_AvoidSlowVRU": "Lane change to avoid slow-moving vulnerable road users (pedestrians, cyclists)",
+    "LaneChange_AvoidStaticVehicle": "Lane change to avoid stationary vehicles",
+    "DynamicInteraction_VRUInLaneCrossing": "Interaction with vulnerable road users crossing the ego's lane",
+    "DynamicInteraction_VehicleInLaneCrossing": "Interaction with other vehicles crossing the ego's lane",
+    "DynamicInteraction_StandardVehicleCutIn": "Another vehicle cuts in front of the ego vehicle",
+    "StartStop_StartFromMainRoad": "Starting from a stopped position on a main road",
+    "StartStop_ParkRoadside": "Parking or stopping at roadside",
+    "Intersection_StandardUTurn": "Making a U-turn at an intersection",
+    "LaneCruising_Straight": "Straight-line cruising without notable events"
+}
 
-You MUST choose labels ONLY from this specific list:
-1. TrafficLight_Straight_StopGo
-2. TrafficLight_LeftTurn_StopGo
-3. LaneChange_ForIntersection
-4. Avoid_SlowVRU
-5. Avoid_StaticVehicle
-6. Avoid_ConstructionZone
-7. VRU_CrossingPath
-8. Vehicle_CrossingPath
-9. Vehicle_CutIn
-10. Vehicle_AggressiveCutIn
-11. VRU_SuddenCutIn
-12. VRU_SlowCutIn
-13. LeadVehicle_EmergencyBrake
-14. Start_FromMainRoad
-15. Park_Roadside
-16. U_Turn_Standard
-17. U_Turn_ThreePoint
-18. LeftTurn_VRU_Crossing
-19. Lane_Cruising_Straight
+# 获取类别列表
+CATEGORY_LABELS = list(DRIVING_MANEUVER_CATEGORIES.keys())
+CATEGORY_LIST_STR = "\n".join(CATEGORY_LABELS)
 
-Please use the format: <driving_maneuver>action_label</driving_maneuver> from <start_time>start_time_value</start_time> to <end_time>end_time_value</end_time> seconds.
-If there are multiple actions, list them in chronological order separated by " and ".
-IMPORTANT: Only use the exact labels from the list above. Do NOT create new labels."""
+# 生成类别定义的文本
+CATEGORY_DEFINITIONS = "\n".join(
+    [f"{i+1}. {label}: {definition}" 
+     for i, (label, definition) in enumerate(DRIVING_MANEUVER_CATEGORIES.items())]
+)
+
+# 主系统提示
+SYSTEM_PROMPT = f"""You are an expert in autonomous driving scene annotation.
+Based on the input video and the question about the ego vehicle's behavior, analyze the 60-second video to identify the ego vehicle's actions with strict precision, focusing on predefined driving maneuver categories.
+
+DRIVING MANEUVER CATEGORIES:
+You MUST use ONLY these predefined labels for the ego vehicle's actions:
+
+{CATEGORY_LIST_STR}
+else (ONLY when NO label above matches, meaning the ego vehicle's action does not fit any of the predefined categories)
+
+LABELING RULES:
+1. Assign a label ONLY if the action clearly matches the definition of one of the predefined categories
+2. NEVER force-match ambiguous scenes to predefined labels
+3. Use "else" when:
+   • The ego vehicle's action does not match any predefined category
+   • The scene is ambiguous or uncertain (confidence < 90%)
+   • No clearly identifiable maneuver occurs
+4. For "else" segments: Cover ONLY time periods with NO identifiable predefined maneuver
+5. Time segments MUST be contiguous and non-overlapping, covering the entire 60-second video
+6. Minimum segment duration: 1.0 second. Ignore shorter or transient actions
+7. Base times on video timeline (0.0 to 60.0 seconds)
+
+OUTPUT FORMAT:
+<driving_maneuver>action_label</driving_maneuver> from <start_time>XX.X</start_time> to <end_time>YY.Y</end_time> seconds
+• Use one of the predefined category labels or "else" for each time segment
+• Multiple segments: Separate with " and " in chronological order
+• Time precision: 1 decimal place (e.g., 5.0, 23.5)
+• NO additional text or explanations—only output the formatted segments
+
+CATEGORY DEFINITIONS:
+{CATEGORY_DEFINITIONS}
+13. else: Default for all other behaviors not covered by the predefined categories
+
+IMPORTANT GUIDELINES:
+1. Analyze the entire 60-second video thoroughly
+2. Match actions to the most specific appropriate category
+3. If multiple categories could apply, choose the one that best describes the primary action
+4. Ensure time segments accurately reflect when each maneuver occurs
+5. Maintain chronological order in output
+"""
+
 
 # 问题模板列表 - 在视频前添加<video>标记
 ENGLISH_QUESTION_TEMPLATES = [
@@ -484,8 +523,8 @@ class LlamaFactoryVQADatasetBuilder:
 
 def main():
     """主函数"""
-    ANNOTATIONS_FILE = "/root/workspace/vqa_dataset_prepared/converted_annotations/existing_videos_dataset.json"
-    OUTPUT_DIR = "/root/workspace/llama_factory_vqa_dataset"
+    ANNOTATIONS_FILE = "/root/workspace/vqa_dataset_prepared_2fps/converted_annotations/existing_videos_dataset.json"
+    OUTPUT_DIR = "/root/workspace/llama_factory_vqa_dataset_2fps"
     
     print("=" * 60)
     print("Llama Factory VQA数据集生成工具 (带<video>标记和system prompt)")

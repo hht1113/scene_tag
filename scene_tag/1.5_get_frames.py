@@ -24,14 +24,14 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class VideoDownsampler:
-    """视频降采样工具，从10fps降为1fps"""
+    """视频降采样工具，从10fps降为2fps，并调整分辨率为448x448"""
     
-    def __init__(self, target_fps=1, original_fps=10):
+    def __init__(self, target_fps=2, original_fps=10):
         """
         初始化降采样器
         
         Args:
-            target_fps: 目标帧率 (默认1fps)
+            target_fps: 目标帧率 (默认2fps)
             original_fps: 原始帧率 (默认10fps)
         """
         self.target_fps = target_fps
@@ -43,7 +43,25 @@ class VideoDownsampler:
         logger.info(f"视频降采样配置:")
         logger.info(f"  原始帧率: {original_fps}fps")
         logger.info(f"  目标帧率: {target_fps}fps")
+        # logger.info(f"  目标分辨率: {target_resolution[0]}x{target_resolution[1]}")
         logger.info(f"  抽帧间隔: 每{self.downsample_ratio}帧抽取1帧")
+    
+    # def _resize_frame(self, frame):
+    #     """调整帧分辨率为目标分辨率"""
+    #     if frame is None:
+    #         return None
+            
+    #     # 获取原始分辨率
+    #     h, w = frame.shape[:2]
+    #     target_w, target_h = self.target_resolution
+        
+    #     # 检查是否需要调整大小
+    #     if w == target_w and h == target_h:
+    #         return frame
+            
+    #     # 调整大小
+    #     resized_frame = cv2.resize(frame, (target_w, target_h), interpolation=cv2.INTER_AREA)
+    #     return resized_frame
     
     def get_video_info(self, video_path):
         """获取视频信息"""
@@ -132,21 +150,21 @@ class VideoDownsampler:
             return False
         
         original_size = video_info['file_size']
+        # target_w, target_h = self.target_resolution
         
-        # 检查是否已经是目标帧率
+        logger.info(f"处理视频: {input_path}")
+        logger.info(f"  原始分辨率: {video_info['width']}x{video_info['height']}")
+        # logger.info(f"  目标分辨率: {target_w}x{target_h}")
+        logger.info(f"  原始帧率: {video_info['fps']:.2f}fps")
+        logger.info(f"  目标帧率: {self.target_fps}fps")
+        logger.info(f"  原始帧数: {video_info['frame_count']}")
+        logger.info(f"  目标帧数: ~{int(video_info['frame_count'] / self.downsample_ratio)}")
+        logger.info(f"  文件大小: {original_size / 1024 / 1024:.2f} MB")
+        
+        # 检查是否已经是目标帧率和分辨率
         if abs(video_info['fps'] - self.target_fps) < 0.1:
             logger.info(f"视频已经是{self.target_fps}fps，跳过处理: {input_path}")
             return True
-        
-        # 计算目标帧数
-        target_frame_count = int(video_info['frame_count'] / self.downsample_ratio)
-        
-        logger.info(f"处理视频: {input_path}")
-        logger.info(f"  分辨率: {video_info['width']}x{video_info['height']}")
-        logger.info(f"  原始帧率: {video_info['fps']:.2f}fps")
-        logger.info(f"  原始帧数: {video_info['frame_count']}")
-        logger.info(f"  目标帧数: ~{target_frame_count}")
-        logger.info(f"  文件大小: {original_size / 1024 / 1024:.2f} MB")
         
         # 创建临时目录
         temp_dir = tempfile.mkdtemp(prefix='video_downsample_')
@@ -159,10 +177,10 @@ class VideoDownsampler:
             shutil.rmtree(temp_dir, ignore_errors=True)
             return False
         
-        # 尝试多种编码器
+        # 尝试多种编码器，使用原始分辨率
         out = self._try_fourcc_codes(
-            video_info['width'], 
-            video_info['height'], 
+            video_info['width'],  # 使用原始宽度
+            video_info['height'],  # 使用原始高度
             self.target_fps, 
             temp_output
         )
@@ -177,6 +195,8 @@ class VideoDownsampler:
             frame_idx = 0
             saved_frame_idx = 0
             
+            # 计算目标帧数
+            target_frame_count = int(video_info['frame_count'] / self.downsample_ratio)
             pbar = tqdm(total=target_frame_count, 
                        desc=f"处理 {Path(input_path).name}", 
                        unit="帧")
@@ -188,9 +208,13 @@ class VideoDownsampler:
                 
                 # 每downsample_ratio帧保存一帧
                 if frame_idx % self.downsample_ratio == 0:
-                    out.write(frame)
-                    saved_frame_idx += 1
-                    pbar.update(1)
+                    # 调整分辨率
+                    # resized_frame = self._resize_frame(frame)
+                    resized_frame = frame
+                    if resized_frame is not None:
+                        out.write(resized_frame)
+                        saved_frame_idx += 1
+                        pbar.update(1)
                 
                 frame_idx += 1
             
@@ -237,9 +261,10 @@ class VideoDownsampler:
                     logger.info(f"  输出大小: {processed_size / 1024 / 1024:.2f} MB")
                     logger.info(f"  压缩比例: {compression_ratio:.1%}")
                     
-                    # 尝试获取输出视频信息
+                    # 验证分辨率
                     processed_info = self.get_video_info(output_path)
                     if processed_info:
+                        logger.info(f"  输出分辨率: {processed_info['width']}x{processed_info['height']}")
                         logger.info(f"  输出帧率: {processed_info['fps']:.2f}fps")
                         logger.info(f"  输出帧数: {processed_info['frame_count']}")
                     
@@ -287,24 +312,27 @@ class VideoDownsampler:
             return False
         
         original_size = video_info['file_size']
+        # target_w, target_h = self.target_resolution
+        
+        logger.info(f"使用FFmpeg处理视频: {input_path}")
+        logger.info(f"  原始分辨率: {video_info['width']}x{video_info['height']}")
+        # logger.info(f"  目标分辨率: {target_w}x{target_h}")
+        logger.info(f"  原始帧率: {video_info['fps']:.2f}fps")
+        logger.info(f"  目标帧率: {self.target_fps}fps")
+        logger.info(f"  文件大小: {original_size / 1024 / 1024:.2f} MB")
         
         # 检查是否已经是目标帧率
         if abs(video_info['fps'] - self.target_fps) < 0.1:
             logger.info(f"视频已经是{self.target_fps}fps，跳过处理: {input_path}")
-            return True
-        
-        logger.info(f"使用FFmpeg处理视频: {input_path}")
-        logger.info(f"  原始帧率: {video_info['fps']:.2f}fps")
-        logger.info(f"  目标帧率: {self.target_fps}fps")
-        logger.info(f"  文件大小: {original_size / 1024 / 1024:.2f} MB")
+            return True 
         
         # 创建临时目录
         temp_dir = tempfile.mkdtemp(prefix='video_ffmpeg_')
         temp_output = os.path.join(temp_dir, Path(output_path).name)
         
         try:
-            # 构建简单的FFmpeg命令
-            # 先尝试复制音频流，如果失败再尝试不处理音频
+            # 构建FFmpeg命令，添加缩放滤镜
+            # 命令结构: 先调整帧率，再调整分辨率
             cmd_with_audio = [
                 'ffmpeg',
                 '-i', input_path,
@@ -394,6 +422,13 @@ class VideoDownsampler:
                 logger.info(f"FFmpeg处理完成: {output_path}")
                 logger.info(f"  输出大小: {processed_size / 1024 / 1024:.2f} MB")
                 logger.info(f"  压缩比例: {compression_ratio:.1%}")
+                
+                # 验证分辨率
+                processed_info = self.get_video_info(output_path)
+                if processed_info:
+                    logger.info(f"  输出分辨率: {processed_info['width']}x{processed_info['height']}")
+                    logger.info(f"  输出帧率: {processed_info['fps']:.2f}fps")
+                    
                 return True
             else:
                 logger.error(f"输出文件不存在: {output_path}")
@@ -478,7 +513,7 @@ class VideoDownsampler:
                     stats['failed'] += 1
                     stats['failed_files'].append(video_path)
                     continue
-                
+                                
                 # 检查是否已经是目标帧率
                 if abs(video_info['fps'] - self.target_fps) < 0.1:
                     logger.debug(f"视频已经是{self.target_fps}fps，跳过: {video_path}")
@@ -563,7 +598,7 @@ def find_videos_from_excel(excel_path, base_dir):
 
 def main():
     """主函数"""
-    parser = argparse.ArgumentParser(description='视频降采样工具 - 从10fps降到1fps')
+    parser = argparse.ArgumentParser(description='视频降采样工具 - 从10fps降到2fps，保持原始分辨率')
     parser.add_argument('--input', '-i', required=True, 
                        help='输入视频文件或目录路径')
     parser.add_argument('--output', '-o', 
@@ -573,15 +608,15 @@ def main():
     parser.add_argument('--method', '-m', default='auto',
                        choices=['auto', 'opencv', 'ffmpeg'],
                        help='处理方法：auto/opencv/ffmpeg')
-    parser.add_argument('--target-fps', type=float, default=1.0,
-                       help='目标帧率（默认1fps）')
+    parser.add_argument('--target-fps', type=float, default=2.0,
+                       help='目标帧率（默认2fps）')
     parser.add_argument('--original-fps', type=float, default=10.0,
                        help='原始帧率（默认10fps）')
-    
+
     args = parser.parse_args()
     
     print("=" * 60)
-    print("视频降采样工具 - 从10fps降到1fps")
+    print("视频降采样工具 - 从10fps降到2fps，保持原始分辨率")
     print("=" * 60)
     
     # 检查输入路径
@@ -593,7 +628,7 @@ def main():
     # 创建降采样器
     downsampler = VideoDownsampler(
         target_fps=args.target_fps,
-        original_fps=args.original_fps
+        original_fps=args.original_fps,
     )
     
     # 收集视频文件
@@ -609,7 +644,7 @@ def main():
             sys.exit(1)
     elif input_path.is_file():
         # 单个视频文件
-        if input_path.suffix.lower() in ['.mp4', '.avi', '.mov', '.mkv']:
+        if input_path.suffix.lower() in ['.mp4', '.avi', '.mov', '.mkv', '.flv', '.wmv']:
             video_files = [str(input_path)]
         else:
             logger.error(f"不支持的文件格式: {input_path.suffix}")
@@ -743,14 +778,8 @@ def main():
     print("=" * 60)
 
 if __name__ == "__main__":
-    # 使用示例：
-    # 1. 使用OpenCV处理下载目录中的所有视频（覆盖原文件）
-    # python script2.py -i /root/workspace/downloaded_videos --method opencv
-    
-    # 2. 使用FFmpeg处理
-    # python script2.py -i /root/workspace/downloaded_videos --method ffmpeg
-    
-    # 3. 自动选择方法（默认）
-    # python script2.py -i /root/workspace/downloaded_videos
-    
     main()
+
+# python video_downsampler.py -i /path/to/input/video.mp4
+# 处理整个目录:
+# python video_downsampler.py -i /path/to/input/folder

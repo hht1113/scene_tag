@@ -1,0 +1,4 @@
+cache_dir: null
+lang: zh
+last_model: Qwen2.5-VL-7B-Instruct-AWQ
+path_dict: {}

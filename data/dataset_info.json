@@ -5,6 +5,16 @@
   "alpaca_en_demo": {
     "file_name": "alpaca_en_demo.json"
   },
+  "digged_dataset": {
+    "file_name": "digged_dataset.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
   "qwen3_sft_train_dataset": {
     "file_name": "qwen3_sft_train.json",
     "columns": {
@@ -17,6 +27,46 @@
   },
   "qwen3_sft_test_dataset": {
     "file_name": "qwen3_sft_test.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_train_dataset_2fps": {
+    "file_name": "qwen3_sft_train_2fps.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_test_dataset_2fps": {
+    "file_name": "qwen3_sft_test_2fps.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_train_dataset_segment": {
+    "file_name": "qwen3_sft_train_segment.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_test_dataset_segment": {
+    "file_name": "qwen3_sft_test_segment.json",
     "columns": {
       "prompt": "instruction",
       "query": "input",

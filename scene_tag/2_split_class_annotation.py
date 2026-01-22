@@ -605,9 +605,9 @@ def verify_downloaded_videos(video_base_dir: str):
 
 def main():
     """主函数"""
-    EXCEL_PATH = "/root/workspace/人工标注视频数据.xlsx"
-    VIDEO_BASE_DIR = "/root/workspace/downloaded_videos"
-    OUTPUT_BASE_DIR = "/root/workspace/vqa_annotations"
+    EXCEL_PATH = "/root/workspace/人工标注视频数据_对比实验_12tags_.xlsx"
+    VIDEO_BASE_DIR = "/root/workspace/downloaded_videos_2fps"
+    OUTPUT_BASE_DIR = "/root/workspace/vqa_annotations_2fps"
     
     print("=" * 60)
     print("🎯 视频标注生成工具")

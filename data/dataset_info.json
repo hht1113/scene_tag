@@ -75,6 +75,36 @@
       "system": "system"
     }
   },
+    "qwen3_sft_train_dataset_segment_upsample": {
+    "file_name": "qwen3_sft_train_segment_upsample.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_test_dataset_segment_upsample": {
+    "file_name": "qwen3_sft_test_segment_upsample.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "whether_training_dataset": {
+    "file_name": "qwen3_sft_whether.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
   "alpaca_zh_demo": {
     "file_name": "alpaca_zh_demo.json"
   },

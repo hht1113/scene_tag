@@ -593,7 +593,7 @@ class DownloadSliceWorker(threading.Thread):
 
 def main():
     """主函数"""
-    EXCEL_PATH = "/root/workspace/人工标注视频数据_对比实验_12tags_split.xlsx"
+    EXCEL_PATH = "/root/workspace/LLaMA-Factory/data/人工标注视频数据_对比实验_12tags_split.xlsx"
     DOWNLOAD_DIR = "/root/workspace/downloaded_videos_for_segment"
     
     print("=" * 60)
@@ -775,3 +775,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+'''
+1. 修改EXCEL_PATH为excel文件的路径
+2. 修改DOWNLOAD_DIR为想要保存视频的路径
+3. 运行
+'''

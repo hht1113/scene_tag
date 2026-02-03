@@ -62,15 +62,14 @@ LABELING RULES:
    • The scene is ambiguous or uncertain (confidence < 90%)
    • No clearly identifiable maneuver occurs
 4. For "else" segments: Cover ONLY time periods with NO identifiable predefined maneuver
-5. Time segments MUST be contiguous and non-overlapping, covering the entire 20-second video
+5. Time segments MUST be contiguous
 6. Minimum segment duration: 1.0 second. Ignore shorter or transient actions
-7. Base times on video timeline (0.0 to 20.0 seconds)
+7. Base times on video timeline (0 to 20 seconds)
 
 OUTPUT FORMAT:
-<driving_maneuver>action_label</driving_maneuver> from <start_time>XX.X</start_time> to <end_time>YY.Y</end_time> seconds
+<driving_maneuver>action_label</driving_maneuver> from <start_time>XX</start_time> to <end_time>YY</end_time> seconds
 • Use one of the predefined category labels or "else" for each time segment
-• Multiple segments: Separate with " and " in chronological order
-• Time precision: 1 decimal place (e.g., 5.0, 23.5)
+• Time precision: 0 decimal places (e.g., 5, 23)
 • NO additional text or explanations—only output the formatted segments
 
 CATEGORY DEFINITIONS:
@@ -638,3 +637,10 @@ dataset_info:
 
 if __name__ == "__main__":
     main()
+
+'''
+    # 修改为切片数据集路径
+    ANNOTATIONS_FILE = "/root/workspace/sliced_vqa_dataset_prepared/converted_sliced_annotations/simple_sliced_dataset.json"
+    OUTPUT_DIR = "/root/workspace/llama_factory_sliced_vqa_dataset"
+运行即可
+'''

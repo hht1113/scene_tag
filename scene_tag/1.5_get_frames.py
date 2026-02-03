@@ -24,7 +24,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class VideoDownsampler:
-    """视频降采样工具，从10fps降为2fps，并调整分辨率为448x448"""
+    """视频降采样工具，从10fps降为2fps，不调整分辨率"""
     
     def __init__(self, target_fps=2, original_fps=10):
         """
@@ -780,6 +780,7 @@ def main():
 if __name__ == "__main__":
     main()
 
+# 处理单个视频
 # python video_downsampler.py -i /path/to/input/video.mp4
 # 处理整个目录:
-# python video_downsampler.py -i /path/to/input/folder
+# python video_downsampler.py -i /path/to/input/folder target_fps默认是2

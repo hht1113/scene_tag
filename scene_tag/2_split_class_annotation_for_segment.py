@@ -758,3 +758,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# 确认SLICE_INFO_CSV SLICE_VIDEO_DIR参数 OUTPUT_BASE_DIR是希望保存的路径
+# 之后运行即可

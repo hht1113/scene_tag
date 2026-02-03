@@ -531,7 +531,7 @@ def main():
     """主函数"""
     # 输入路径
     ANNOTATIONS_DIR = "/root/workspace/sliced_vqa_annotations/sliced_annotations"
-    MAPPING_FILE = "/root/workspace/中英对照表_12tags.xlsx"
+    MAPPING_FILE = "/root/workspace/LLaMA-Factory/data/中英对照表_12tags.xlsx"
     SLICE_VIDEO_DIR = "/root/workspace/downloaded_videos_2fps/sliced_videos"
     OUTPUT_DIR = "/root/workspace/sliced_vqa_dataset_prepared"
     
@@ -663,3 +663,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+'''
+确认参数：
+    ANNOTATIONS_DIR = "/root/workspace/sliced_vqa_annotations/sliced_annotations"
+    SLICE_VIDEO_DIR = "/root/workspace/downloaded_videos_for_segment/sliced_videos"
+    
+    OUTPUT_DIR = "/root/workspace/sliced_vqa_dataset_prepared"
+    MAPPING_FILE是中英文对照表的路径
+运行即可
+'''

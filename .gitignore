@@ -182,3 +182,4 @@ generated_predictions.jsonl
 predictions_score.json
 saves/
 infer_results/
+dig_result/

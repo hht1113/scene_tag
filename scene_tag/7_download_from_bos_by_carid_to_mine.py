@@ -19,8 +19,8 @@ from baidubce.services.bos.bos_client import BosClient
 from baidubce.exception import BceError
 
 # 从环境变量读取凭证
-BOS_AK = os.environ.get('BOS_AK', 'ALTAKTdWjuZ7BdKtuKV8oWQeSn')
-BOS_SK = os.environ.get('BOS_SK', '68c709fbd2fc43708c12192175150673')
+BOS_AK = os.environ.get('BOS_AK', 'ALTAKZ49HCOHFffGHKawumDZRy')
+BOS_SK = os.environ.get('BOS_SK', '7b7ec8e3832148adaa0a1ccecdf65cf4')
 BOS_HOST = os.environ.get('BOS_HOST', 'bj.bcebos.com')
 BUCKET_NAME = "neolix-raw"  # 固定bucket名称
 MAX_THREADS = 8  # 并行下载线程数
@@ -429,5 +429,5 @@ python download_videos.py --car-id X6S5868 --max-videos 50
 python download_videos.py --car-id X6S5868 --max-videos 20 --start-date 2025-12-23_14-00-00 --end-date 2025-12-23_16-00-00
 
 # 指定本地保存路径
-python download_videos.py --car-id X6S5868 --max-videos 10 --local-path /root/workspace/my_videos
+python /root/workspace/LLaMA-Factory/scene_tag/7_download_from_bos_by_carid_to_mine.py --car-id X6S5868 --max-videos 10000 --local-path /mnt/pfs/houhaotian/my_videos
 '''

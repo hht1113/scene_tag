@@ -1,306 +1,181 @@
 #!/usr/bin/env python3
 """
-构造用于挖掘的JSON数据集文件
-视频路径为已下载的视频本地路径
-便于后续加载微调模型进行推理
+构造用于视频挖掘的JSON数据集文件
+使用切片抽帧后的视频路径
 """
 
-import os
 import json
 import logging
 import glob
 from pathlib import Path
-from typing import List, Dict, Any
 import argparse
 
 # 设置日志
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-def find_video_files(video_root: str) -> List[str]:
-    """
-    在指定目录下查找所有video.mp4文件
-    
-    Args:
-        video_root: 视频根目录
-        
-    Returns:
-        视频文件路径列表
-    """
-    # 使用glob递归查找所有video.mp4文件
-    pattern = os.path.join(video_root, "**", "video.mp4")
+# 类别定义
+DRIVING_MANEUVER_CATEGORIES = {
+    "TrafficLight_StraightStopOrGo": "Ego vehicle stops or starts at a traffic light for straight-line movement",
+    "TrafficLight_LeftTurnStopOrGo": "Ego vehicle stops or starts at a traffic light for left-turn movement",
+    "LaneChange_NavForIntersection": "Lane change for navigation purposes approaching an intersection",
+    "LaneChange_AvoidSlowVRU": "Lane change to avoid slow-moving vulnerable road users (pedestrians, cyclists)",
+    "LaneChange_AvoidStaticVehicle": "Lane change to avoid stationary vehicles",
+    "DynamicInteraction_VRUInLaneCrossing": "Interaction with vulnerable road users crossing the ego's lane",
+    "DynamicInteraction_VehicleInLaneCrossing": "Interaction with other vehicles crossing the ego's lane",
+    "DynamicInteraction_StandardVehicleCutIn": "Another vehicle cuts in front of the ego vehicle",
+    "StartStop_StartFromMainRoad": "Starting from a stopped position on a main road",
+    "StartStop_ParkRoadside": "Parking or stopping at roadside",
+    "Intersection_StandardUTurn": "Making a U-turn at an intersection",
+    "LaneCruising_Straight": "Straight-line cruising without notable events"
+}
+
+# 获取类别列表
+CATEGORY_LABELS = list(DRIVING_MANEUVER_CATEGORIES.keys())
+CATEGORY_LIST_STR = "\n".join(CATEGORY_LABELS)
+
+# 生成类别定义的文本
+CATEGORY_DEFINITIONS = "\n".join(
+    [f"{i+1}. {label}: {definition}" 
+     for i, (label, definition) in enumerate(DRIVING_MANEUVER_CATEGORIES.items())]
+)
+
+# 主系统提示
+SYSTEM_PROMPT = f"""You are an expert in autonomous driving scene annotation.
+Based on the input video and the question about the ego vehicle's behavior, analyze the 20-second video to identify the ego vehicle's actions with strict precision, focusing on predefined driving maneuver categories.
+
+DRIVING MANEUVER CATEGORIES:
+You MUST use ONLY these predefined labels for the ego vehicle's actions:
+
+{CATEGORY_LIST_STR}
+else (ONLY when NO label above matches, meaning the ego vehicle's action does not fit any of the predefined categories)
+
+LABELING RULES:
+1. Assign a label ONLY if the action clearly matches the definition of one of the predefined categories
+2. NEVER force-match ambiguous scenes to predefined labels
+3. Use "else" when:
+   • The ego vehicle's action does not match any predefined category
+   • The scene is ambiguous or uncertain (confidence < 90%)
+   • No clearly identifiable maneuver occurs
+4. For "else" segments: Cover ONLY time periods with NO identifiable predefined maneuver
+5. Time segments MUST be contiguous
+6. Minimum segment duration: 1.0 second. Ignore shorter or transient actions
+7. Base times on video timeline (0 to 20 seconds)
+
+OUTPUT FORMAT:
+<driving_maneuver>action_label</driving_maneuver> from <start_time>XX</start_time> to <end_time>YY</end_time> seconds
+• Use one of the predefined category labels or "else" for each time segment
+• Time precision: 0 decimal places (e.g., 5, 23)
+• NO additional text or explanations—only output the formatted segments
+
+CATEGORY DEFINITIONS:
+{CATEGORY_DEFINITIONS}
+13. else: Default for all other behaviors not covered by the predefined categories
+
+IMPORTANT GUIDELINES:
+1. Analyze the entire 20-second video thoroughly
+2. Match actions to the most specific appropriate category
+3. If multiple categories could apply, choose the one that best describes the primary action
+4. Ensure time segments accurately reflect when each maneuver occurs
+5. Maintain chronological order in output
+"""
+
+def find_segmented_videos(video_root: str) -> list:
+    """查找所有切片后的视频文件"""
+    pattern = str(Path(video_root) / "**" / "*_segment_*.mp4")
     video_files = glob.glob(pattern, recursive=True)
-    
-    # 过滤出有效的文件路径
-    valid_videos = []
-    for video_path in video_files:
-        if os.path.isfile(video_path):
-            valid_videos.append(video_path)
-    
-    logger.info(f"在 {video_root} 下找到 {len(valid_videos)} 个视频文件")
-    return sorted(valid_videos)
+    video_files.sort()
+    logger.info(f"找到 {len(video_files)} 个切片视频文件")
+    return video_files
 
-def extract_video_metadata(video_path: str) -> Dict[str, str]:
-    """
-    从视频路径中提取元数据信息
+def extract_video_info(video_path: str) -> dict:
+    """从视频路径中提取信息"""
+    path = Path(video_path)
     
-    Args:
-        video_path: 视频文件路径
-        
-    Returns:
-        包含元数据的字典
-    """
-    metadata = {}
-    
-    # 尝试从路径中解析车号、日期、clip等信息
-    parts = Path(video_path).parts
-    
-    for i, part in enumerate(parts):
-        if part == "raw_clips" and i + 1 < len(parts):
-            # 车号
-            metadata["car_id"] = parts[i + 1]
-        elif "clips" in part and i + 1 < len(parts):
-            # clip ID
-            metadata["clip_id"] = parts[i + 1]
-        elif len(part) == 19 and part[4] == '-' and part[7] == '-':  # 类似 2025-12-23_16-09-31
-            metadata["date_time"] = part
-    
-    return metadata
-
-def create_dataset_entry(video_path: str) -> Dict[str, Any]:
-    """
-    为单个视频创建数据集条目
-    
-    Args:
-        video_path: 视频文件路径
-        
-    Returns:
-        数据集条目字典
-    """
     # 提取元数据
-    metadata = extract_video_metadata(video_path)
-    
-    # 基础指令
-    instruction = "<video>\nWhat is the ego vehicle's behavior in this video clip?"
-    
-    # 系统提示 - 与微调数据集保持一致
-    system = """You are an expert in autonomous driving scene annotation. 
-Based on a 60-second video, you need to identify the ego vehicle's actions.
-
-You MUST choose labels ONLY from this specific list:
-1. TrafficLight_StraightStopOrGo
-2. TrafficLight_LeftTurnStopOrGo
-3. LaneChange_NavForIntersection
-
-Please use the format: <driving_maneuver>action_label</driving_maneuver> from <start_time>start_time_value</start_time> to <end_time>end_time_value</end_time> seconds.
-If there are multiple actions, list them in chronological order separated by " and ".
-IMPORTANT: Only use the exact labels from the list above. Do NOT create new labels."""
-    
-    # 构建数据集条目
-    entry = {
-        "instruction": instruction,
-        "input": "",
-        "output": "",  # 留空，用于模型推理
-        "videos": [video_path],  # 使用本地路径
-        "system": system
+    info = {
+        "video_path": video_path,
+        "filename": path.name,
+        "segment_id": path.stem.split("_segment_")[-1] if "_segment_" in path.stem else "unknown"
     }
     
-    # 添加元数据作为额外信息
-    if metadata:
-        entry["metadata"] = metadata
+    # 提取车号
+    parts = path.parts
+    try:
+        raw_clips_idx = parts.index("raw_clips")
+        if raw_clips_idx + 1 < len(parts):
+            info["car_id"] = parts[raw_clips_idx + 1]
+    except ValueError:
+        pass
+    
+    return info
+
+def create_dataset_entry(video_path: str) -> dict:
+    """为单个视频创建数据集条目"""
+    video_info = extract_video_info(video_path)
+    
+    entry = {
+        "instruction": "<video>\nWhat is the ego vehicle's behavior in this 20-second video clip?",
+        "input": "",
+        "output": "",
+        "videos": [video_path],
+        "system": SYSTEM_PROMPT,
+        "metadata": video_info
+    }
     
     return entry
 
-def create_dataset(video_files: List[str], output_path: str) -> None:
-    """
-    创建完整的数据集文件
-    
-    Args:
-        video_files: 视频文件路径列表
-        output_path: 输出JSON文件路径
-    """
+def create_dataset(video_files: list, output_path: str) -> None:
+    """创建数据集文件"""
     dataset = []
     
-    logger.info(f"开始构建数据集，共 {len(video_files)} 个视频")
-    
-    for i, video_path in enumerate(video_files, 1):
+    for i, video_path in enumerate(video_files):
         try:
-            # 验证视频文件存在
-            if not os.path.exists(video_path):
+            if not Path(video_path).exists():
                 logger.warning(f"视频文件不存在: {video_path}")
                 continue
             
-            # 验证文件大小
-            file_size = os.path.getsize(video_path)
-            if file_size < 1024:  # 小于1KB认为是无效文件
-                logger.warning(f"视频文件过小 ({file_size} bytes): {video_path}")
-                continue
-            
-            # 创建数据集条目
             entry = create_dataset_entry(video_path)
             dataset.append(entry)
             
-            if i % 10 == 0 or i == len(video_files):
-                logger.info(f"已处理 {i}/{len(video_files)} 个视频")
+            if (i + 1) % 100 == 0:
+                logger.info(f"已处理 {i + 1}/{len(video_files)} 个视频")
                 
         except Exception as e:
             logger.error(f"处理视频失败 {video_path}: {str(e)}")
             continue
     
     # 保存数据集
-    try:
-        # 确保输出目录存在
-        os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
-        
-        # 保存为JSON文件
-        with open(output_path, 'w', encoding='utf-8') as f:
-            json.dump(dataset, f, ensure_ascii=False, indent=2)
-        
-        logger.info(f"✅ 数据集创建成功!")
-        logger.info(f"  文件路径: {output_path}")
-        logger.info(f"  总条目数: {len(dataset)}")
-        logger.info(f"  视频总数: {sum(len(entry['videos']) for entry in dataset)}")
-        
-    except Exception as e:
-        logger.error(f"保存数据集失败: {str(e)}")
-        raise
-
-def create_dataset_jsonl(video_files: List[str], output_path: str) -> None:
-    """
-    创建JSONL格式的数据集文件（每行一个JSON对象）
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     
-    Args:
-        video_files: 视频文件路径列表
-        output_path: 输出JSONL文件路径
-    """
-    logger.info(f"开始构建JSONL数据集，共 {len(video_files)} 个视频")
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(dataset, f, ensure_ascii=False, indent=2)
     
-    try:
-        # 确保输出目录存在
-        os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
-        
-        with open(output_path, 'w', encoding='utf-8') as f:
-            valid_count = 0
-            for i, video_path in enumerate(video_files, 1):
-                try:
-                    # 验证视频文件存在
-                    if not os.path.exists(video_path):
-                        logger.warning(f"视频文件不存在: {video_path}")
-                        continue
-                    
-                    # 验证文件大小
-                    file_size = os.path.getsize(video_path)
-                    if file_size < 1024:  # 小于1KB认为是无效文件
-                        logger.warning(f"视频文件过小 ({file_size} bytes): {video_path}")
-                        continue
-                    
-                    # 创建数据集条目
-                    entry = create_dataset_entry(video_path)
-                    
-                    # 写入JSONL行
-                    json_line = json.dumps(entry, ensure_ascii=False)
-                    f.write(json_line + '\n')
-                    valid_count += 1
-                    
-                    if i % 10 == 0 or i == len(video_files):
-                        logger.info(f"已处理 {i}/{len(video_files)} 个视频")
-                        
-                except Exception as e:
-                    logger.error(f"处理视频失败 {video_path}: {str(e)}")
-                    continue
-        
-        logger.info(f"✅ JSONL数据集创建成功!")
-        logger.info(f"  文件路径: {output_path}")
-        logger.info(f"  总条目数: {valid_count}")
-        
-    except Exception as e:
-        logger.error(f"保存数据集失败: {str(e)}")
-        raise
+    logger.info(f"✅ 数据集创建成功! 文件: {output_path}, 条目数: {len(dataset)}")
 
 def main():
-    """主函数"""
-    parser = argparse.ArgumentParser(description='创建用于视频推理的JSON数据集')
-    parser.add_argument('--video-dir', type=str, required=True,
-                       default='/root/workspace/digged_videos',
-                       help='视频文件目录，默认: /root/workspace/digged_videos')
-    parser.add_argument('--output', type=str, required=True,
-                       default='/root/workspace/inference_dataset.json',
-                       help='输出JSON文件路径，默认: /root/workspace/inference_dataset.json')
-    parser.add_argument('--format', type=str, choices=['json', 'jsonl'], default='json',
-                       help='输出格式: json或jsonl，默认: json')
-    parser.add_argument('--max-videos', type=int, default=None,
-                       help='最大视频数量（用于测试），默认: 无限制')
+    parser = argparse.ArgumentParser(description='创建用于视频挖掘的JSON数据集')
+    parser.add_argument('--video-dir', type=str, required=False,
+                       default='/mnt/pfs/houhaotian/junction_videos_segment',
+                       help='视频切片目录')
+    parser.add_argument('--output', type=str, required=False,
+                       default='/mnt/pfs/houhaotian/junction_segemnt_inference_dataset.json',
+                       help='输出JSON文件路径')
     
     args = parser.parse_args()
     
-    logger.info("=" * 60)
-    logger.info("开始创建推理数据集")
-    logger.info(f"视频目录: {args.video_dir}")
-    logger.info(f"输出文件: {args.output}")
-    logger.info(f"输出格式: {args.format}")
-    if args.max_videos:
-        logger.info(f"最大视频数: {args.max_videos}")
-    logger.info("=" * 60)
+    logger.info(f"开始创建推理数据集，视频目录: {args.video_dir}")
     
-    # 检查视频目录是否存在
-    if not os.path.exists(args.video_dir):
-        logger.error(f"视频目录不存在: {args.video_dir}")
-        return
-    
-    # 查找所有视频文件
-    video_files = find_video_files(args.video_dir)
+    # 查找所有切片视频
+    video_files = find_segmented_videos(args.video_dir)
     
     if not video_files:
-        logger.error("未找到任何视频文件")
+        logger.error("未找到任何切片视频文件")
         return
     
-    # 限制视频数量（用于测试）
-    if args.max_videos and args.max_videos < len(video_files):
-        logger.info(f"限制为前 {args.max_videos} 个视频")
-        video_files = video_files[:args.max_videos]
-    
     # 创建数据集
-    if args.format == 'json':
-        create_dataset(video_files, args.output)
-    else:  # jsonl
-        create_dataset_jsonl(video_files, args.output)
-    
-    # 显示数据集样本示例
-    logger.info("\n" + "=" * 60)
-    logger.info("数据集样本示例:")
-    
-    # 读取并显示第一个样本
-    try:
-        if args.format == 'json':
-            with open(args.output, 'r', encoding='utf-8') as f:
-                dataset = json.load(f)
-            if dataset:
-                sample = dataset[0]
-                logger.info(json.dumps(sample, ensure_ascii=False, indent=2)[:500] + "...")
-        else:  # jsonl
-            with open(args.output, 'r', encoding='utf-8') as f:
-                first_line = f.readline()
-            if first_line:
-                sample = json.loads(first_line)
-                logger.info(json.dumps(sample, ensure_ascii=False, indent=2)[:500] + "...")
-    except Exception as e:
-        logger.warning(f"无法读取输出文件以显示示例: {str(e)}")
-    
-    logger.info("=" * 60)
+    create_dataset(video_files, args.output)
 
 if __name__ == "__main__":
     main()
-
-'''
-# 基本用法：为已下载的视频创建数据集
-python create_inference_dataset.py --video-dir /root/workspace/digged_videos --output /root/workspace/inference_dataset.json
-
-# 创建JSONL格式的数据集
-python create_inference_dataset.py --video-dir /root/workspace/digged_videos --output /root/workspace/inference_dataset.jsonl --format jsonl
-
-# 限制处理视频数量（用于测试）
-python create_inference_dataset.py --video-dir /root/workspace/digged_videos --output /root/workspace/test_dataset.json --max-videos 5
-'''

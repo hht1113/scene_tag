@@ -1,0 +1,15 @@
+{
+  "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0195/2025-12-21_22-47-59/clips/20251221224849_00005/sensor/camera/front_left_1/image/video/slices/slice_15_35.mp4",
+  "segments": [
+    {
+      "label": "LaneCruising_Straight",
+      "start": 0,
+      "end": 20,
+      "confidence": 90
+    }
+  ],
+  "segments_dropped": [],
+  "raw_output": "<driving_maneuver>LaneCruising_Straight</driving_maneuver> from <start_time>0</start_time> to <end_time>20</end_time> seconds (confidence: 90%)",
+  "frame_count": 40,
+  "min_confidence": 50
+}

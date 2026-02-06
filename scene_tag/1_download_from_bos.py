@@ -345,7 +345,7 @@ def test_bos_connection():
 
 def main():
     """主函数"""
-    EXCEL_PATH = "/root/workspace/人工标注视频数据_对比实验_12tags_.xlsx"
+    EXCEL_PATH = "/root/workspace/LLaMA-Factory/data/人工标注视频数据_对比实验_12tags_.xlsx"
     # DOWNLOAD_DIR = "/root/workspace/downloaded_videos_for_inference"
     DOWNLOAD_DIR = "/root/workspace/downloaded_videos_2fps"
     print("=" * 60)

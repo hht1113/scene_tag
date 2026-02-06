@@ -452,6 +452,7 @@ class Qwen3VLVideoAnnotator:
             enable_chunked_prefill=False,  # 视频任务建议关闭
             max_num_seqs=1,  # 单视频推理，避免OOM
             limit_mm_per_prompt={"video": 1},
+            allowed_local_media_path="/",  # 允许加载本地视频文件
             **kwargs,
         )
 

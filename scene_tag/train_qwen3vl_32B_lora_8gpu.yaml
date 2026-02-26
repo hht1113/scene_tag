@@ -1,0 +1,66 @@
+### model
+model_name_or_path: /mnt/pfs/qwen3/Qwen3-VL-32B-Instruct
+trust_remote_code: true
+flash_attn: auto
+image_max_pixels: 589824
+image_min_pixels: 1024
+video_max_pixels: 65536
+video_min_pixels: 256
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 8
+lora_target: all
+deepspeed: examples/deepspeed/ds_z3_config.json
+
+### freeze (全参微调仅冻结 vision tower，语言模型和投影层都训练)
+freeze_vision_tower: true
+freeze_multi_modal_projector: false
+freeze_language_model: false
+
+### dataset
+dataset: qwen3_sft_train_dataset_segment_upsample
+dataset_dir: data
+template: qwen3_vl_nothink
+enable_thinking: false
+cutoff_len: 14000
+max_samples: 100000
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: /mnt/pfs/houhaotian/saves/Qwen3-VL-32B-Instruct/lora/sft_segment_upsample_8gpu
+logging_steps: 5
+save_steps: 100
+save_total_limit: 2
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: none
+
+### train
+# 8卡 A100-80GB + DeepSpeed ZeRO-3 + 30B全参微调
+# 有效batch_size = per_device_train_batch_size × gradient_accumulation_steps × 8卡 = 4 × 4 × 8 = 128
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 4
+learning_rate: 1.0e-5
+num_train_epochs: 2.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+max_grad_norm: 1.0
+optim: adamw_torch
+bf16: true
+ddp_timeout: 180000000
+include_num_input_tokens_seen: true
+
+### eval (取消注释可开启验证)
+# val_size: 0.1
+# per_device_eval_batch_size: 1
+# eval_strategy: steps
+# eval_steps: 200
+
+### resume (取消注释并填路径可断点续训)
+# resume_from_checkpoint: /mnt/pfs/houhaotian/saves/Qwen3-VL-30B-A3B-Instruct/full/sft_segment_upsample_8gpu/checkpoint-XXX

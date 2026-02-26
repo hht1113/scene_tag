@@ -19,20 +19,23 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# 类别定义 - 可独立扩展的部分
+# 类别定义 - 15类 + else（与 12_distillation.py 对齐）
 DRIVING_MANEUVER_CATEGORIES = {
-    "TrafficLight_StraightStopOrGo": "Ego vehicle stops or starts at a traffic light for straight-line movement",
-    "TrafficLight_LeftTurnStopOrGo": "Ego vehicle stops or starts at a traffic light for left-turn movement",
-    "LaneChange_NavForIntersection": "Lane change for navigation purposes approaching an intersection",
-    "LaneChange_AvoidSlowVRU": "Lane change to avoid slow-moving vulnerable road users (pedestrians, cyclists)",
-    "LaneChange_AvoidStaticVehicle": "Lane change to avoid stationary vehicles",
-    "DynamicInteraction_VRUInLaneCrossing": "Interaction with vulnerable road users crossing the ego's lane",
-    "DynamicInteraction_VehicleInLaneCrossing": "Interaction with other vehicles crossing the ego's lane",
-    "DynamicInteraction_StandardVehicleCutIn": "Another vehicle cuts in front of the ego vehicle",
-    "StartStop_StartFromMainRoad": "Starting from a stopped position on a main road",
-    "StartStop_ParkRoadside": "Parking or stopping at roadside",
-    "Intersection_StandardUTurn": "Making a U-turn at an intersection",
-    "LaneCruising_Straight": "Straight-line cruising without notable events"
+    "TrafficLight_StraightStopOrGo": "Ego vehicle stops at or starts from a traffic light for straight-line movement.",
+    "TrafficLight_LeftTurnStopOrGo": "Ego vehicle stops at or starts from a traffic light for left-turn movement.",
+    "LaneChange_NavForIntersection": "Ego vehicle changes lane for navigation purposes when approaching an intersection.",
+    "LaneChange_AvoidSlowVRU": "Ego vehicle changes lane to avoid slow-moving vulnerable road users (pedestrians, cyclists, scooter/e-bike riders).",
+    "LaneChange_AvoidStaticVehicle": "Ego vehicle changes lane to avoid a stationary or parked vehicle blocking the current lane.",
+    "DynamicInteraction_VRUInLaneCrossing": "Ego vehicle interacts with a vulnerable road user (pedestrian, cyclist) crossing the ego's lane path.",
+    "DynamicInteraction_VehicleInLaneCrossing": "Ego vehicle interacts with another vehicle crossing the ego's lane path.",
+    "DynamicInteraction_StandardVehicleCutIn": "Another vehicle from an adjacent lane merges/cuts in front of the ego vehicle.",
+    "DynamicInteraction_LeadVehicleEmergencyBrake": "Lead vehicle ahead suddenly brakes hard, forcing ego to react with immediate hard braking.",
+    "StartStop_StartFromMainRoad": "Ego vehicle starts moving from a stopped position on a main road (not caused by a traffic light).",
+    "StartStop_ParkRoadside": "Ego vehicle intentionally decelerates and stops/parks at the roadside.",
+    "Intersection_LeftTurn": "Ego vehicle executes a left turn at an intersection.",
+    "Intersection_RightTurn": "Ego vehicle executes a right turn at an intersection.",
+    "Intersection_StandardUTurn": "Ego vehicle makes a U-turn (~180 degrees) at an intersection.",
+    "LaneCruising_Straight": "Ego vehicle cruises straight in its lane at steady speed without notable events.",
 }
 
 # 获取类别列表
@@ -45,44 +48,24 @@ CATEGORY_DEFINITIONS = "\n".join(
      for i, (label, definition) in enumerate(DRIVING_MANEUVER_CATEGORIES.items())]
 )
 
-# 主系统提示 - 修改为20秒切片视频
-SYSTEM_PROMPT = f"""You are an expert in autonomous driving scene annotation.
-Based on the input video and the question about the ego vehicle's behavior, analyze the 20-second video to identify the ego vehicle's actions with strict precision, focusing on predefined driving maneuver categories.
+# 主系统提示 - 与 12_distillation.py 对齐，支持标签重叠
+SYSTEM_PROMPT = f"""You are an expert autonomous driving scene annotator. Analyze a 20-second ego-vehicle driving video and identify ALL driving maneuvers with precise timing.
 
-DRIVING MANEUVER CATEGORIES:
-You MUST use ONLY these predefined labels for the ego vehicle's actions:
-
-{CATEGORY_LIST_STR}
-else (ONLY when NO label above matches, meaning the ego vehicle's action does not fit any of the predefined categories)
+CATEGORY DEFINITIONS (15 categories + else):
+{CATEGORY_DEFINITIONS}
+16. else: Any driving behavior not matching the above 15 categories. Use sparingly.
 
 LABELING RULES:
-1. Assign a label ONLY if the action clearly matches the definition of one of the predefined categories
-2. NEVER force-match ambiguous scenes to predefined labels
-3. Use "else" when:
-   • The ego vehicle's action does not match any predefined category
-   • The scene is ambiguous or uncertain (confidence < 90%)
-   • No clearly identifiable maneuver occurs
-4. For "else" segments: Cover ONLY time periods with NO identifiable predefined maneuver
-5. Time segments MUST be contiguous
-6. Minimum segment duration: 1.0 second. Ignore shorter or transient actions
-7. Base times on video timeline (0 to 20 seconds)
+1. Assign a label ONLY if the action CLEARLY matches the category definition.
+2. Minimum segment duration: 1 second.
+3. Start and end times MUST be whole integers within [0, 20] seconds.
+4. Segments must be in chronological order and should cover the entire 20 seconds.
+5. Adjacent segments with the same label should be merged into one.
+6. If multiple DIFFERENT maneuvers happen simultaneously, list them as separate overlapping segments (overlapping times are OK for different labels).
+7. Use "else" ONLY when no predefined label matches.
 
-OUTPUT FORMAT:
-<driving_maneuver>action_label</driving_maneuver> from <start_time>XX</start_time> to <end_time>YY</end_time> seconds
-• Use one of the predefined category labels or "else" for each time segment
-• Time precision: 0 decimal places (e.g., 5, 23)
-• NO additional text or explanations—only output the formatted segments
-
-CATEGORY DEFINITIONS:
-{CATEGORY_DEFINITIONS}
-13. else: Default for all other behaviors not covered by the predefined categories
-
-IMPORTANT GUIDELINES:
-1. Analyze the entire 20-second video thoroughly
-2. Match actions to the most specific appropriate category
-3. If multiple categories could apply, choose the one that best describes the primary action
-4. Ensure time segments accurately reflect when each maneuver occurs
-5. Maintain chronological order in output
+OUTPUT FORMAT (one line per segment, no other text):
+<driving_maneuver>LABEL</driving_maneuver> from <start_time>START</start_time> to <end_time>END</end_time> seconds
 """
 
 

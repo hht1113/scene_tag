@@ -1,0 +1,473 @@
+{
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0052/2025-11-17_15-24-30/clips/20251117152500_00005/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "correct",
+      "1": "correct"
+    },
+    "comment": "",
+    "modifications": {
+      "0": {
+        "label": "LaneCruising_Straight",
+        "start": 0,
+        "end": 8
+      },
+      "1": {
+        "label": "LaneChange_AvoidStaticVehicle",
+        "start": 10,
+        "end": 20
+      }
+    },
+    "added_segments": [],
+    "deleted_segments": [
+      2
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0052/2025-11-19_15-25-21/clips/20251119152550_00062/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0052/2025-11-27_15-53-18/clips/20251127155355_00033/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0052/2025-11-27_15-53-18/clips/20251127155355_00033/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0052/2025-11-27_15-53-18/clips/20251127155355_00033/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0052/2025-12-09_23-29-05/clips/20251209232940_00003/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "0": "correct",
+      "1": "correct"
+    },
+    "comment": "",
+    "modifications": {
+      "0": {
+        "label": "TrafficLight_LeftTurnStopOrGo",
+        "start": 0,
+        "end": 20
+      }
+    },
+    "added_segments": [],
+    "deleted_segments": [
+      2
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0195/2025-11-12_16-00-03/clips/20251112160031_00012/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "correct",
+      "1": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      2
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0195/2025-11-15_14-26-13/clips/20251115142647_00054/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0,
+      1
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0196/2025-11-12_16-01-30/clips/20251112160157_00028/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0197/2025-11-23_15-33-47/clips/20251123153419_00050/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0,
+      1,
+      2
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0199/2025-11-26_13-35-24/clips/20251126133601_00034/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "correct",
+      "1": "correct"
+    },
+    "comment": "",
+    "modifications": {
+      "0": {
+        "label": "TrafficLight_LeftTurnStopOrGo",
+        "start": 0,
+        "end": 20
+      },
+      "1": {
+        "label": "LaneCruising_Straight",
+        "start": 0,
+        "end": 7
+      }
+    },
+    "added_segments": [],
+    "deleted_segments": [
+      3,
+      2
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0199/2025-11-28_10-15-21/clips/20251128101554_00011/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0,
+      1
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0199/2025-11-28_10-15-21/clips/20251128101554_00038/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0199/2025-11-28_10-15-21/clips/20251128101554_00038/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0,
+      1
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0200/2025-10-30_11-09-57/clips/20251030111027_00013/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "a0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [
+      {
+        "label": "DynamicInteraction_VRUInLaneCrossing",
+        "start": 0,
+        "end": 20
+      }
+    ],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0200/2025-11-18_16-01-05/clips/20251118160132_00005/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0200/2025-11-18_16-01-05/clips/20251118160132_00005/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0200/2025-11-21_14-25-26/clips/20251121142602_00012/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {
+      "0": {
+        "label": "TrafficLight_LeftTurnStopOrGo",
+        "start": 10,
+        "end": 20
+      }
+    },
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0200/2025-11-21_14-25-26/clips/20251121142602_00064/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-11-17_16-14-15/clips/20251117161443_00002/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "correct",
+      "1": "correct"
+    },
+    "comment": "",
+    "modifications": {
+      "0": {
+        "label": "DynamicInteraction_LeadVehicleEmergencyBrake",
+        "start": 0,
+        "end": 5
+      },
+      "1": {
+        "label": "DynamicInteraction_VRUInLaneCrossing",
+        "start": 7,
+        "end": 15
+      }
+    },
+    "added_segments": [],
+    "deleted_segments": [
+      2
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-11-26_10-01-16/clips/20251126100155_00007/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-11-26_10-01-16/clips/20251126100155_00028/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-11-26_10-01-16/clips/20251126100155_00028/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-11-28_10-54-26/clips/20251128105459_00021/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-11-28_10-54-26/clips/20251128105459_00022/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-11-28_10-54-26/clips/20251128105459_00029/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-11-28_10-54-26/clips/20251128105459_00042/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "correct",
+      "2": "correct"
+    },
+    "comment": "",
+    "modifications": {
+      "0": {
+        "label": "TrafficLight_LeftTurnStopOrGo",
+        "start": 0,
+        "end": 10
+      },
+      "2": {
+        "label": "DynamicInteraction_VehicleInLaneCrossing",
+        "start": 0,
+        "end": 5
+      }
+    },
+    "added_segments": [],
+    "deleted_segments": [
+      1,
+      3
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_11-04-20/clips/20251201110456_00025/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_11-04-20/clips/20251201110456_00025/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_11-04-20/clips/20251201110456_00026/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_11-04-20/clips/20251201110456_00026/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_11-04-20/clips/20251201110456_00026/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_11-04-20/clips/20251201110456_00027/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_11-04-20/clips/20251201110456_00027/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_11-04-20/clips/20251201110456_00028/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_11-04-20/clips/20251201110456_00029/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_11-04-20/clips/20251201110456_00029/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_11-04-20/clips/20251201110456_00030/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_11-04-20/clips/20251201110456_00031/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {
+      "0": {
+        "label": "AbnormalStop_StuckWaiting",
+        "start": 0,
+        "end": 20
+      }
+    },
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0202/2025-11-26_14-15-12/clips/20251126141543_00034/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0202/2025-11-28_14-17-52/clips/20251128141827_00003/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": [
+      0
+    ]
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0202/2025-11-28_14-17-52/clips/20251128141827_00003/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {},
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  }
+}

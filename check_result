@@ -1,0 +1,10 @@
+{
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0052/2025-11-17_14-13-19/clips/20251117141352_00001/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "wrong",
+      "1": "correct"
+    },
+    "comment": "",
+    "modifications": {}
+  }
+}

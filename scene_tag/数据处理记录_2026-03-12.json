@@ -1,0 +1,131 @@
+{
+  "处理时间": "2026-03-12",
+  "数据集变更": {
+    "qwen3_sft_train_segment_upsample.json": {
+      "清理前样本数": 3624,
+      "清理后样本数": 3602,
+      "移除样本数": 22,
+      "原唯一视频数": 1279,
+      "清理后唯一视频数": 1268,
+      "影响比例": "0.6%"
+    },
+    "qwen3_sft_test_segment_upsample.json": {
+      "清理前样本数": 422,
+      "清理后样本数": 420,
+      "移除样本数": 2,
+      "原唯一视频数": 422,
+      "清理后唯一视频数": 420,
+      "影响比例": "0.5%"
+    }
+  },
+  "缺失视频": {
+    "总数": 13,
+    "原因": "BOS源文件不可访问(签名认证失败),文件可能已被删除或移动",
+    "列表": [
+      {
+        "车号": "X6S5612",
+        "clip_id": "20251223221153_00026",
+        "切片": "slice_29_49.mp4",
+        "数据集": "train"
+      },
+      {
+        "车号": "X6S5612",
+        "clip_id": "20251224153853_00009",
+        "切片": "slice_26_46.mp4",
+        "数据集": "train"
+      },
+      {
+        "车号": "X6S5612",
+        "clip_id": "20251224153853_00018",
+        "切片": "slice_0_20.mp4",
+        "数据集": "train"
+      },
+      {
+        "车号": "X6S5615",
+        "clip_id": "20251223111324_00021",
+        "切片": "slice_8_28.mp4",
+        "标签": "DynamicInteraction_VehicleInLaneCrossing",
+        "数据集": "test"
+      },
+      {
+        "车号": "X6S5616",
+        "clip_id": "20251224135917_00032",
+        "切片": "slice_32_52.mp4",
+        "数据集": "train"
+      },
+      {
+        "车号": "X6S5632",
+        "clip_id": "20251223215837_00017",
+        "切片": "slice_32_52.mp4",
+        "数据集": "train"
+      },
+      {
+        "车号": "X6S5633",
+        "clip_id": "20251225000855_00012",
+        "切片": "slice_9_29.mp4",
+        "数据集": "train"
+      },
+      {
+        "车号": "X6S5635",
+        "clip_id": "20251223213441_00012",
+        "切片": "slice_38_58.mp4",
+        "数据集": "train"
+      },
+      {
+        "车号": "X6S5635",
+        "clip_id": "20251223213441_00025",
+        "切片": "slice_15_35.mp4",
+        "标签": "DynamicInteraction_VRUInLaneCrossing",
+        "数据集": "test"
+      },
+      {
+        "车号": "X6S5635",
+        "clip_id": "20251223221200_00006",
+        "切片": "slice_25_45.mp4",
+        "数据集": "train"
+      },
+      {
+        "车号": "X6S5635",
+        "clip_id": "20251225031025_00012",
+        "切片": "slice_29_49.mp4",
+        "数据集": "train"
+      },
+      {
+        "车号": "X6S5636",
+        "clip_id": "20251224205544_00039",
+        "切片": "slice_40_60.mp4",
+        "数据集": "train"
+      },
+      {
+        "车号": "X6S5636",
+        "clip_id": "20251224205544_00043",
+        "切片": "slice_4_24.mp4",
+        "数据集": "train"
+      }
+    ]
+  },
+  "磁盘操作": {
+    "saves迁移": {
+      "来源": "/root/workspace/LLaMA-Factory/saves/",
+      "目标": "/mnt/pfs/houhaotian/saves/",
+      "迁移内容": [
+        "Qwen3-VL-4B-Instruct/full/sft_segment_upsample_8gpu/checkpoint-58",
+        "Qwen3-VL-4B-Instruct/lora/train_2026-01-16-23-21-37_2fps/checkpoint-195",
+        "Qwen3-VL-4B-Instruct/lora/train_2026-01-22-15-41-23_segment/checkpoint-243",
+        "Qwen3-VL-4B-Instruct/lora/train_2026-01-23-17-10-18_upstream/checkpoint-675",
+        "Qwen3-VL-4B-Instruct/lora/train_2026-01-27-19-13-56_upstream_whether/checkpoint-450",
+        "Qwen3-VL-8B-Instruct/lora/train_2026-01-28-19-58-06/checkpoint-484"
+      ],
+      "释放空间": "64GB"
+    },
+    "删除项": [
+      "downloaded_videos_for_segment/original_videos/ (多次清理,共计~70GB)",
+      "downloaded_videos_2fps/ (3.8GB)"
+    ]
+  },
+  "脚本修改": {
+    "文件": "scene_tag/1_download_from_bos_for_segment.py",
+    "修改位置": "第591-599行",
+    "修改内容": "切片完成后自动删除原始视频文件及空目录"
+  }
+}

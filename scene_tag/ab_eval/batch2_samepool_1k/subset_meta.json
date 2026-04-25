@@ -1,0 +1,31 @@
+{
+  "source_video_list": "/root/workspace/LLaMA-Factory/scene_tag/mining_10k_video_list_batch2.txt",
+  "source_results_dir": "/root/workspace/LLaMA-Factory/scene_tag/results_batch2",
+  "sample_size": 1000,
+  "requested_sample_size": 1000,
+  "seed": 20260402,
+  "groups": [
+    "04_Intersection",
+    "05_LaneCruising",
+    "02_TrafficLight"
+  ],
+  "single_agent_exports": {
+    "04_Intersection": {
+      "source": "/root/workspace/LLaMA-Factory/scene_tag/results_batch2/mining_04_Intersection.json",
+      "output": "/root/workspace/LLaMA-Factory/scene_tag/ab_eval/batch2_samepool_1k/single_agent/mining_04_Intersection_single_agent.json",
+      "count": 1000
+    },
+    "05_LaneCruising": {
+      "source": "/root/workspace/LLaMA-Factory/scene_tag/results_batch2/mining_05_LaneCruising.json",
+      "output": "/root/workspace/LLaMA-Factory/scene_tag/ab_eval/batch2_samepool_1k/single_agent/mining_05_LaneCruising_single_agent.json",
+      "count": 1000
+    },
+    "02_TrafficLight": {
+      "source": "/root/workspace/LLaMA-Factory/scene_tag/results_batch2/mining_02_TrafficLight.json",
+      "output": "/root/workspace/LLaMA-Factory/scene_tag/ab_eval/batch2_samepool_1k/single_agent/mining_02_TrafficLight_single_agent.json",
+      "count": 1000
+    }
+  },
+  "same_pool_as": "batch2",
+  "comparison_principle": "same_videos_same_prompts_compare_single_vs_dual_agent"
+}

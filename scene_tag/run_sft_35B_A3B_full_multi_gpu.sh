@@ -20,7 +20,7 @@ if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
 elif [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
     source "$HOME/anaconda3/etc/profile.d/conda.sh"
 elif [ -f "/opt/conda/etc/profile.d/conda.sh" ]; then
-    source "/opt/conda/etc/profile.d/conda.sh"
+    source "/opt/conda/etc/profile.d/conda.sh"  
 elif [ -n "$CONDA_EXE" ]; then
     source "$(dirname "$(dirname "$CONDA_EXE")")/etc/profile.d/conda.sh"
 else
@@ -30,6 +30,20 @@ fi
 
 conda activate "$CONDA_ENV_NAME"
 echo "[INFO] 已激活 conda 环境: $CONDA_ENV_NAME (python: $(which python))"
+
+TRANSFORMERS_VERSION=$(python -c "import transformers; print(transformers.__version__)" 2>/dev/null)
+if [ -z "$TRANSFORMERS_VERSION" ]; then
+    echo "[ERROR] transformers 未安装，请运行: pip install transformers>=5.2.0"
+    exit 1
+fi
+echo "[INFO] transformers 版本: $TRANSFORMERS_VERSION"
+
+HAS_QWEN35_MOE=$(python -c "from transformers.models.auto.configuration_auto import CONFIG_MAPPING_NAMES; print('qwen3_5_moe' in str(CONFIG_MAPPING_NAMES))" 2>/dev/null)
+if [ "$HAS_QWEN35_MOE" != "True" ]; then
+    echo "[ERROR] 当前 transformers ($TRANSFORMERS_VERSION) 不支持 qwen3_5_moe 架构，请升级: pip install transformers>=5.2.0"
+    exit 1
+fi
+echo "[INFO] qwen3_5_moe 架构支持: OK"
 
 # ========================= 基础配置 =========================
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

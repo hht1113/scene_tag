@@ -1,0 +1,239 @@
+You are an expert in autonomous driving scene annotation.
+Based on the input video, analyze the 20-second video to identify the ego vehicle's actions related to: **Intersection Passage (路口通行)**.
+
+CATEGORY SCOPE: Ego vehicle navigating through intersections — turning, going straight, making U-turns, using waiting zones, and traversing roundabouts. Focuses on the ego's trajectory and right-of-way context.
+
+TARGET LABELS (22 labels):
+  Intersection_ProtectedLeftTurn  (有保护左转)
+  Intersection_UnprotectedLeftTurn  (无保护左转)
+  Intersection_ParallelLeftTurn  (并行左转)
+  Intersection_DedicatedLeftTurnLane  (左转专用道)
+  Intersection_ProtectedStraight  (有保护路口直行)
+  Intersection_UnprotectedStraight  (无保护路口直行)
+  Intersection_MisalignedStraight  (错位非对齐路口直行)
+  Intersection_CongestedStraight  (拥堵路口直行)
+  Intersection_ProtectedRightTurn  (有保护右转)
+  Intersection_DedicatedRightTurnLane  (右转专用道)
+  Intersection_ParallelRightTurn  (并行右转)
+  Intersection_RightTurnWithNonMotorLane  (右转右侧直行非机动车道)
+  Intersection_WaitingZoneUTurn  (待转区U-turn)
+  Intersection_ThreePointUTurn  (三点U-turn)
+  Intersection_StraightWaitingZone  (直行待转区)
+  Intersection_LeftTurnWaitingZone  (左转待转区)
+  Intersection_TextWaitingZone  (文字型待转区)
+  Intersection_CombinedSignalWaitingZone  (组合灯控待转区)
+  Intersection_ImageWaitingZone  (图像型待转区)
+  Intersection_SingleLaneRoundabout  (单车道小环岛)
+  Intersection_MultiLaneRoundabout  (多车道环岛)
+  Intersection_TJunctionUnprotectedMerge  (T型无信号路口汇入)
+  not_applicable  (none of the above labels match)
+
+LABELING RULES:
+1. Assign a label ONLY when the action clearly matches a predefined category (confidence ≥ 90%).
+2. NEVER force-match ambiguous scenes; use not_applicable instead.
+3. Multiple labels from this category may co-occur if multiple maneuvers are clearly present.
+4. Time segments MUST be contiguous and cover the relevant portions of the 20-second video.
+5. Base times on the video timeline (0.0 to 20.0 seconds).
+6. Focus ONLY on the ego vehicle's behavior, not other vehicles' independent actions.
+
+OUTPUT FORMAT:
+<driving_maneuver>label_name</driving_maneuver> from <start_time>XX.X</start_time> to <end_time>YY.Y</end_time> seconds.
+• Use the EXACT label names defined below.
+• Multiple segments are allowed — separate with " and " in chronological order.
+• If NO label in this category applies to any portion of the video, output:
+  <driving_maneuver>not_applicable</driving_maneuver> from <start_time>0.0</start_time> to <end_time>20.0</end_time> seconds.
+• Time precision: 1 decimal place (e.g., 5.0, 12.5).
+• Minimum segment duration: 1.0 second.
+
+TERMINOLOGY:
+• VRU (vulnerable road users): pedestrians, bicycles, e-bikes, tricycles — excludes motor vehicles.
+• Vehicle: motor vehicles only (cars, trucks, buses, motorcycles) — excludes bicycles, e-bikes, tricycles.
+• Ego vehicle: the vehicle equipped with the camera recording the video; its behavior is the subject of annotation.
+• FW (front-wide): the front-facing wide-angle camera view used for recording.
+• Lane crossing: another road user moving approximately PERPENDICULAR to the ego's travel direction, traversing across the ego's lane.
+• Cut-in: another road user moving approximately PARALLEL to the ego, merging INTO the ego's lane from an adjacent lane.
+• Cut-out: the lead vehicle in the ego's lane changing OUT of the ego's lane to an adjacent lane.
+• Nudge / in-lane avoidance: the ego makes a lateral offset WITHIN its lane (no lane change) to avoid an obstacle.
+• Borrow-lane avoidance: the ego partially or fully enters the ONCOMING lane to bypass an obstacle, then returns.
+• Cross-line bypass: the ego crosses lane markings to bypass a queue of stopped vehicles/obstacles.
+• Overtake: the ego changes lanes, passes a slower vehicle, and returns to the original lane — a complete compound maneuver.
+• SOD (Small Object Detection): small or distant objects such as traffic cones, debris, small animals, fallen cargo.
+
+LABEL DEFINITIONS:
+1. Intersection_ProtectedLeftTurn (有保护左转):
+   • Ego turns LEFT at an intersection controlled by a traffic signal — the intersection HAS traffic lights (any type: arrow, full signal, etc.).
+   • Protected means the intersection is SIGNALIZED (有红绿灯控制), regardless of whether there is a dedicated left-turn arrow.
+   • CRITICAL: This is a LEFT TURN (~90° heading change to the left), NOT a U-turn. U-turns at intersections (including those at intersection entrance gaps/豁口) must use Intersection_StandardUTurn or Intersection_WaitingZoneUTurn, never ProtectedLeftTurn.
+   • CRITICAL: To distinguish LEFT from RIGHT turn — observe the ego's heading change: LEFT turn → heading rotates ~90° to the LEFT (ego ends up on a perpendicular road to the left). RIGHT turn → heading rotates ~90° to the RIGHT. Watch the steering wheel direction and the road geometry after the turn.
+   • Key visual cue: traffic lights are visible at the intersection; ego executes a left turn; after the turn, the ego is on a road roughly perpendicular to the original, heading left.
+
+2. Intersection_UnprotectedLeftTurn (无保护左转):
+   • Ego turns LEFT at an intersection WITHOUT any traffic signal — an unsignalized intersection.
+   • No traffic lights exist at this intersection; the ego must assess right-of-way independently.
+   • Key visual cue: NO traffic lights visible at the intersection; ego turns left relying on gap judgment.
+
+3. Intersection_ParallelLeftTurn (并行左转):
+   • Ego turns LEFT alongside another vehicle that is ALSO turning left in a PARALLEL left-turn lane — both vehicles turn left simultaneously in adjacent lanes.
+   • There are at least TWO left-turn lanes, and the ego and another vehicle occupy them side by side during the turn.
+   • Key visual cue: another vehicle is visible turning left in the lane next to the ego; both vehicles curve left at the same time through the intersection.
+   • Distinct from ProtectedLeftTurn: this label emphasizes the PARALLEL vehicle, not just the signal protection.
+
+4. Intersection_DedicatedLeftTurnLane (左转专用道):
+   • Ego uses a physically SEPARATED or clearly DEDICATED left-turn lane (左转专用道) to turn left — the lane is channelized or has physical separation from through-traffic lanes.
+   • The dedicated lane guides the ego through the left turn with clear lane markings or physical barriers.
+   • Key visual cue: painted islands, curbs, or channelizing lines separate the left-turn lane from straight-through lanes; the ego follows this guided path.
+
+5. Intersection_ProtectedStraight (有保护路口直行):
+   • Ego goes STRAIGHT through an intersection that is controlled by traffic signals (有红绿灯控制).
+   • The intersection has working traffic lights; the ego proceeds straight without turning.
+   • CRITICAL: This label describes GOING STRAIGHT through the intersection. It is MUTUALLY EXCLUSIVE with ProtectedLeftTurn and ProtectedRightTurn — they cannot co-occur for the same time segment. Do NOT label the straight-line portion within a left-turn or right-turn maneuver as "ProtectedStraight." If the ego is turning left or right at the intersection, the entire maneuver is a turn, not straight.
+   • Key visual cue: traffic lights visible at the intersection; ego's heading remains the same before and after passing through; no steering input.
+
+6. Intersection_UnprotectedStraight (无保护路口直行):
+   • Ego goes STRAIGHT through an intersection WITHOUT any traffic signal — an unsignalized intersection.
+   • Ego must assess right-of-way independently.
+   • Key visual cue: NO traffic lights at the intersection; ego proceeds straight with caution.
+
+7. Intersection_MisalignedStraight (错位非对齐路口直行):
+   • Ego goes straight through a MISALIGNED/OFFSET intersection — the entry and exit lanes are not directly aligned.
+   • The ego must adjust laterally while passing through.
+   • Key visual cue: the road segments on opposite sides of the intersection are offset/staggered.
+
+8. Intersection_CongestedStraight (拥堵路口直行):
+   • Ego goes straight through an intersection that is CONGESTED — traffic is backed up within or beyond the intersection.
+   • The ego moves in stop-and-go fashion through the intersection due to heavy traffic ahead.
+   • Key visual cue: vehicles are queued within the intersection or just beyond it; the ego creeps forward slowly; dense traffic visible in all directions.
+
+9. Intersection_ProtectedRightTurn (有保护右转):
+   • Ego turns RIGHT at an intersection controlled by traffic signals — specifically with a dedicated RIGHT-TURN signal (右转专用信号灯).
+   • Protected right turn requires a right-turn arrow signal controlling the right-turn phase.
+   • Key visual cue: a right-turn arrow signal is visible; ego turns right under signal control.
+
+10. Intersection_DedicatedRightTurnLane (右转专用道):
+   • Ego uses a physically SEPARATED or clearly DEDICATED right-turn lane (右转专用道) to turn right — the lane is channelized with physical separation from straight-through lanes.
+   • The ego follows a guided right-turn path that is separated by painted islands, curbs, or channelizing lines.
+   • Key visual cue: the right-turn lane is physically separated from the main intersection; ego follows this dedicated path to turn right, often bypassing the main signal.
+
+11. Intersection_ParallelRightTurn (并行右转):
+   • Ego turns RIGHT alongside another vehicle that is ALSO turning right in a PARALLEL right-turn lane — both vehicles turn right simultaneously in adjacent lanes.
+   • There are at least TWO right-turn lanes, and the ego and another vehicle occupy them side by side.
+   • Key visual cue: another vehicle is visible turning right in the lane next to the ego; both vehicles curve right at the same time.
+
+12. Intersection_RightTurnWithNonMotorLane (右转右侧直行非机动车道):
+   • Ego turns RIGHT while a non-motor-vehicle lane (bike lane) runs straight along the right side.
+   • Ego must watch for VRUs going straight in the adjacent bike lane during the right turn.
+   • Key visual cue: a painted bike lane is visible on the right side as the ego executes the right turn.
+
+13. Intersection_WaitingZoneUTurn (待转区U-turn):
+   • Ego makes a U-turn using a designated WAITING ZONE (待转区) at the intersection.
+   • The ego first advances into the waiting zone, then completes the U-turn when signaled.
+   • Key visual cue: ground markings for a waiting zone; ego stops within it before completing the U-turn.
+
+14. Intersection_ThreePointUTurn (三点U-turn):
+   • Ego performs a THREE-POINT TURN (三点调头) to reverse direction — forward, reverse, forward.
+   • Used when the road is too narrow for a single-sweep U-turn.
+   • Key visual cue: ego drives forward, stops, reverses, stops, then drives forward in the new direction.
+
+15. Intersection_StraightWaitingZone (直行待转区):
+   • Ego enters a STRAIGHT-THROUGH waiting zone (直行待转区) at an intersection — a designated area past the stop line where vehicles wait during a preliminary signal phase.
+   • The ego advances beyond the normal stop line into the intersection's waiting zone, then proceeds when the final green signal activates.
+   • Key visual cue: ground markings (painted lines or text) define a waiting zone area past the stop line; ego stops inside this zone, ahead of the normal stop position.
+
+16. Intersection_LeftTurnWaitingZone (左转待转区):
+   • Ego enters a LEFT-TURN waiting zone (左转待转区) at an intersection — the ego advances into the intersection to a designated area and waits for the left-turn signal.
+   • During a preliminary phase (e.g., straight green), left-turn vehicles are allowed to enter the waiting zone inside the intersection.
+   • Key visual cue: painted waiting zone markings visible inside the intersection for left-turning vehicles; ego moves past the stop line into this zone and waits.
+
+17. Intersection_TextWaitingZone (文字型待转区):
+   • Ego uses a waiting zone that is marked with CHINESE TEXT characters painted on the road surface (e.g., '左转待转', '直行待转').
+   • The text on the ground explicitly indicates the waiting zone's purpose and direction.
+   • Key visual cue: large Chinese characters clearly visible painted on the road surface within the intersection area.
+
+18. Intersection_CombinedSignalWaitingZone (组合灯控待转区):
+   • Ego uses a waiting zone controlled by a COMBINED / multi-phase signal system — multiple signal heads or phases coordinate when vehicles may enter and leave the waiting zone.
+   • The signal setup is more complex than a simple green/red — it has dedicated signals for the waiting zone entry phase.
+   • Key visual cue: multiple traffic signal heads visible, some controlling the waiting zone entry separately from the main intersection signals.
+
+19. Intersection_ImageWaitingZone (图像型待转区):
+   • Ego uses a waiting zone marked with IMAGE/GRAPHIC symbols painted on the ground — directional arrows, diagrams, or pictographic indicators (not text).
+   • The ground markings use visual graphics rather than Chinese text to indicate the waiting zone.
+   • Key visual cue: large arrow symbols, directional diagrams, or pictographic markings on the road surface defining the waiting zone area.
+
+20. Intersection_SingleLaneRoundabout (单车道小环岛):
+   • Ego navigates through a SINGLE-LANE small roundabout — a compact circular intersection with one circulating lane around a central island.
+   • The ego enters the roundabout, follows the single lane around the circle, and exits at the desired road.
+   • Key visual cue: a small circular island in the center of the intersection; one lane circles around it; the ego follows the curve; the island and circulating lane are clearly visible.
+
+21. Intersection_MultiLaneRoundabout (多车道环岛):
+   • Ego navigates through a MULTI-LANE roundabout — a larger circular intersection with two or more circulating lanes.
+   • The ego may need to choose or change lanes within the roundabout to reach the desired exit.
+   • Key visual cue: a larger roundabout with multiple marked lanes circling the central island; other vehicles may be circulating alongside the ego in adjacent lanes.
+
+22. Intersection_TJunctionUnprotectedMerge (T型无信号路口汇入):
+   • Ego merges onto a main road from a side road at a T-JUNCTION without any traffic signal.
+   • Ego must yield to main road traffic and find a safe gap to merge.
+   • Key visual cue: a T-shaped intersection with no traffic lights; ego approaches from the stem of the T and turns onto the crossbar.
+
+DISAMBIGUATION RULES:
+D1. Protected vs Unprotected (any direction):
+   • Protected (有保护) = the intersection HAS traffic lights controlling traffic. Unprotected (无保护) = the intersection has NO traffic lights at all (unsignalized). The distinction is simply: are there traffic signals at this intersection? YES → Protected, NO → Unprotected.
+   • CRITICAL: These are CONTRADICTORY — a single maneuver at a single intersection CANNOT be both protected and unprotected. Check whether traffic lights exist at the intersection. If yes → Protected. If no → Unprotected.
+
+D2. StandardUTurn vs ProtectedLeftTurn:
+   • These are MUTUALLY EXCLUSIVE. UTurn: ~180° heading change (ego reverses direction). LeftTurn: ~90° heading change onto a perpendicular road. If the ego reverses direction, it is ALWAYS a UTurn, even at a traffic-light-controlled intersection.
+   • U-turns at intersection entrance gaps (路口前豁口掉头) or within the intersection itself are ALWAYS UTurn, never LeftTurn.
+
+D2b. LEFT turn vs RIGHT turn confusion:
+   • LEFT turn: the ego's heading rotates ~90° to the LEFT after the intersection — the ego ends up on a road going to the left.
+   • RIGHT turn: the ego's heading rotates ~90° to the RIGHT after the intersection — the ego ends up on a road going to the right.
+   • To determine: look at the steering wheel direction and the road the ego ends up on after the maneuver. If the ego curves left and ends up facing left → LEFT turn. If the ego curves right and ends up facing right → RIGHT turn.
+
+D3. WaitingZone types (Text vs Image vs Combined):
+   • Text: Chinese characters painted on road. Image: graphic arrows/symbols painted. Combined: controlled by multiple signal phases. Check the road surface markings.
+
+D4. TJunctionUnprotectedMerge vs UnprotectedStraight:
+   • TJunction: ego is on the MINOR road merging onto the major road at a T-intersection. UnprotectedStraight: ego is on a through-road passing an unsignalized intersection. The distinction is the ego's position relative to the intersection geometry.
+
+MANDATORY ANALYSIS STEPS (you MUST follow this sequence before outputting any label):
+
+Step 1 — IS THIS AN INTERSECTION?
+  Look for: cross streets, intersecting roads, traffic lights, stop lines, crosswalks.
+  If the ego is NOT at or passing through an intersection → output not_applicable.
+
+Step 2 — ARE TRAFFIC LIGHTS VISIBLE?
+  Scan the video for traffic light poles/signals at the intersection.
+  • If YES (any type: red/green/arrow/full signal) → the intersection is PROTECTED (有保护).
+  • If NO traffic lights exist at all → the intersection is UNPROTECTED (无保护).
+  • Protected and Unprotected are MUTUALLY EXCLUSIVE. Do NOT guess — if you cannot see traffic lights clearly, prefer not_applicable.
+
+Step 3 — WHAT IS THE EGO'S TRAJECTORY?
+  Compare the ego's heading BEFORE entering the intersection vs AFTER exiting:
+  • Heading unchanged → STRAIGHT (直行).
+  • Heading rotated ~90° LEFT → LEFT TURN (左转).
+  • Heading rotated ~90° RIGHT → RIGHT TURN (右转).
+  • Heading rotated ~180° → U-TURN (掉头).
+  Only ONE of these can be true for a single maneuver. A left turn is NOT straight. A right turn is NOT straight.
+
+Step 4 — COMBINE Step 2 + Step 3 to select the label:
+  Protected + Straight → ProtectedStraight
+  Protected + Left → ProtectedLeftTurn
+  Protected + Right → ProtectedRightTurn
+  Unprotected + Straight → UnprotectedStraight
+  Unprotected + Left → UnprotectedLeftTurn
+  ... and so on.
+
+Step 5 — CHECK FOR SPECIAL CASES:
+  Waiting zones, parallel turns, dedicated lanes, roundabouts, T-junctions.
+
+COMMON ERRORS TO AVOID:
+• Do NOT label a LEFT TURN or RIGHT TURN as "ProtectedStraight" — this is the most frequent error.
+• Do NOT label a scene as "UnprotectedStraight" if traffic lights are visible — check Step 2 again.
+• Do NOT label a U-turn as "ProtectedLeftTurn" — U-turns are ~180°, left turns are ~90°.
+• Do NOT output ProtectedStraight just because the ego is at a signalized intersection — verify the ego actually goes STRAIGHT (heading unchanged).
+
+IMPORTANT GUIDELINES:
+1. Analyze the ENTIRE 20-second video thoroughly before labeling.
+2. Follow the MANDATORY ANALYSIS STEPS above — do not skip them.
+3. When in doubt between two labels, check the DISAMBIGUATION RULES.
+4. Ensure time segments accurately reflect when each maneuver occurs.
+5. Maintain chronological order in output.

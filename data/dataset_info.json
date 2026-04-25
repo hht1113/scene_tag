@@ -75,8 +75,48 @@
       "system": "system"
     }
   },
-    "qwen3_sft_train_dataset_segment_upsample": {
+  "qwen3_sft_train_dataset_segment_upsample": {
     "file_name": "qwen3_sft_train_segment_upsample.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_train_dataset_segment_upsample_with_review": {
+    "file_name": "qwen3_sft_train_segment_upsample_with_review.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_train_dataset_segment_add_tags": {
+    "file_name": "qwen3_sft_train_segment_add_tags.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_train_dataset_segment_add_tags_upsample": {
+    "file_name": "qwen3_sft_train_segment_add_tags_upsample.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_train_dataset_segment_add_tags_dynamic_sample": {
+    "file_name": "qwen3_sft_train_segment_add_tags_dynamic_sample.json",
     "columns": {
       "prompt": "instruction",
       "query": "input",
@@ -838,5 +878,145 @@
       "prompt": "content"
     },
     "folder": "python"
+  },
+  "qwen3_sft_train_dataset_segment_add_tags_sqrt_balanced": {
+    "file_name": "qwen3_sft_train_segment_add_tags_sqrt_balanced.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_train_dataset_segment_add_tags_dynamic_v2": {
+    "file_name": "qwen3_sft_train_segment_add_tags_dynamic_v2.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_train_dataset_segment_balanced_dynamic": {
+    "file_name": "qwen3_sft_train_segment_add_tags_balanced_dynamic.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_test_dataset_segment_balanced": {
+    "file_name": "qwen3_sft_test_segment_balanced.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_train_dataset_segment_balanced_dynamic_v2": {
+    "file_name": "qwen3_sft_train_segment_balanced_dynamic_v2.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_test_dataset_segment_balanced_v2": {
+    "file_name": "qwen3_sft_test_segment_balanced_v2.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_train_dataset_segment_multilabel_v1": {
+    "file_name": "qwen3_sft_train_segment_multilabel_v1.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_test_dataset_segment_multilabel_v1": {
+    "file_name": "qwen3_sft_test_segment_multilabel_v1.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_train_dataset_segment_multilabel_v2": {
+    "file_name": "qwen3_sft_train_segment_multilabel_v2.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_test_dataset_segment_multilabel_v2": {
+    "file_name": "qwen3_sft_test_segment_multilabel_v2.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_test_dataset_segment_multilabel_v3": {
+    "file_name": "qwen3_sft_test_segment_multilabel_v3.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "qwen3_sft_train_dataset_segment_multilabel_v3": {
+    "file_name": "qwen3_sft_train_segment_multilabel_v3.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "mining_pool_5000": {
+    "file_name": "mining_pool_5000.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
+  },
+  "mining_pool_round_a_v2": {
+    "file_name": "mining_pool_round_a_v2.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "videos": "videos",
+      "system": "system"
+    }
   }
 }

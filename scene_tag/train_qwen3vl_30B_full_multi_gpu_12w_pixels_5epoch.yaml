@@ -1,0 +1,60 @@
+### model
+model_name_or_path: /mnt/pfs/qwen3/Qwen3-VL-30B-A3B-Instruct
+trust_remote_code: true
+flash_attn: auto
+# video_max_pixels: 120000 → 约 462×254/帧 (16:9)，ZeRO-3 offload
+image_max_pixels: 589824
+image_min_pixels: 1024
+video_max_pixels: 120000
+video_min_pixels: 4096
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+deepspeed: examples/deepspeed/ds_z3_offload_config.json
+
+### freeze
+freeze_vision_tower: true
+freeze_multi_modal_projector: false
+freeze_language_model: false
+
+### dataset
+dataset: qwen3_sft_train_dataset_segment_upsample
+dataset_dir: data
+template: qwen3_vl_nothink
+enable_thinking: false
+cutoff_len: 20000
+max_samples: 100000
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: /mnt/pfs/houhaotian/saves/Qwen3-VL-30B-A3B-Instruct/full-12w-pixels/sft_segment_upsample_8gpu_5epoch
+logging_steps: 5
+save_strategy: epoch
+save_total_limit: 5
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: none
+
+### train
+# 8卡 A100-80GB + DeepSpeed ZeRO-3 + 30B全参微调
+# 有效batch_size = 1 × 4 × 8 = 32
+# 每epoch ~113步, 5epoch共~565步
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 4
+learning_rate: 1.0e-5
+num_train_epochs: 5.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+max_grad_norm: 1.0
+optim: adamw_torch
+bf16: true
+ddp_timeout: 180000000
+include_num_input_tokens_seen: true
+
+### resume (从2epoch断点续训到5epoch)
+resume_from_checkpoint: /mnt/pfs/houhaotian/saves/Qwen3-VL-30B-A3B-Instruct/full-12w-pixels/sft_segment_upsample_8gpu/checkpoint-226

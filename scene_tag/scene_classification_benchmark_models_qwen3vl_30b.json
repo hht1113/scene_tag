@@ -1,0 +1,13 @@
+[
+  {
+    "name": "qwen3-vl-30b-a3b",
+    "api_base": "http://127.0.0.1:8000/v1",
+    "model_name": "qwen3-vl-30b-a3b",
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "enabled": true
+  }
+]

@@ -12,59 +12,194 @@
     浏览器打开后粘贴标注文件路径即可开始
 """
 
-import os, sys, json, argparse, mimetypes, urllib.parse, threading, datetime
+import os, sys, json, re, argparse, mimetypes, urllib.parse, threading, datetime
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from socketserver import ThreadingMixIn
 from collections import Counter
 
 DEFAULT_PORT = 9000
 
-ALL_LABELS = [
-    "TrafficLight_StraightStopOrGo", "TrafficLight_LeftTurnStopOrGo",
-    "TrafficLight_DarkIntersectionPass",
-    "LaneChange_NavForIntersection", "LaneChange_AvoidSlowVRU",
-    "LaneChange_AvoidStaticVehicle",
-    "DynamicInteraction_VRUInLaneCrossing", "DynamicInteraction_VehicleInLaneCrossing",
-    "DynamicInteraction_StandardVehicleCutIn", "DynamicInteraction_LeadVehicleEmergencyBrake",
-    "AbnormalStop_StuckWaiting",
-    "StartStop_StartFromMainRoad", "StartStop_ParkRoadside",
-    "Intersection_LeftTurn", "Intersection_RightTurn", "Intersection_StandardUTurn",
-    "LaneCruising_Straight", "else",
-]
+ALLOWED_MAJOR_PREFIXES = ("01_", "02_", "03_", "04_", "05_", "06_", "07_")
 
-LABEL_COLORS = {
-    "TrafficLight_StraightStopOrGo": "#e74c3c", "TrafficLight_LeftTurnStopOrGo": "#c0392b",
-    "TrafficLight_DarkIntersectionPass": "#a93226",
-    "LaneChange_NavForIntersection": "#3498db", "LaneChange_AvoidSlowVRU": "#2980b9",
-    "LaneChange_AvoidStaticVehicle": "#2471a3",
-    "DynamicInteraction_VRUInLaneCrossing": "#e67e22", "DynamicInteraction_VehicleInLaneCrossing": "#d35400",
-    "DynamicInteraction_StandardVehicleCutIn": "#f39c12", "DynamicInteraction_LeadVehicleEmergencyBrake": "#ff0000",
-    "AbnormalStop_StuckWaiting": "#d4ac0d",
-    "StartStop_StartFromMainRoad": "#9b59b6", "StartStop_ParkRoadside": "#8e44ad",
-    "Intersection_LeftTurn": "#1abc9c", "Intersection_RightTurn": "#16a085",
-    "Intersection_StandardUTurn": "#27ae60", "LaneCruising_Straight": "#95a5a6", "else": "#7f8c8d",
+LABEL_CATEGORIES = {
+    "01_动态交互": {
+        "DynamicInteraction_VRUInLaneCrossing": "VRU车道内横穿",
+        "DynamicInteraction_VehicleInLaneCrossing": "车辆车道内横穿",
+        "DynamicInteraction_StandardVehicleCutIn": "标准车辆切入",
+        "DynamicInteraction_EmergencyVehicleCutIn": "紧急车辆切入",
+        "DynamicInteraction_StartupVehicleCutIn": "起步车辆切入",
+        "DynamicInteraction_ConsecutiveLaneChangeCutIn": "连续变道切入",
+        "DynamicInteraction_SlowVRUCutIn": "慢速VRU切入",
+        "DynamicInteraction_EmergencyVRUCutIn": "紧急VRU切入",
+        "DynamicInteraction_LeadVehicleCutOut": "前车切出",
+        "DynamicInteraction_GapOpeningCutIn": "空隙切入",
+        "DynamicInteraction_LeadVehicleSuddenBrake": "前车急刹",
+        "DynamicInteraction_StaticObjectReaction": "静态障碍物反应",
+    },
+    "02_红绿灯": {
+        "TrafficLight_StraightStopOrGo": "直行红绿灯起停",
+        "TrafficLight_LeftTurnStopOrGo": "左转红绿灯起停",
+        "TrafficLight_RightTurnStopOrGo": "右转红绿灯起停",
+        "TrafficLight_UTurnStopOrGo": "掉头红绿灯起停",
+        "TrafficLight_WaitingZoneStopOrGo": "待转区红绿灯起停",
+        "TrafficLight_StraightGreenFlash": "直行绿闪通行",
+        "TrafficLight_LeftTurnGreenFlash": "左转绿闪通行",
+        "TrafficLight_RightTurnGreenFlash": "右转绿闪通行",
+        "TrafficLight_StraightYellowFlash": "直行长黄闪通行",
+        "TrafficLight_LeftTurnYellowFlash": "左转长黄闪通行",
+        "TrafficLight_RightTurnYellowFlash": "右转长黄闪通行",
+        "TrafficLight_StraightDarkLight": "直行黑灯通行",
+        "TrafficLight_LeftTurnDarkLight": "左转黑灯通行",
+        "TrafficLight_RightTurnDarkLight": "右转黑灯通行",
+        "TrafficLight_MobileSignal": "移动红绿灯通行",
+        "TrafficLight_WarningLight": "警示灯通行",
+        "TrafficLight_OccludedSignal": "遮挡红绿灯通行",
+    },
+    "03_起停": {
+        "StartStop_StartFromMainRoad": "主路发车起步",
+        "StartStop_ParkRoadside": "靠边停车",
+        "StartStop_StartFromNonMotorLane": "非机动车道发车",
+        "StartStop_EmergencyStopOnMainRoad": "主路紧急停车",
+        "StartStop_StopAtStation": "站点停车",
+        "StartStop_ParkInStructuredSpot": "结构化车位泊入",
+        "StartStop_FollowingStop": "跟车停车",
+    },
+    "04_路口通行": {
+        "Intersection_ProtectedLeftTurn": "有保护左转",
+        "Intersection_UnprotectedLeftTurn": "无保护左转",
+        "Intersection_ParallelLeftTurn": "并行左转",
+        "Intersection_DedicatedLeftTurnLane": "左转专用道",
+        "Intersection_ProtectedStraight": "有保护直行",
+        "Intersection_UnprotectedStraight": "无信号路口直行",
+        "Intersection_MisalignedStraight": "错位路口直行",
+        "Intersection_CongestedStraight": "拥堵路口直行",
+        "Intersection_ProtectedRightTurn": "有保护右转",
+        "Intersection_DedicatedRightTurnLane": "右转专用道",
+        "Intersection_ParallelRightTurn": "并行右转",
+        "Intersection_RightTurnWithNonMotorLane": "右转伴非机动车道",
+        "Intersection_StandardUTurn": "标准掉头",
+        "Intersection_WaitingZoneUTurn": "待转区掉头",
+        "Intersection_ThreePointUTurn": "三点掉头",
+        "Intersection_StraightWaitingZone": "直行待转区",
+        "Intersection_LeftTurnWaitingZone": "左转待转区",
+        "Intersection_TextWaitingZone": "文字待转区",
+        "Intersection_CombinedSignalWaitingZone": "组合灯控待转区",
+        "Intersection_ImageWaitingZone": "图标待转区",
+        "Intersection_SingleLaneRoundabout": "单车道环岛",
+        "Intersection_MultiLaneRoundabout": "多车道环岛",
+        "Intersection_TJunctionUnprotectedMerge": "T型无信号汇入",
+    },
+    "05_车道巡航": {
+        "LaneCruising_Straight": "直线巡航",
+        "LaneCruising_SharpCurve": "大曲率弯道巡航",
+        "LaneCruising_NarrowSpace": "窄空间巡航",
+        "LaneCruising_RuralRoad": "乡村道路巡航",
+        "LaneCruising_SpeedBump": "减速带巡航",
+        "LaneCruising_ConstructionZone": "施工区巡航",
+        "LaneCruising_ZebraCrossing": "斑马线巡航",
+        "LaneCruising_CongestedFollowing": "拥堵跟车巡航",
+        "LaneCruising_StaticVehicleQueueCongestion": "联排静止车拥堵巡航",
+        "LaneCruising_OtherCongestion": "其他拥堵巡航",
+        "LaneCruising_RoadSpeedLimit": "道路限速巡航",
+        "LaneCruising_SceneSpeedLimit": "场景限速巡航",
+        "LaneCruising_IntersectionSpeedLimit": "路口限速巡航",
+        "LaneCruising_VariableLane": "可变车道巡航",
+        "LaneCruising_BusLane": "公交专用道巡航",
+        "LaneCruising_TidalLane": "潮汐车道巡航",
+        "LaneCruising_NoParkingZone": "禁停区巡航",
+        "LaneCruising_FollowingVRU": "跟随VRU行驶",
+        "LaneCruising_SteadyFollowing": "稳态跟车巡航",
+    },
+    "06_变道": {
+        "LaneChange_NavForIntersection": "路口导航变道",
+        "LaneChange_AvoidSlowVRU": "避让慢速VRU变道",
+        "LaneChange_AvoidStaticVehicle": "避让静止车辆变道",
+        "LaneChange_AvoidStaticObstacle": "避让静态障碍变道",
+        "LaneChange_BorrowLaneAvoidSlowVRU": "借道避慢速VRU",
+        "LaneChange_BorrowLaneAvoidStaticVehicle": "借道避静止车辆",
+        "LaneChange_BorrowLaneAvoidStaticObstacle": "借道避静态障碍",
+        "LaneChange_BorrowOncomingLaneAvoidVehicle": "借对向车道避车",
+        "LaneChange_CrossLineBypassStaticVehicles": "跨线绕行静止车辆",
+        "LaneChange_CrossLineBypassStaticObstacles": "跨线绕行静态障碍",
+        "LaneChange_ShortConsecutiveNav": "短距离连续导航变道",
+        "LaneChange_CongestedNav": "拥堵导航变道",
+        "LaneChange_SlowVehicleEfficiency": "慢速车效率变道",
+        "LaneChange_SlowVRUEfficiency": "慢速VRU效率变道",
+        "LaneChange_StaticObstacleEfficiency": "静态障碍效率变道",
+        "LaneChange_CongestedQueueSuppressed": "拥堵排队抑制变道",
+        "LaneChange_NonMotorLaneSuppressed": "非机动车道抑制变道",
+        "LaneChange_BusStopSuppressed": "公交站抑制变道",
+        "LaneChange_Overtake": "超车",
+    },
+    "07_路口交互": {
+        "IntersectionInteraction_StraightVRUCrossing": "直行VRU横穿",
+        "IntersectionInteraction_StraightLeftTurnVehicleCrossing": "直行左转车辆横穿",
+        "IntersectionInteraction_LeftTurnVRUCrossing": "左转VRU横穿",
+        "IntersectionInteraction_LeftTurnStraightVehicleCrossing": "左转直行车辆横穿",
+        "IntersectionInteraction_RightTurnVRUCrossing": "右转VRU横穿",
+        "IntersectionInteraction_RightTurnStraightVehicleCrossing": "右转直行车辆横穿",
+        "IntersectionInteraction_StraightRightTurnVRUCutIn": "直行右转VRU切入",
+        "IntersectionInteraction_StraightRightTurnVehicleCutIn": "直行右转车辆切入",
+        "IntersectionInteraction_EgoStraight_VRUCrossing": "自车直行VRU横穿",
+        "IntersectionInteraction_EgoStraight_VehicleLeftTurnCrossing": "自车直行他车左转横穿",
+        "IntersectionInteraction_EgoLeftTurn_VRUCrossing": "自车左转VRU横穿",
+        "IntersectionInteraction_EgoLeftTurn_VehicleStraightCrossing": "自车左转他车直行横穿",
+        "IntersectionInteraction_EgoRightTurn_VRUCrossing": "自车右转VRU横穿",
+        "IntersectionInteraction_EgoRightTurn_VehicleStraightCrossing": "自车右转他车直行横穿",
+        "IntersectionInteraction_EgoStraight_VRURightTurnCutIn": "自车直行VRU右转切入",
+        "IntersectionInteraction_EgoStraight_VehicleRightTurnCutIn": "自车直行他车右转切入",
+        "IntersectionInteraction_RearSideVRUApproach": "侧后VRU贴近",
+        "IntersectionInteraction_ParallelVRUApproach": "并行VRU贴近",
+        "IntersectionInteraction_OncomingVRUApproach": "对向VRU贴近",
+        "IntersectionInteraction_RearSideVehicleApproach": "侧后车辆贴近",
+        "IntersectionInteraction_ParallelStraightVehicleApproach": "并行直行车贴近",
+        "IntersectionInteraction_ParallelLeftTurnVehicleApproach": "并行左转车贴近",
+        "IntersectionInteraction_ParallelRightTurnVehicleApproach": "并行右转车贴近",
+    },
 }
 
-LABEL_DEFINITIONS = {
-    "TrafficLight_StraightStopOrGo": "在红绿灯前直行停车/起步（须有停→走或走→停转换）",
-    "TrafficLight_LeftTurnStopOrGo": "在红绿灯前左转停车/起步（左转车道即适用）",
-    "TrafficLight_DarkIntersectionPass": "红绿灯熄灭路口（困住/脱困）",
-    "AbnormalStop_StuckWaiting": "异常停留（无保护左转/右转让行/会车等困住场景）",
-    "LaneChange_NavForIntersection": "路口附近变道（从直行道变到转弯道等）",
-    "LaneChange_AvoidSlowVRU": "变道避让慢行行人/骑行者",
-    "LaneChange_AvoidStaticVehicle": "变道避让静止车辆",
-    "DynamicInteraction_VRUInLaneCrossing": "行人/骑行者横穿车道",
-    "DynamicInteraction_VehicleInLaneCrossing": "其他车辆横穿车道",
-    "DynamicInteraction_StandardVehicleCutIn": "其他车辆加塞",
-    "DynamicInteraction_LeadVehicleEmergencyBrake": "前车紧急刹车",
-    "StartStop_StartFromMainRoad": "主路停车后起步（非红绿灯）",
-    "StartStop_ParkRoadside": "靠边停车",
-    "Intersection_LeftTurn": "路口左转",
-    "Intersection_RightTurn": "路口右转",
-    "Intersection_StandardUTurn": "路口掉头",
-    "LaneCruising_Straight": "定速直行巡航（极严格：无任何交互）",
-    "else": "不属于以上任何类别",
+ALL_LABELS = []
+LABEL_CN = {}
+LABEL_TO_CATEGORY = {}
+for _cat, _subs in LABEL_CATEGORIES.items():
+    for _en, _cn in _subs.items():
+        ALL_LABELS.append(_en)
+        LABEL_CN[_en] = _cn
+        LABEL_TO_CATEGORY[_en] = _cat
+ALLOWED_LABELS = set(ALL_LABELS)
+DEFAULT_ADD_LABEL = ALL_LABELS[0]
+
+CATEGORY_COLORS = {
+    "01_动态交互": "#e67e22",
+    "02_红绿灯": "#e74c3c",
+    "03_起停": "#9b59b6",
+    "04_路口通行": "#1abc9c",
+    "05_车道巡航": "#95a5a6",
+    "06_变道": "#3498db",
+    "07_路口交互": "#2ecc71",
 }
+
+LABEL_COLORS = {}
+for _cat, _subs in LABEL_CATEGORIES.items():
+    base = CATEGORY_COLORS.get(_cat, "#555")
+    for i, _en in enumerate(_subs.keys()):
+        LABEL_COLORS[_en] = base
+
+LABEL_DEFINITIONS = {_en: _cn for _en, _cn in LABEL_CN.items()}
+
+
+def _is_allowed_segment(seg):
+    major = seg.get("major_category", "")
+    label = seg.get("label", "")
+    if isinstance(major, str) and major.startswith(ALLOWED_MAJOR_PREFIXES):
+        return True
+    if label in ALLOWED_LABELS:
+        return True
+    return False
+
+
+def _filter_allowed_segments(segs):
+    return [seg for seg in segs if _is_allowed_segment(seg)]
 
 
 HTML_PAGE = r"""<!DOCTYPE html>
@@ -149,6 +284,7 @@ video{width:100%;max-height:50vh;background:#000;border-radius:8px}
 .seg-item.review-wrong{border-left-color:#ff6b6b}
 .seg-item.review-unsure{border-left-color:#f1c40f}
 .seg-item.seg-modified{border-right:3px solid #e67e22}
+.seg-item.seg-hallucinated{background:#3d1515;border:1px dashed #ff4444}
 .seg-header{display:flex;align-items:center;gap:6px;margin-bottom:4px}
 .seg-idx{background:#e94560;color:#fff;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:bold;flex-shrink:0}
 .seg-color{width:8px;height:8px;border-radius:50%;flex-shrink:0}
@@ -156,6 +292,8 @@ video{width:100%;max-height:50vh;background:#000;border-radius:8px}
 .seg-time{color:#aaa;font-size:11px;flex-shrink:0}
 .seg-conf{color:#e94560;font-size:11px;flex-shrink:0;min-width:32px;text-align:right}
 .modified-badge{display:inline-block;background:#e67e22;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px}
+.halluc-badge{display:inline-block;background:#ff4444;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px;animation:blink 1.5s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}
 
 .seg-edit{margin-top:6px;padding:6px;background:#0a1a35;border-radius:6px}
 .seg-edit-row{display:flex;align-items:center;gap:5px;font-size:11px;margin-bottom:4px}
@@ -299,6 +437,8 @@ let _saveTimer=null;
 const COLORS=LABEL_COLORS_PLACEHOLDER;
 const ALL_LABELS=ALL_LABELS_PLACEHOLDER;
 const LABEL_DEFS=LABEL_DEFS_PLACEHOLDER;
+const LABEL_CATEGORIES=LABEL_CATEGORIES_PLACEHOLDER;
+const LABEL_CN=LABEL_CN_PLACEHOLDER;
 
 // ===== Mode =====
 function switchMode(m){
@@ -400,7 +540,19 @@ function buildFilters(){
   fl.innerHTML='<option value="all">全部标签</option>';
   const labels=new Set();
   annotations.forEach(a=>(a.segments||[]).forEach(s=>labels.add(s.label)));
-  [...labels].sort().forEach(l=>{const o=document.createElement('option');o.value=l;o.textContent=l;fl.appendChild(o)});
+  const catGroups={};
+  [...labels].forEach(l=>{
+    let found=false;
+    for(const[cat,subs] of Object.entries(LABEL_CATEGORIES)){
+      if(l in subs){if(!catGroups[cat])catGroups[cat]=[];catGroups[cat].push(l);found=true;break}
+    }
+    if(!found){if(!catGroups['未分类'])catGroups['未分类']=[];catGroups['未分类'].push(l)}
+  });
+  for(const[cat,items] of Object.entries(catGroups)){
+    const og=document.createElement('optgroup');og.label=cat;
+    items.sort().forEach(l=>{const o=document.createElement('option');o.value=l;o.textContent=(LABEL_CN[l]||l);og.appendChild(o)});
+    fl.appendChild(og);
+  }
   if([...fl.options].some(o=>o.value===curL))fl.value=curL;
 
   // Status filter
@@ -481,10 +633,11 @@ function renderTimeline(eSegs,vp){
     const st=getSegReview(vp,s._origIdx);
     if(st)div.classList.add('reviewed-'+st);
     if(s._modified||s._isAdded)div.classList.add('modified');
+    const isKnownTl=ALL_LABELS.includes(s.label);
     div.style.left=(s.start/20*100)+'%';
     div.style.width=Math.max((s.end-s.start)/20*100,1)+'%';
-    div.style.background=COLORS[s.label]||'#555';
-    div.textContent=s.label.split('_').pop();
+    div.style.background=isKnownTl?(COLORS[s.label]||'#555'):'#ff4444';
+    div.textContent=isKnownTl?(LABEL_CN[s.label]||s.label.split('_').pop()):('⚠'+s.label.split('_').pop());
     div.onclick=e=>{e.stopPropagation();selectedSegIdx=si;render()};
     tl.appendChild(div);
   });
@@ -500,20 +653,28 @@ function renderSegList(eSegs,vp,video,origSegs){
     div.className='seg-item'+(si===selectedSegIdx?' selected':'');
     if(st)div.classList.add('review-'+st);
     if(s._modified||s._isAdded)div.classList.add('seg-modified');
+    const isKnown=ALL_LABELS.includes(s.label);
+    if(!isKnown)div.classList.add('seg-hallucinated');
 
     let html='<div class="seg-header">'+
       '<div class="seg-idx">'+(si+1)+'</div>'+
-      '<div class="seg-color" style="background:'+(COLORS[s.label]||'#555')+'"></div>'+
-      '<div class="seg-label">'+s.label+(s._modified?'<span class="modified-badge">改</span>':'')+(s._isAdded?'<span class="modified-badge" style="background:#3498db">新</span>':'')+'</div>'+
+      '<div class="seg-color" style="background:'+(isKnown?(COLORS[s.label]||'#555'):'#ff4444')+'"></div>'+
+      '<div class="seg-label">'+(isKnown?(LABEL_CN[s.label]||s.label):('<span style="color:#ff4444;font-weight:bold">'+s.label+'</span>'))+'<span style="color:#666;font-size:9px;margin-left:4px">'+s.label.split('_').slice(1).join('_')+'</span>'+(s._modified?'<span class="modified-badge">改</span>':'')+(s._isAdded?'<span class="modified-badge" style="background:#3498db">新</span>':'')+(!isKnown?'<span class="halluc-badge">模型编造</span>':'')+'</div>'+
       '<div class="seg-time">'+s.start+'s-'+s.end+'s</div>'+
       '<div class="seg-conf">'+s.confidence+'%</div></div>';
 
     // Edit area in augment mode for selected segment
     if(currentMode==='augment'&&si===selectedSegIdx){
       let opts='';
-      ALL_LABELS.forEach(l=>{opts+='<option value="'+l+'"'+(l===s.label?' selected':'')+'>'+l+'</option>'});
+      for(const[cat,subs] of Object.entries(LABEL_CATEGORIES)){
+        opts+='<optgroup label="'+cat+'">';
+        for(const[en,cn] of Object.entries(subs)){
+          opts+='<option value="'+en+'"'+(en===s.label?' selected':'')+'>'+cn+' ('+en.split('_').slice(1).join('_')+')</option>';
+        }
+        opts+='</optgroup>';
+      }
       html+='<div class="seg-edit" onclick="event.stopPropagation()">'+
-        '<div class="seg-edit-row"><label>标签:</label><select id="eL_'+si+'" onmousedown="event.stopPropagation()">'+opts+'</select></div>'+
+        '<div class="seg-edit-row"><label>标签:</label><select id="eL_'+si+'" onmousedown="event.stopPropagation()" style="max-width:280px">'+opts+'</select></div>'+
         '<div class="seg-edit-row"><label>时间:</label>'+
         '<input type="number" id="eS_'+si+'" value="'+s.start+'" min="0" max="20" step="1" onclick="event.stopPropagation()"/>'+
         '<span style="color:#666">-</span>'+
@@ -596,7 +757,7 @@ function addSegment(){
   const vp=annotations[idx].video_path;
   if(!reviews[vp])reviews[vp]={segments:{},comment:'',modifications:{},added_segments:[],deleted_segments:[]};
   if(!reviews[vp].added_segments)reviews[vp].added_segments=[];
-  reviews[vp].added_segments.push({label:'else',start:0,end:20});
+  reviews[vp].added_segments.push({label:DEFAULT_ADD_LABEL_PLACEHOLDER,start:0,end:20});
   const eSegs=getEffectiveSegs(vp,annotations[idx].segments||[]);
   selectedSegIdx=eSegs.length-1;
   // Auto-mark added as correct
@@ -666,7 +827,7 @@ function renderAccuracy(){
     if(est>=0){totalEst+=est;totalAll+=st.total}
     const c=p<0?'#555':p>=80?'#2ecc71':p>=50?'#f1c40f':'#ff6b6b';
     const r=document.createElement('div');r.className='acc-row';
-    r.innerHTML='<div class="acc-name" title="'+l+'">'+l.split('_').slice(1).join('_')+'</div>'+
+    r.innerHTML='<div class="acc-name" title="'+l+'">'+(LABEL_CN[l]||l.split('_').slice(1).join('_'))+'</div>'+
       '<div class="acc-bar"><div class="acc-fill" style="width:'+(p>=0?p:0)+'%;background:'+c+'"></div></div>'+
       '<div class="acc-pct">'+(p>=0?p.toFixed(0)+'%':'-')+'</div>'+
       '<div style="min-width:55px;font-size:10px;color:#666">'+st.correct+'/'+st.reviewed+'/'+st.total+'</div>'+
@@ -712,9 +873,9 @@ function seekTimeline(e){
 function exportCSV(){
   let csv='video_path,seg_idx,label,start,end,confidence,review_status\n';
   annotations.forEach(a=>{
-    const vp=a.video_path;
-    getEffectiveSegs(vp,a.segments||[]).forEach((s,si)=>{
-      csv+='"'+vp+'",'+si+',"'+s.label+'",'+s.start+','+s.end+','+s.confidence+','+(getSegReview(vp,s._origIdx)||'')+'\n';
+    const vp=a.video_path.replace('/tmp/web_videos','');
+    getEffectiveSegs(a.video_path,a.segments||[]).forEach((s,si)=>{
+      csv+='"'+vp+'",'+si+',"'+s.label+'",'+s.start+','+s.end+','+s.confidence+','+(getSegReview(a.video_path,s._origIdx)||'')+'\n';
     });
   });
   const b=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='review.csv';a.click();
@@ -732,13 +893,19 @@ async function exportTraining(){
 
 // ===== Label reference grid =====
 function buildLabelGrid(){
-  const g=document.getElementById('labelGrid');g.innerHTML='';
-  ALL_LABELS.forEach(l=>{
-    const c=document.createElement('span');c.className='label-chip';
-    c.innerHTML='<span class="lc-dot" style="background:'+(COLORS[l]||'#555')+'"></span>'+
-      l.split('_').slice(1).join(' ')+'<span class="lc-def">'+(LABEL_DEFS[l]||l)+'</span>';
-    g.appendChild(c);
-  });
+  const g=document.getElementById('labelGrid');g.innerHTML='';g.style.flexDirection='column';g.style.gap='10px';
+  for(const[cat,subs] of Object.entries(LABEL_CATEGORIES)){
+    const section=document.createElement('div');
+    section.innerHTML='<div style="font-size:11px;font-weight:bold;color:#e94560;margin-bottom:4px;cursor:pointer" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display===\'none\'?\'flex\':\'none\'">'+cat+' ('+Object.keys(subs).length+')</div>';
+    const chips=document.createElement('div');chips.style.cssText='display:flex;flex-wrap:wrap;gap:4px';
+    for(const[en,cn] of Object.entries(subs)){
+      const c=document.createElement('span');c.className='label-chip';
+      c.innerHTML='<span class="lc-dot" style="background:'+(COLORS[en]||'#555')+'"></span>'+
+        cn+'<span class="lc-def">'+en+'</span>';
+      chips.appendChild(c);
+    }
+    section.appendChild(chips);g.appendChild(section);
+  }
 }
 
 // Playhead
@@ -768,6 +935,80 @@ document.addEventListener('keydown',e=>{
 initHistory();buildLabelGrid();
 </script>
 </body></html>"""
+
+
+# ==================== 数据格式归一化 ====================
+def _parse_structured_label(sl):
+    """从 structured_label 字段解析出 segments 列表，支持 dict / str 两种格式"""
+    obj = None
+    if isinstance(sl, dict):
+        obj = sl
+    elif isinstance(sl, str):
+        m = re.search(r'```json\s*(\{.*?\})\s*```', sl, re.DOTALL)
+        if m:
+            try:
+                obj = json.loads(m.group(1))
+            except json.JSONDecodeError:
+                obj = None
+        if not obj:
+            m2 = re.search(r'(\{\s*"tags"\s*:\s*\[.*\]\s*\})', sl, re.DOTALL)
+            if m2:
+                try:
+                    obj = json.loads(m2.group(1))
+                except json.JSONDecodeError:
+                    obj = None
+    if not obj:
+        return []
+    segments = []
+    for tag in obj.get("tags", []):
+        sub_en = tag.get("sub_category_en", "")
+        sub_cn = tag.get("sub_category", "")
+        major = tag.get("major_category", "")
+        if not isinstance(major, str) or not major.startswith(ALLOWED_MAJOR_PREFIXES):
+            continue
+        conf_data = tag.get("confidence", {})
+        conf = int(round((conf_data.get("sub", conf_data.get("major", 0.5))) * 100)) if isinstance(conf_data, dict) else 50
+        for te in tag.get("time_evidence", [{"start": 0, "end": 20}]):
+            segments.append({
+                "label": sub_en or DEFAULT_ADD_LABEL,
+                "label_cn": sub_cn,
+                "major_category": major,
+                "start": te.get("start", 0),
+                "end": te.get("end", 20),
+                "confidence": conf,
+                "description": te.get("description", ""),
+            })
+    return segments
+
+
+def _normalize_annotations(anns):
+    """检测并转换新格式数据（structured_label / tags）为标准 segments 格式"""
+    if not anns:
+        return anns
+    sample = anns[0]
+    has_structured = "structured_label" in sample
+    has_tags = "tags" in sample
+    if not has_structured and not has_tags:
+        for ann in anns:
+            ann["segments"] = _filter_allowed_segments(ann.get("segments", []))
+        return anns
+    fmt = "structured_label" if has_structured else "tags"
+    print(f"[格式转换] 检测到 {fmt} 格式，正在转换...")
+    converted = 0
+    for ann in anns:
+        sl = ann.get("structured_label") or ann.get("tags")
+        if isinstance(sl, list):
+            sl = {"tags": sl}
+        if sl and not ann.get("segments"):
+            segs = _parse_structured_label(sl)
+            ann["segments"] = _filter_allowed_segments(segs)
+            converted += 1
+        elif not ann.get("segments"):
+            ann["segments"] = []
+        else:
+            ann["segments"] = _filter_allowed_segments(ann.get("segments", []))
+    print(f"[格式转换] 完成，{converted}/{len(anns)} 条已转换")
+    return anns
 
 
 # ==================== HTTP 服务 ====================
@@ -806,6 +1047,9 @@ class ReviewHandler(BaseHTTPRequestHandler):
         html = HTML_PAGE.replace("LABEL_COLORS_PLACEHOLDER", json.dumps(LABEL_COLORS))
         html = html.replace("ALL_LABELS_PLACEHOLDER", json.dumps(ALL_LABELS))
         html = html.replace("LABEL_DEFS_PLACEHOLDER", json.dumps(LABEL_DEFINITIONS, ensure_ascii=False))
+        html = html.replace("LABEL_CATEGORIES_PLACEHOLDER", json.dumps(LABEL_CATEGORIES, ensure_ascii=False))
+        html = html.replace("LABEL_CN_PLACEHOLDER", json.dumps(LABEL_CN, ensure_ascii=False))
+        html = html.replace("DEFAULT_ADD_LABEL_PLACEHOLDER", json.dumps(DEFAULT_ADD_LABEL))
         data = html.encode("utf-8")
         self.send_response(200)
         self.send_header("Content-Type", "text/html; charset=utf-8")
@@ -859,6 +1103,7 @@ class ReviewHandler(BaseHTTPRequestHandler):
         try:
             with open(ap, "r", encoding="utf-8") as f: anns = json.load(f)
             if not isinstance(anns, list): self._jr({"error": "需要 JSON 数组"}); return
+            anns = _normalize_annotations(anns)
             if not rp: rp = os.path.splitext(ap)[0] + "_review.json"
             rvs = {}
             if os.path.exists(rp):
@@ -866,6 +1111,22 @@ class ReviewHandler(BaseHTTPRequestHandler):
                     with open(rp, "r", encoding="utf-8") as f: rvs = json.load(f)
                     print(f"[载入] 审核 {len(rvs)} 条 ({rp})")
                 except: rvs = {}
+            # Normalize review keys to match annotation video_path
+            ann_paths = {a.get("video_path", "") for a in anns}
+            if rvs and not (set(rvs.keys()) & ann_paths):
+                normalized = {}
+                for k, v in rvs.items():
+                    k_stripped = k.replace("/tmp/web_videos", "")
+                    k_prefixed = "/tmp/web_videos" + k if not k.startswith("/tmp/web_videos") else k
+                    if k_stripped in ann_paths:
+                        normalized[k_stripped] = v
+                    elif k_prefixed in ann_paths:
+                        normalized[k_prefixed] = v
+                    else:
+                        normalized[k] = v
+                if normalized:
+                    print(f"[载入] 路径归一化: {len(rvs)} -> {len(normalized)} 条匹配")
+                    rvs = normalized
             od = os.path.dirname(rp)
             if od: os.makedirs(od, exist_ok=True)
             lc = Counter()
@@ -906,8 +1167,9 @@ class ReviewHandler(BaseHTTPRequestHandler):
         os.makedirs(od, exist_ok=True)
         by_label = {}; total = 0
         for ann in annotations_data:
-            vp = ann.get("video_path", "")
-            rv = crvs.get(vp, {})
+            vp_orig = ann.get("video_path", "")
+            vp = vp_orig.replace("/tmp/web_videos", "")
+            rv = crvs.get(vp_orig, {})
             srvs = rv.get("segments", {}) if isinstance(rv, dict) else {}
             mods = rv.get("modifications", {}) if isinstance(rv, dict) else {}
             dels = rv.get("deleted_segments", []) if isinstance(rv, dict) else []

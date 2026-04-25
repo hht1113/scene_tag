@@ -1,0 +1,154 @@
+You are an expert in autonomous driving scene annotation.
+Based on the input video, analyze the 20-second video to identify the ego vehicle's actions related to: **Intersection Dynamic Interaction (路口内动态交互)**.
+
+CATEGORY SCOPE: Interactions between the ego and other road users WITHIN an intersection — crossings, cut-ins, and close approaches during turning or straight-through maneuvers at intersections.
+
+TARGET LABELS (15 labels):
+  IntersectionInteraction_StraightVRUCrossing  (路口直行VRU横穿)
+  IntersectionInteraction_StraightLeftTurnVehicleCrossing  (路口直行左转车辆横穿)
+  IntersectionInteraction_LeftTurnVRUCrossing  (路口左转VRU横穿)
+  IntersectionInteraction_LeftTurnStraightVehicleCrossing  (路口左转直行车辆横穿)
+  IntersectionInteraction_RightTurnVRUCrossing  (路口右转VRU横穿)
+  IntersectionInteraction_RightTurnStraightVehicleCrossing  (路口右转直行车辆横穿)
+  IntersectionInteraction_StraightRightTurnVRUCutIn  (路口直行右转VRU切入)
+  IntersectionInteraction_StraightRightTurnVehicleCutIn  (路口直行右转车辆切入)
+  IntersectionInteraction_RearSideVRUApproach  (路口侧后VRU贴近)
+  IntersectionInteraction_ParallelVRUApproach  (路口并行VRU贴近)
+  IntersectionInteraction_OncomingVRUApproach  (路口逆行VRU贴近)
+  IntersectionInteraction_RearSideVehicleApproach  (路口侧后车辆贴近)
+  IntersectionInteraction_ParallelStraightVehicleApproach  (路口并行直行车贴近)
+  IntersectionInteraction_ParallelLeftTurnVehicleApproach  (路口并行左转车贴近)
+  IntersectionInteraction_ParallelRightTurnVehicleApproach  (路口并行右转车贴近)
+  not_applicable  (none of the above labels match)
+
+LABELING RULES:
+1. Assign a label ONLY when the action clearly matches a predefined category (confidence ≥ 90%).
+2. NEVER force-match ambiguous scenes; use not_applicable instead.
+3. Multiple labels from this category may co-occur if multiple maneuvers are clearly present.
+4. Time segments MUST be contiguous and cover the relevant portions of the 20-second video.
+5. Base times on the video timeline (0.0 to 20.0 seconds).
+6. Focus ONLY on the ego vehicle's behavior, not other vehicles' independent actions.
+
+OUTPUT FORMAT:
+<driving_maneuver>label_name</driving_maneuver> from <start_time>XX.X</start_time> to <end_time>YY.Y</end_time> seconds.
+• Use the EXACT label names defined below.
+• Multiple segments are allowed — separate with " and " in chronological order.
+• If NO label in this category applies to any portion of the video, output:
+  <driving_maneuver>not_applicable</driving_maneuver> from <start_time>0.0</start_time> to <end_time>20.0</end_time> seconds.
+• Time precision: 1 decimal place (e.g., 5.0, 12.5).
+• Minimum segment duration: 1.0 second.
+
+TERMINOLOGY:
+• VRU (vulnerable road users): pedestrians, bicycles, e-bikes, tricycles — excludes motor vehicles.
+• Vehicle: motor vehicles only (cars, trucks, buses, motorcycles) — excludes bicycles, e-bikes, tricycles.
+• Ego vehicle: the vehicle equipped with the camera recording the video; its behavior is the subject of annotation.
+• FW (front-wide): the front-facing wide-angle camera view used for recording.
+• Lane crossing: another road user moving approximately PERPENDICULAR to the ego's travel direction, traversing across the ego's lane.
+• Cut-in: another road user moving approximately PARALLEL to the ego, merging INTO the ego's lane from an adjacent lane.
+• Cut-out: the lead vehicle in the ego's lane changing OUT of the ego's lane to an adjacent lane.
+• Nudge / in-lane avoidance: the ego makes a lateral offset WITHIN its lane (no lane change) to avoid an obstacle.
+• Borrow-lane avoidance: the ego partially or fully enters the ONCOMING lane to bypass an obstacle, then returns.
+• Cross-line bypass: the ego crosses lane markings to bypass a queue of stopped vehicles/obstacles.
+• Overtake: the ego changes lanes, passes a slower vehicle, and returns to the original lane — a complete compound maneuver.
+• SOD (Small Object Detection): small or distant objects such as traffic cones, debris, small animals, fallen cargo.
+
+LABEL DEFINITIONS:
+1. IntersectionInteraction_StraightVRUCrossing (路口直行VRU横穿):
+   • While the ego goes STRAIGHT through an intersection, a VRU (pedestrian, cyclist, e-bike) CROSSES the ego's path perpendicularly.
+   • The ego must slow, stop, or yield to the crossing VRU within the intersection.
+   • CRITICAL: ALL THREE conditions must be met simultaneously:
+     (a) The ego is at an INTERSECTION (not a mid-block crosswalk).
+     (b) The ego's trajectory is STRAIGHT (not turning left or right).
+     (c) A VRU is ACTIVELY CROSSING the ego's forward path — moving perpendicular to the ego's direction. VRUs merely standing on the sidewalk, walking along the road, or present but not crossing do NOT count.
+   • Key visual cue: ego is going straight through the intersection; a VRU is visibly walking/cycling ACROSS the ego's forward path (left-to-right or right-to-left); the ego reacts by braking or yielding.
+
+2. IntersectionInteraction_StraightLeftTurnVehicleCrossing (路口直行左转车辆横穿):
+   • While the ego goes STRAIGHT through an intersection, a LEFT-TURNING vehicle from the CROSS STREET or ONCOMING direction cuts across the ego's path.
+   • The conflicting vehicle is turning left and crosses in front of the ego.
+   • CRITICAL: The ego must be going STRAIGHT (heading unchanged). If the ego is also turning, use the corresponding left-turn or right-turn interaction label instead.
+   • CRITICAL: The other vehicle must ACTUALLY CROSS the ego's forward path — creating a real conflict. A vehicle turning left in a distant lane or behind the ego does NOT count.
+   • Key visual cue: ego is going straight; a vehicle from the side road or oncoming direction turns left and crosses the ego's forward path; the ego brakes or yields.
+
+3. IntersectionInteraction_LeftTurnVRUCrossing (路口左转VRU横穿):
+   • While the ego is turning LEFT at an intersection, a VRU crosses the ego's turning path — typically on the crosswalk of the target road.
+   • The ego must yield to the VRU while executing or completing the left turn.
+   • Key visual cue: ego is mid-left-turn; a pedestrian/cyclist is crossing the road that the ego is turning INTO; the ego slows or stops to yield.
+
+4. IntersectionInteraction_LeftTurnStraightVehicleCrossing (路口左转直行车辆横穿):
+   • While the ego turns LEFT, ONCOMING straight-through vehicles cross the ego's turning path — the classic unprotected-left-turn conflict.
+   • The ego must find a gap in oncoming traffic to complete its left turn.
+   • Key visual cue: ego is turning left; oncoming vehicles are going straight through the intersection, crossing the ego's intended path; the ego waits or proceeds carefully.
+
+5. IntersectionInteraction_RightTurnVRUCrossing (路口右转VRU横穿):
+   • While the ego turns RIGHT at an intersection, a VRU crosses the ego's turning path — typically on the crosswalk of the target road.
+   • The ego must yield to the VRU during or after the right turn.
+   • Key visual cue: ego is mid-right-turn; a pedestrian/cyclist is crossing the road the ego is turning INTO; the ego slows or stops.
+
+6. IntersectionInteraction_RightTurnStraightVehicleCrossing (路口右转直行车辆横穿):
+   • While the ego turns RIGHT, a straight-through vehicle from the cross street crosses the ego's turning path.
+   • The conflicting vehicle is going straight on the perpendicular road while the ego is turning right.
+   • Key visual cue: ego is turning right; a vehicle from the cross street goes straight and crosses the ego's turning path.
+
+7. IntersectionInteraction_StraightRightTurnVRUCutIn (路口直行右转VRU切入):
+   • While the ego goes straight or turns right at an intersection, a VRU CUTS IN from the side — merging into the ego's path in roughly the SAME direction (not crossing perpendicular).
+   • The VRU enters from the roadside or an adjacent lane and merges ahead of the ego.
+   • Key visual cue: a VRU appears from the side of the intersection and enters the ego's lane/path, moving in the same general direction as the ego.
+   • Distinct from VRUCrossing: crossing is PERPENDICULAR; cut-in is roughly PARALLEL / same direction.
+
+8. IntersectionInteraction_StraightRightTurnVehicleCutIn (路口直行右转车辆切入):
+   • While the ego goes straight or turns right at an intersection, a motor vehicle CUTS IN from a side lane — merging into the ego's path in the same direction.
+   • The cutting vehicle enters from a side road, turn lane, or adjacent lane and merges ahead of the ego.
+   • Key visual cue: a vehicle appears from the side within the intersection and merges into the ego's forward path, reducing the ego's following distance.
+
+9. IntersectionInteraction_RearSideVRUApproach (路口侧后VRU贴近):
+   • A VRU approaches the ego from the REAR or SIDE at an intersection — the VRU is behind or beside the ego, creating a blind-spot hazard.
+   • The ego may not see the VRU in the front-wide camera; this is a proximity warning scenario.
+   • Key visual cue: a VRU may be barely visible at the extreme edge of the frame, or inferred from the traffic situation.
+   • NOTE: Requires side or rear camera for reliable detection — FW alone has limited visibility for rear/side approaches.
+
+10. IntersectionInteraction_ParallelVRUApproach (路口并行VRU贴近):
+   • A VRU moves PARALLEL to and alongside the ego vehicle at an intersection — both the VRU and ego are moving in the same general direction, close together.
+   • The VRU is in an adjacent lane, on the sidewalk edge, or in a bike lane, very close to the ego.
+   • Key visual cue: a VRU (cyclist, e-bike rider, pedestrian) is visible at the side of the frame, moving alongside the ego through the intersection at close range.
+
+11. IntersectionInteraction_OncomingVRUApproach (路口逆行VRU贴近):
+   • A VRU approaches the ego from the OPPOSITE direction at an intersection — head-on or near-head-on approach within the intersection.
+   • The VRU is coming toward the ego, creating a proximity concern during the ego's intersection maneuver.
+   • Key visual cue: a VRU is visible ahead, moving TOWARD the ego within the intersection; the gap between them is small.
+
+12. IntersectionInteraction_RearSideVehicleApproach (路口侧后车辆贴近):
+   • A motor vehicle approaches the ego from the REAR or SIDE at an intersection — the vehicle is in a blind spot or approaching from behind.
+   • This creates a collision risk, especially during turning maneuvers.
+   • NOTE: Requires side or rear camera for reliable detection — FW alone has limited visibility.
+
+13. IntersectionInteraction_ParallelStraightVehicleApproach (路口并行直行车贴近):
+   • A vehicle going STRAIGHT moves PARALLEL to and alongside the ego at an intersection — both vehicles are navigating the intersection side by side.
+   • The parallel vehicle is in an adjacent lane, going straight, while the ego is also traversing the intersection.
+   • Key visual cue: a vehicle in the adjacent lane is visible alongside the ego, both moving through the intersection; lateral clearance is small.
+
+14. IntersectionInteraction_ParallelLeftTurnVehicleApproach (路口并行左转车贴近):
+   • A LEFT-TURNING vehicle moves PARALLEL to and alongside the ego at an intersection — the other vehicle is turning left in an adjacent left-turn lane.
+   • Both the ego and the parallel vehicle are navigating the intersection simultaneously, creating close proximity.
+   • Key visual cue: a vehicle in the adjacent lane is visibly turning left alongside the ego; both vehicles curve through the intersection together.
+
+15. IntersectionInteraction_ParallelRightTurnVehicleApproach (路口并行右转车贴近):
+   • A RIGHT-TURNING vehicle moves PARALLEL to and alongside the ego at an intersection — the other vehicle is turning right in an adjacent lane.
+   • Both the ego and the parallel vehicle are navigating the intersection simultaneously at close range.
+   • Key visual cue: a vehicle in the adjacent lane is visibly turning right alongside the ego through the intersection.
+
+DISAMBIGUATION RULES:
+D1. Crossing vs CutIn:
+   • Crossing: the other road user moves PERPENDICULAR to the ego's direction. CutIn: the other road user moves roughly PARALLEL, merging into the ego's path.
+
+D2. IntersectionInteraction vs DynamicInteraction:
+   • IntersectionInteraction: occurs WITHIN an intersection during turning/straight-through. DynamicInteraction: occurs on STRAIGHT road segments between intersections. Check the location — is the ego within an intersection?
+
+D3. RearSide vs Parallel vs Oncoming approach:
+   • RearSide: other road user approaches from BEHIND or SIDE (limited FW visibility). Parallel: other road user moves alongside in the SAME direction. Oncoming: other road user approaches HEAD-ON from the opposite direction.
+
+IMPORTANT GUIDELINES:
+1. Analyze the ENTIRE 20-second video thoroughly before labeling.
+2. Match actions to the MOST SPECIFIC appropriate label.
+3. When in doubt between two labels, check the DISAMBIGUATION RULES.
+4. Ensure time segments accurately reflect when each maneuver occurs.
+5. Maintain chronological order in output.

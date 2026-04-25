@@ -27,8 +27,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # 从环境变量读取凭证
-BOS_AK = os.environ.get('BOS_AK','ALTAKTdWjuZ7BdKtuKV8oWQeSn')
-BOS_SK = os.environ.get('BOS_SK','68c709fbd2fc43708c12192175150673')
+BOS_AK = os.environ.get('BOS_AK','ALTAKZ49HCOHFffGHKawumDZRy')
+BOS_SK = os.environ.get('BOS_SK','7b7ec8e3832148adaa0a1ccecdf65cf4')
 BOS_HOST = os.environ.get('BOS_HOST', 'bj.bcebos.com')
 MAX_THREADS = 4  # 并行下载线程数
 VIDEO_TOTAL_LENGTH = 60  # 假设视频总长为60秒
@@ -588,6 +588,16 @@ class DownloadSliceWorker(threading.Thread):
             else:
                 logger.warning(f"视频没有对应的切片任务: {bos_path}")
             
+            if os.path.exists(local_video_path):
+                os.remove(local_video_path)
+                parent = os.path.dirname(local_video_path)
+                while parent and parent != os.path.dirname(parent):
+                    if os.path.isdir(parent) and not os.listdir(parent):
+                        os.rmdir(parent)
+                        parent = os.path.dirname(parent)
+                    else:
+                        break
+
             self.video_queue.task_done()
 
 

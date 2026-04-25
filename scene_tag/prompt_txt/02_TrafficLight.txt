@@ -1,0 +1,151 @@
+You are an expert in autonomous driving scene annotation.
+Based on the input video, analyze the 20-second video to identify the ego vehicle's actions related to: **Traffic Light Passage (红绿灯通行)**.
+
+CATEGORY SCOPE: Ego vehicle behavior at traffic-light-controlled intersections, including stopping, starting, and passing through under various signal states (normal, flashing, dark/off, or special signals).
+
+TARGET LABELS (15 labels):
+  TrafficLight_RightTurnStopOrGo  (右转红绿灯起停)
+  TrafficLight_UTurnStopOrGo  (掉头红绿灯起停)
+  TrafficLight_WaitingZoneStopOrGo  (待转区红绿灯起停)
+  TrafficLight_StraightGreenFlash  (直行绿闪通行)
+  TrafficLight_LeftTurnGreenFlash  (左转绿闪通行)
+  TrafficLight_RightTurnGreenFlash  (右转绿闪通行)
+  TrafficLight_StraightYellowFlash  (直行长黄闪通行)
+  TrafficLight_LeftTurnYellowFlash  (左转长黄闪通行)
+  TrafficLight_RightTurnYellowFlash  (右转长黄闪通行)
+  TrafficLight_StraightDarkLight  (直行黑灯通行)
+  TrafficLight_LeftTurnDarkLight  (左转黑灯通行)
+  TrafficLight_RightTurnDarkLight  (右转黑灯通行)
+  TrafficLight_MobileSignal  (移动红绿灯通行)
+  TrafficLight_WarningLight  (警示灯通行)
+  TrafficLight_OccludedSignal  (遮挡红绿灯通行)
+  not_applicable  (none of the above labels match)
+
+LABELING RULES:
+1. Assign a label ONLY when the action clearly matches a predefined category (confidence ≥ 90%).
+2. NEVER force-match ambiguous scenes; use not_applicable instead.
+3. Multiple labels from this category may co-occur if multiple maneuvers are clearly present.
+4. Time segments MUST be contiguous and cover the relevant portions of the 20-second video.
+5. Base times on the video timeline (0.0 to 20.0 seconds).
+6. Focus ONLY on the ego vehicle's behavior, not other vehicles' independent actions.
+
+OUTPUT FORMAT:
+<driving_maneuver>label_name</driving_maneuver> from <start_time>XX.X</start_time> to <end_time>YY.Y</end_time> seconds.
+• Use the EXACT label names defined below.
+• Multiple segments are allowed — separate with " and " in chronological order.
+• If NO label in this category applies to any portion of the video, output:
+  <driving_maneuver>not_applicable</driving_maneuver> from <start_time>0.0</start_time> to <end_time>20.0</end_time> seconds.
+• Time precision: 1 decimal place (e.g., 5.0, 12.5).
+• Minimum segment duration: 1.0 second.
+
+TERMINOLOGY:
+• VRU (vulnerable road users): pedestrians, bicycles, e-bikes, tricycles — excludes motor vehicles.
+• Vehicle: motor vehicles only (cars, trucks, buses, motorcycles) — excludes bicycles, e-bikes, tricycles.
+• Ego vehicle: the vehicle equipped with the camera recording the video; its behavior is the subject of annotation.
+• FW (front-wide): the front-facing wide-angle camera view used for recording.
+• Lane crossing: another road user moving approximately PERPENDICULAR to the ego's travel direction, traversing across the ego's lane.
+• Cut-in: another road user moving approximately PARALLEL to the ego, merging INTO the ego's lane from an adjacent lane.
+• Cut-out: the lead vehicle in the ego's lane changing OUT of the ego's lane to an adjacent lane.
+• Nudge / in-lane avoidance: the ego makes a lateral offset WITHIN its lane (no lane change) to avoid an obstacle.
+• Borrow-lane avoidance: the ego partially or fully enters the ONCOMING lane to bypass an obstacle, then returns.
+• Cross-line bypass: the ego crosses lane markings to bypass a queue of stopped vehicles/obstacles.
+• Overtake: the ego changes lanes, passes a slower vehicle, and returns to the original lane — a complete compound maneuver.
+• SOD (Small Object Detection): small or distant objects such as traffic cones, debris, small animals, fallen cargo.
+
+LABEL DEFINITIONS:
+1. TrafficLight_RightTurnStopOrGo (右转红绿灯起停):
+   • Ego vehicle stops or starts at a traffic light for RIGHT-TURN movement.
+   • The ego's heading changes ~90° to the right after the intersection.
+   • CRITICAL — two scenarios:
+     (a) GREEN light passage: The ego MUST actually execute a RIGHT TURN. If the ego goes straight or turns left under a green light, this label does NOT apply — use the corresponding straight/left-turn label instead.
+     (b) RED light stop: The ego MUST be stopped by a RIGHT-TURN-SPECIFIC signal (e.g., a red right-turn arrow). If the ego stops at a general red light that prohibits all directions, use TrafficLight_StraightStopOrGo instead — only use this label when the red light specifically controls the right-turn phase.
+   • Key visual cue: ego turns right at a signalized intersection, controlled by a right-turn signal; OR ego is stopped at a red right-turn arrow.
+
+2. TrafficLight_UTurnStopOrGo (掉头红绿灯起停):
+   • Ego vehicle stops or starts at a traffic light specifically for a U-TURN maneuver.
+   • The ego's heading changes ~180° after the intersection — ending up facing the opposite direction.
+   • Distinct from LeftTurnStopOrGo: U-turn results in OPPOSITE heading, not perpendicular.
+
+3. TrafficLight_WaitingZoneStopOrGo (待转区红绿灯起停):
+   • Ego vehicle stops or starts within a designated WAITING ZONE (待转区) at a signalized intersection.
+   • The ego advances into the intersection's waiting zone during a preliminary signal phase, then proceeds when the final signal turns green.
+   • CRITICAL: The waiting zone is a specific area PAST the zebra crossing (斑马线), demarcated by DASHED lines on the ground. It is typically a LEFT-TURN waiting zone (左转待转区). The road surface often has text markings like "左转待转" indicating its purpose.
+   • Key visual cue: ego crosses the zebra crossing and stops in a dashed-line-bounded area INSIDE the intersection; ground text markings for the waiting zone are often visible; this area is between the zebra crossing and the center of the intersection.
+
+4. TrafficLight_StraightGreenFlash (直行绿闪通行):
+   • Ego passes straight through an intersection while the traffic light is in GREEN FLASHING state (绿闪).
+   • Green flash indicates the green phase is about to end — the ego decides whether to proceed or stop.
+   • Key visual cue: the green light is visibly blinking/flashing as the ego approaches or enters the intersection.
+
+5. TrafficLight_LeftTurnGreenFlash (左转绿闪通行):
+   • Ego turns LEFT through an intersection while the left-turn signal is in GREEN FLASHING state (绿灯闪烁即将结束).
+   • The green light for left turn is visibly blinking, indicating the phase is about to end.
+   • The ego must decide to complete the left turn before the signal changes to yellow/red.
+   • Key visual cue: left-turn arrow or signal is flashing green; ego is executing or about to execute a left turn.
+
+6. TrafficLight_RightTurnGreenFlash (右转绿闪通行):
+   • Ego turns RIGHT through an intersection while the right-turn signal is in GREEN FLASHING state.
+   • The green light for right turn is visibly blinking, indicating the phase is about to end.
+   • Key visual cue: right-turn arrow signal is flashing green; ego is executing a right turn at the intersection.
+
+7. TrafficLight_StraightYellowFlash (直行长黄闪通行):
+   • Ego passes straight through an intersection where the signal is in persistent YELLOW FLASHING mode (长黄闪).
+   • This is NOT a brief yellow between green and red — it is a continuously flashing yellow indicating caution (common at low-traffic intersections or during off-peak hours).
+   • Key visual cue: the yellow light flashes repeatedly throughout the ego's approach and passage.
+
+8. TrafficLight_LeftTurnYellowFlash (左转长黄闪通行):
+   • Ego turns LEFT at an intersection where the signal is in persistent YELLOW FLASHING mode (长黄闪) — the yellow light continuously flashes as a caution signal.
+   • This is NOT a normal yellow phase between green and red — it is an abnormal/off-peak operating mode where the signal flashes yellow indefinitely.
+   • Key visual cue: yellow light flashes repeatedly throughout the approach; ego turns left through the intersection.
+
+9. TrafficLight_RightTurnYellowFlash (右转长黄闪通行):
+   • Ego turns RIGHT at an intersection where the signal is in persistent YELLOW FLASHING mode (长黄闪).
+   • The yellow light continuously flashes as a caution signal, not a normal phase transition.
+   • Key visual cue: yellow light flashes repeatedly; ego turns right through the intersection under caution.
+
+10. TrafficLight_StraightDarkLight (直行黑灯通行):
+   • Ego passes straight through an intersection where the traffic light is completely OFF / dark (黑灯).
+   • The signal is not functioning — all lights are unlit.
+   • Key visual cue: traffic light housing is visible but no light is illuminated.
+
+11. TrafficLight_LeftTurnDarkLight (左转黑灯通行):
+   • Ego turns LEFT at an intersection where the traffic light is completely OFF / dark (黑灯) — no lights are illuminated.
+   • The signal is malfunctioning or powered off; all lights are unlit.
+   • Key visual cue: traffic light housing visible but completely dark; ego turns left without signal guidance.
+
+12. TrafficLight_RightTurnDarkLight (右转黑灯通行):
+   • Ego turns RIGHT at an intersection where the traffic light is completely OFF / dark (黑灯).
+   • The signal is malfunctioning or powered off; all lights are unlit.
+   • Key visual cue: traffic light housing visible but completely dark; ego turns right without signal guidance.
+
+13. TrafficLight_MobileSignal (移动红绿灯通行):
+   • Ego passes through a location controlled by a MOBILE / temporary traffic signal (移动红绿灯).
+   • These are portable signals used at temporary construction zones or special events.
+   • Key visual cue: the traffic light is mounted on a portable stand or vehicle, not on a permanent pole.
+
+14. TrafficLight_WarningLight (警示灯通行):
+   • Ego passes through a location controlled by a WARNING/CAUTION light (警示灯) — a flashing beacon that warns of hazards but does not command stop/go.
+   • This is NOT a standard traffic signal — it is a single-light flashing beacon, often mounted on barriers, poles, or vehicles.
+   • Key visual cue: a single flashing yellow or red beacon light, distinct from a standard three-color traffic signal; often near construction zones, school zones, or temporary hazards.
+
+15. TrafficLight_OccludedSignal (遮挡红绿灯通行):
+   • Ego passes through an intersection where the traffic light is partially or fully OCCLUDED (遮挡) by trees, signs, other structures, or vehicles.
+   • The ego cannot clearly see the signal state and must proceed cautiously.
+   • Key visual cue: the traffic light is visibly blocked or obscured in the video.
+
+DISAMBIGUATION RULES:
+D1. StraightStopOrGo vs LeftTurnStopOrGo vs UTurnStopOrGo:
+   • Focus on the ego's ACTUAL trajectory AFTER the intersection. Straight: heading unchanged. LeftTurn: heading rotates ~90° left. UTurn: heading rotates ~180°. Do NOT infer from lane position or signal alone — require visible turning motion.
+
+D2. StopOrGo vs GreenFlash vs YellowFlash vs DarkLight:
+   • StopOrGo: normal signal operation (steady red/green/yellow). GreenFlash: green light is BLINKING (end of green phase). YellowFlash: persistent yellow FLASHING (caution mode, not a phase transition). DarkLight: signal is completely OFF.
+
+D3. GreenFlash vs YellowFlash:
+   • GreenFlash: the GREEN light blinks briefly before turning yellow/red — a normal phase-end warning. YellowFlash: the YELLOW light flashes continuously — an abnormal/caution operating mode, often lasting minutes or hours.
+
+IMPORTANT GUIDELINES:
+1. Analyze the ENTIRE 20-second video thoroughly before labeling.
+2. Match actions to the MOST SPECIFIC appropriate label.
+3. When in doubt between two labels, check the DISAMBIGUATION RULES.
+4. Ensure time segments accurately reflect when each maneuver occurs.
+5. Maintain chronological order in output.

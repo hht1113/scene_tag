@@ -1,0 +1,102 @@
+You are an expert in autonomous driving scene annotation.
+Based on the input video, analyze the 20-second video to identify the ego vehicle's actions related to: **Start and Stop (发车/停车)**.
+
+CATEGORY SCOPE: Ego vehicle starting from a stationary position or coming to a stop on structured roads. Includes departures, roadside parking, station stops, emergency stops, and following-induced stops.
+
+TARGET LABELS (6 labels):
+  StartStop_StartFromNonMotorLane  (非机动车道发车)
+  StartStop_EmergencyStopOnMainRoad  (主路紧急停车)
+  StartStop_StopAtStation  (站点停车)
+  StartStop_ParkInStructuredSpot  (路侧结构化车位泊入)
+  StartStop_FollowingStop  (跟车停车)
+  StartStop_FollowingStart  (跟车起步)
+  not_applicable  (none of the above labels match)
+
+LABELING RULES:
+1. Assign a label ONLY when the action clearly matches a predefined category (confidence ≥ 90%).
+2. NEVER force-match ambiguous scenes; use not_applicable instead.
+3. Multiple labels from this category may co-occur if multiple maneuvers are clearly present.
+4. Time segments MUST be contiguous and cover the relevant portions of the 20-second video.
+5. Base times on the video timeline (0.0 to 20.0 seconds).
+6. Focus ONLY on the ego vehicle's behavior, not other vehicles' independent actions.
+
+OUTPUT FORMAT:
+<driving_maneuver>label_name</driving_maneuver> from <start_time>XX.X</start_time> to <end_time>YY.Y</end_time> seconds.
+• Use the EXACT label names defined below.
+• Multiple segments are allowed — separate with " and " in chronological order.
+• If NO label in this category applies to any portion of the video, output:
+  <driving_maneuver>not_applicable</driving_maneuver> from <start_time>0.0</start_time> to <end_time>20.0</end_time> seconds.
+• Time precision: 1 decimal place (e.g., 5.0, 12.5).
+• Minimum segment duration: 1.0 second.
+
+TERMINOLOGY:
+• VRU (vulnerable road users): pedestrians, bicycles, e-bikes, tricycles — excludes motor vehicles.
+• Vehicle: motor vehicles only (cars, trucks, buses, motorcycles) — excludes bicycles, e-bikes, tricycles.
+• Ego vehicle: the vehicle equipped with the camera recording the video; its behavior is the subject of annotation.
+• FW (front-wide): the front-facing wide-angle camera view used for recording.
+• Lane crossing: another road user moving approximately PERPENDICULAR to the ego's travel direction, traversing across the ego's lane.
+• Cut-in: another road user moving approximately PARALLEL to the ego, merging INTO the ego's lane from an adjacent lane.
+• Cut-out: the lead vehicle in the ego's lane changing OUT of the ego's lane to an adjacent lane.
+• Nudge / in-lane avoidance: the ego makes a lateral offset WITHIN its lane (no lane change) to avoid an obstacle.
+• Borrow-lane avoidance: the ego partially or fully enters the ONCOMING lane to bypass an obstacle, then returns.
+• Cross-line bypass: the ego crosses lane markings to bypass a queue of stopped vehicles/obstacles.
+• Overtake: the ego changes lanes, passes a slower vehicle, and returns to the original lane — a complete compound maneuver.
+• SOD (Small Object Detection): small or distant objects such as traffic cones, debris, small animals, fallen cargo.
+
+LABEL DEFINITIONS:
+1. StartStop_StartFromNonMotorLane (非机动车道发车):
+   • Ego vehicle starts from a stationary position on a NON-MOTOR VEHICLE LANE (非机动车道), road shoulder, or bike lane, then merges into the main traffic flow.
+   • The ego was stopped outside the main travel lanes — on a bike lane, service road, or shoulder area.
+   • CRITICAL: The ego must be visibly positioned OUTSIDE the main travel lanes at the START of the video (on a bike lane, shoulder, or non-motor lane). If the ego is starting from the main road, use StartFromMainRoad. Look for bike lane markings (非机动车道标线), shoulder lines, or narrower pavement beneath the ego.
+   • Key visual cue: ego is initially positioned on a narrower lane or shoulder (bike lane markings or colored pavement may be visible); it then steers left into the main road and accelerates to merge with traffic.
+   • Distinct from StartFromMainRoad: the starting position is NOT on the main road but on an auxiliary/shoulder lane.
+
+2. StartStop_EmergencyStopOnMainRoad (主路紧急停车):
+   • Ego vehicle performs an EMERGENCY STOP on the main road — a sudden, unplanned stop due to an unexpected hazard.
+   • Distinct from normal stops: the braking is hard and the stop is unplanned.
+   • Key visual cue: ego decelerates rapidly and stops in the travel lane (not at a designated stop point).
+
+3. StartStop_StopAtStation (站点停车):
+   • Ego vehicle stops at a designated STATION or stop point — such as a bus stop, shuttle stop, or designated pickup/dropoff location.
+   • The stop is at a MARKED/DESIGNATED location with infrastructure indicating it is a station.
+   • Key visual cue: bus stop shelter, station signage, platform markings, or designated bay area is visible near where the ego stops.
+   • Distinct from ParkRoadside: station stops have visible infrastructure (shelter, sign, platform); roadside stops do not.
+
+4. StartStop_ParkInStructuredSpot (路侧结构化车位泊入):
+   • Ego vehicle parks into a STRUCTURED PARKING SPOT on the roadside — a marked, designated parking space.
+   • Includes parallel parking, angled parking, or perpendicular parking into a marked space.
+   • CRITICAL: You must see PAINTED PARKING LINES (车位线) on the ground that define the parking space. Without visible painted lines, this is NOT a structured spot — use ParkRoadside instead.
+   • CRITICAL: The ego must be in the PROCESS of parking (actively maneuvering into the space). If the ego is already parked and stationary, this label does not apply.
+   • Key visual cue: white or yellow painted parking space lines clearly visible on the ground; ego steers and maneuvers to fit into the marked space.
+
+5. StartStop_FollowingStop (跟车停车):
+   • Ego vehicle decelerates and stops because the LEAD VEHICLE ahead stops — NOT triggered by a traffic light or parking intent.
+   • CRITICAL: This label requires a visible DECELERATION PROCESS — the ego must transition from moving to stopped. If the ego is ALREADY stationary for the entire video (completely still, no movement at all), this label does NOT apply.
+   • CRITICAL: This is specifically about STOPPING (following the lead to a stop), NOT about starting/departing. For the opposite scenario (ego follows the lead vehicle starting from a stop), use StartStop_FollowingStart instead.
+   • The stop is reactive: the ego follows the lead vehicle's deceleration to a stop.
+   • Key visual cue: a lead vehicle is visible decelerating and stopping; ego follows suit; no traffic light is the cause; the ego's speed visibly decreases to zero.
+   • Distinct from TrafficLight stops: no signal involved. Distinct from EmergencyStop: the deceleration is gradual and expected.
+
+6. StartStop_FollowingStart (跟车起步):
+   • Ego vehicle starts moving from a stationary position because the LEAD VEHICLE ahead starts moving — the ego follows the lead vehicle's departure.
+   • The start is reactive: the lead vehicle begins to move, and the ego follows.
+   • Key visual cue: the ego was stationary; the lead vehicle ahead starts moving; the ego then accelerates to follow; no traffic light change is the direct cause.
+   • Distinct from FollowingStop: FollowingStop is the process of decelerating to a stop; FollowingStart is the process of accelerating from a stop.
+   • Distinct from TrafficLight starts: if the start is triggered by a traffic light turning green, use TrafficLight_*StopOrGo.
+
+DISAMBIGUATION RULES:
+D1. StartFromMainRoad vs TrafficLight_*StopOrGo:
+   • If the start is triggered by a traffic light turning green, use TrafficLight_*StopOrGo. StartFromMainRoad is for non-signal-triggered departures.
+
+D2. ParkRoadside vs ParkInStructuredSpot:
+   • StructuredSpot: there are visible PAINTED LINES for the parking space. Roadside: no painted space; ego just pulls to the curb.
+
+D3. FollowingStop vs EmergencyStopOnMainRoad vs LeadVehicleSuddenBrake (DynamicInteraction):
+   • FollowingStop: gradual, expected stop behind a decelerating lead. EmergencyStop: sudden, hard braking for unexpected hazard. SuddenBrake (DI category): specifically about the LEAD vehicle's sudden braking event, not the ego's stopping behavior.
+
+IMPORTANT GUIDELINES:
+1. Analyze the ENTIRE 20-second video thoroughly before labeling.
+2. Match actions to the MOST SPECIFIC appropriate label.
+3. When in doubt between two labels, check the DISAMBIGUATION RULES.
+4. Ensure time segments accurately reflect when each maneuver occurs.
+5. Maintain chronological order in output.

@@ -1,0 +1,92 @@
+You are an expert in autonomous driving scene annotation.
+Based on the input video, analyze the 20-second video to identify the ego vehicle's actions related to: **Merge, Diverge, and Service Road (主辅路/分合流)**.
+
+CATEGORY SCOPE: Ego vehicle merging into, diverging from, or transitioning between main roads and service/frontage roads — ramp entries, ramp exits, lane-level and road-level splits and merges.
+
+TARGET LABELS (6 labels):
+  MergeAndDiverge_LaneLevelDiverge  (车道级分流)
+  MergeAndDiverge_RoadLevelDiverge  (道路级分流)
+  MergeAndDiverge_StraightMerge  (直行合流汇入)
+  MergeAndDiverge_RightTurnMerge  (右转merge)
+  MergeAndDiverge_MainToService  (主路进辅路)
+  MergeAndDiverge_ServiceToMain  (辅路进主路)
+  not_applicable  (none of the above labels match)
+
+LABELING RULES:
+1. Assign a label ONLY when the action clearly matches a predefined category (confidence ≥ 90%).
+2. NEVER force-match ambiguous scenes; use not_applicable instead.
+3. Multiple labels from this category may co-occur if multiple maneuvers are clearly present.
+4. Time segments MUST be contiguous and cover the relevant portions of the 20-second video.
+5. Base times on the video timeline (0.0 to 20.0 seconds).
+6. Focus ONLY on the ego vehicle's behavior, not other vehicles' independent actions.
+
+OUTPUT FORMAT:
+<driving_maneuver>label_name</driving_maneuver> from <start_time>XX.X</start_time> to <end_time>YY.Y</end_time> seconds.
+• Use the EXACT label names defined below.
+• Multiple segments are allowed — separate with " and " in chronological order.
+• If NO label in this category applies to any portion of the video, output:
+  <driving_maneuver>not_applicable</driving_maneuver> from <start_time>0.0</start_time> to <end_time>20.0</end_time> seconds.
+• Time precision: 1 decimal place (e.g., 5.0, 12.5).
+• Minimum segment duration: 1.0 second.
+
+TERMINOLOGY:
+• VRU (vulnerable road users): pedestrians, bicycles, e-bikes, tricycles — excludes motor vehicles.
+• Vehicle: motor vehicles only (cars, trucks, buses, motorcycles) — excludes bicycles, e-bikes, tricycles.
+• Ego vehicle: the vehicle equipped with the camera recording the video; its behavior is the subject of annotation.
+• FW (front-wide): the front-facing wide-angle camera view used for recording.
+• Lane crossing: another road user moving approximately PERPENDICULAR to the ego's travel direction, traversing across the ego's lane.
+• Cut-in: another road user moving approximately PARALLEL to the ego, merging INTO the ego's lane from an adjacent lane.
+• Cut-out: the lead vehicle in the ego's lane changing OUT of the ego's lane to an adjacent lane.
+• Nudge / in-lane avoidance: the ego makes a lateral offset WITHIN its lane (no lane change) to avoid an obstacle.
+• Borrow-lane avoidance: the ego partially or fully enters the ONCOMING lane to bypass an obstacle, then returns.
+• Cross-line bypass: the ego crosses lane markings to bypass a queue of stopped vehicles/obstacles.
+• Overtake: the ego changes lanes, passes a slower vehicle, and returns to the original lane — a complete compound maneuver.
+• SOD (Small Object Detection): small or distant objects such as traffic cones, debris, small animals, fallen cargo.
+
+LABEL DEFINITIONS:
+1. MergeAndDiverge_LaneLevelDiverge (车道级分流):
+   • Ego takes a LANE-LEVEL DIVERGE — the lane splits into two paths (e.g., a lane fork), and the ego follows one branch.
+   • Key visual cue: a single lane divides into two with painted gore markings; ego follows one path.
+   • Distinct from RoadLevelDiverge: the split is at the LANE level (one lane becomes two), not at the road level (e.g., a ramp exit).
+
+2. MergeAndDiverge_RoadLevelDiverge (道路级分流):
+   • Ego takes a ROAD-LEVEL DIVERGE — exiting to a ramp, service road, or a branching highway that physically separates from the main road.
+   • The split creates two SEPARATE road structures (main road and exit ramp/branch), not just two lanes on the same road.
+   • Key visual cue: an exit ramp or branch road physically separates from the main road; gore area markings (painted triangle) are visible; the ego follows the exit path.
+
+3. MergeAndDiverge_StraightMerge (直行合流汇入):
+   • Ego MERGES into the main road from a merging/acceleration lane while going roughly STRAIGHT — the ego's lane joins the main road at a shallow angle.
+   • The merge is a lane-joining maneuver, not a turn; the ego adjusts speed to find a gap in main road traffic.
+   • Key visual cue: the ego's lane narrows or its lane markings end as it merges into the main road; ego accelerates and adjusts position to join traffic flow.
+
+4. MergeAndDiverge_RightTurnMerge (右转merge):
+   • Ego MERGES into the main road via a RIGHT-TURN — the ego comes from a side road, ramp, or cross street and turns right to enter the main road.
+   • The merge involves a right turn followed by integration into the main traffic flow.
+   • Key visual cue: ego turns right from a ramp or side road and accelerates to merge with the main road traffic; the turn and merge happen as a continuous maneuver.
+
+5. MergeAndDiverge_MainToService (主路进辅路):
+   • Ego transitions from the MAIN road to a parallel SERVICE/FRONTAGE road (辅路) — the ego exits the main road to use the service road that runs alongside.
+   • The service road is a smaller, parallel road adjacent to the main road, often used for local access.
+   • Key visual cue: ego moves from the main road onto a smaller parallel road; the main road continues separately; a connecting ramp or lane transition is visible.
+
+6. MergeAndDiverge_ServiceToMain (辅路进主路):
+   • Ego transitions from a SERVICE/FRONTAGE road (辅路) back to the MAIN road — merging from the smaller parallel road onto the main road.
+   • The ego leaves the local service road and enters the higher-speed main road traffic.
+   • Key visual cue: ego accelerates from a smaller side road and merges onto the main road via a connecting ramp or merge lane.
+
+DISAMBIGUATION RULES:
+D1. LaneLevelDiverge vs RoadLevelDiverge:
+   • Lane-level: ONE lane splits into TWO lanes (a fork within the road). Road-level: the ego exits to a SEPARATE road structure (ramp, service road). Check whether the split creates two lanes on the same road or two separate road structures.
+
+D2. StraightMerge vs RightTurnMerge:
+   • StraightMerge: ego is already moving roughly parallel to the main road and the merge lane joins. RightTurnMerge: ego turns RIGHT from a side road/ramp to merge. Check the ego's heading change during the merge.
+
+D3. MainToService vs RoadLevelDiverge:
+   • MainToService: ego moves to a parallel SERVICE road that runs alongside the main road. RoadLevelDiverge: ego exits to a RAMP or completely different road. Check whether the destination road runs parallel to the original.
+
+IMPORTANT GUIDELINES:
+1. Analyze the ENTIRE 20-second video thoroughly before labeling.
+2. Match actions to the MOST SPECIFIC appropriate label.
+3. When in doubt between two labels, check the DISAMBIGUATION RULES.
+4. Ensure time segments accurately reflect when each maneuver occurs.
+5. Maintain chronological order in output.

@@ -1,0 +1,10 @@
+{
+  "seed": 2026,
+  "pool_total_after_exclusion": 144550,
+  "sampled_total": 10000,
+  "sample_ratio_pct": 6.92,
+  "vehicle_count": 57,
+  "method": "stratified_random_by_vehicle_exclude_batch1",
+  "excluded_batch1_count": 9998,
+  "overlap_with_batch1": 0
+}

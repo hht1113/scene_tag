@@ -1,0 +1,14 @@
+[
+  {
+    "name": "gemma4-e4b",
+    "api_base": "http://127.0.0.1:8000/v1",
+    "model_name": "gemma-4-E4B-it",
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "generation_config": "vllm"
+    },
+    "enabled": true
+  }
+]

@@ -1,0 +1,295 @@
+{
+  "seed": 42,
+  "pool_total": 154548,
+  "sampled_total": 9998,
+  "sample_ratio": 6.47,
+  "vehicle_count": 57,
+  "method": "stratified_random_by_vehicle",
+  "per_vehicle": {
+    "X3S0052": {
+      "total": 2826,
+      "sampled": 183,
+      "ratio": 6.5
+    },
+    "X3S0195": {
+      "total": 1785,
+      "sampled": 115,
+      "ratio": 6.4
+    },
+    "X3S0196": {
+      "total": 2076,
+      "sampled": 134,
+      "ratio": 6.5
+    },
+    "X3S0197": {
+      "total": 2361,
+      "sampled": 153,
+      "ratio": 6.5
+    },
+    "X3S0198": {
+      "total": 2634,
+      "sampled": 170,
+      "ratio": 6.5
+    },
+    "X3S0199": {
+      "total": 2817,
+      "sampled": 182,
+      "ratio": 6.5
+    },
+    "X3S0200": {
+      "total": 3309,
+      "sampled": 214,
+      "ratio": 6.5
+    },
+    "X3S0201": {
+      "total": 4266,
+      "sampled": 276,
+      "ratio": 6.5
+    },
+    "X3S0202": {
+      "total": 2433,
+      "sampled": 157,
+      "ratio": 6.5
+    },
+    "X3S0203": {
+      "total": 4122,
+      "sampled": 267,
+      "ratio": 6.5
+    },
+    "X3S0204": {
+      "total": 3690,
+      "sampled": 239,
+      "ratio": 6.5
+    },
+    "X3S0205": {
+      "total": 1197,
+      "sampled": 77,
+      "ratio": 6.4
+    },
+    "X3S0206": {
+      "total": 1806,
+      "sampled": 117,
+      "ratio": 6.5
+    },
+    "X3S0210": {
+      "total": 1227,
+      "sampled": 79,
+      "ratio": 6.4
+    },
+    "X3S0211": {
+      "total": 942,
+      "sampled": 61,
+      "ratio": 6.5
+    },
+    "X3S0212": {
+      "total": 1092,
+      "sampled": 71,
+      "ratio": 6.5
+    },
+    "X3S0214": {
+      "total": 1776,
+      "sampled": 115,
+      "ratio": 6.5
+    },
+    "X6S5006": {
+      "total": 3900,
+      "sampled": 252,
+      "ratio": 6.5
+    },
+    "X6S5009": {
+      "total": 2805,
+      "sampled": 181,
+      "ratio": 6.5
+    },
+    "X6S5019": {
+      "total": 2199,
+      "sampled": 142,
+      "ratio": 6.5
+    },
+    "X6S5021": {
+      "total": 5892,
+      "sampled": 381,
+      "ratio": 6.5
+    },
+    "X6S5024": {
+      "total": 5754,
+      "sampled": 372,
+      "ratio": 6.5
+    },
+    "X6S5604": {
+      "total": 4815,
+      "sampled": 312,
+      "ratio": 6.5
+    },
+    "X6S5605": {
+      "total": 3882,
+      "sampled": 251,
+      "ratio": 6.5
+    },
+    "X6S5606": {
+      "total": 4506,
+      "sampled": 292,
+      "ratio": 6.5
+    },
+    "X6S5607": {
+      "total": 1584,
+      "sampled": 102,
+      "ratio": 6.4
+    },
+    "X6S5608": {
+      "total": 4305,
+      "sampled": 279,
+      "ratio": 6.5
+    },
+    "X6S5609": {
+      "total": 4023,
+      "sampled": 260,
+      "ratio": 6.5
+    },
+    "X6S5610": {
+      "total": 3702,
+      "sampled": 240,
+      "ratio": 6.5
+    },
+    "X6S5611": {
+      "total": 3462,
+      "sampled": 224,
+      "ratio": 6.5
+    },
+    "X6S5612": {
+      "total": 3504,
+      "sampled": 227,
+      "ratio": 6.5
+    },
+    "X6S5613": {
+      "total": 2850,
+      "sampled": 184,
+      "ratio": 6.5
+    },
+    "X6S5614": {
+      "total": 663,
+      "sampled": 43,
+      "ratio": 6.5
+    },
+    "X6S5615": {
+      "total": 2175,
+      "sampled": 141,
+      "ratio": 6.5
+    },
+    "X6S5616": {
+      "total": 921,
+      "sampled": 60,
+      "ratio": 6.5
+    },
+    "X6S5617": {
+      "total": 4632,
+      "sampled": 300,
+      "ratio": 6.5
+    },
+    "X6S5618": {
+      "total": 861,
+      "sampled": 56,
+      "ratio": 6.5
+    },
+    "X6S5619": {
+      "total": 1176,
+      "sampled": 76,
+      "ratio": 6.5
+    },
+    "X6S5620": {
+      "total": 1995,
+      "sampled": 129,
+      "ratio": 6.5
+    },
+    "X6S5621": {
+      "total": 1593,
+      "sampled": 103,
+      "ratio": 6.5
+    },
+    "X6S5622": {
+      "total": 1059,
+      "sampled": 69,
+      "ratio": 6.5
+    },
+    "X6S5623": {
+      "total": 1215,
+      "sampled": 79,
+      "ratio": 6.5
+    },
+    "X6S5624": {
+      "total": 2535,
+      "sampled": 164,
+      "ratio": 6.5
+    },
+    "X6S5625": {
+      "total": 2226,
+      "sampled": 144,
+      "ratio": 6.5
+    },
+    "X6S5626": {
+      "total": 3297,
+      "sampled": 213,
+      "ratio": 6.5
+    },
+    "X6S5627": {
+      "total": 1098,
+      "sampled": 71,
+      "ratio": 6.5
+    },
+    "X6S5628": {
+      "total": 4005,
+      "sampled": 259,
+      "ratio": 6.5
+    },
+    "X6S5629": {
+      "total": 4164,
+      "sampled": 269,
+      "ratio": 6.5
+    },
+    "X6S5630": {
+      "total": 5049,
+      "sampled": 327,
+      "ratio": 6.5
+    },
+    "X6S5631": {
+      "total": 3045,
+      "sampled": 197,
+      "ratio": 6.5
+    },
+    "X6S5632": {
+      "total": 4182,
+      "sampled": 271,
+      "ratio": 6.5
+    },
+    "X6S5633": {
+      "total": 3111,
+      "sampled": 201,
+      "ratio": 6.5
+    },
+    "X6S5634": {
+      "total": 4563,
+      "sampled": 295,
+      "ratio": 6.5
+    },
+    "X6S5635": {
+      "total": 729,
+      "sampled": 47,
+      "ratio": 6.4
+    },
+    "X6S5636": {
+      "total": 606,
+      "sampled": 39,
+      "ratio": 6.4
+    },
+    "X6S5637": {
+      "total": 696,
+      "sampled": 45,
+      "ratio": 6.5
+    },
+    "X6S5638": {
+      "total": 1410,
+      "sampled": 91,
+      "ratio": 6.5
+    }
+  }
+}

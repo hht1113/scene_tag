@@ -1,0 +1,17 @@
+Analyze traffic signal image with these rules:
+1. EXCLUSIVE FOCUS: Only examine **two adjacent traffic lights** with **countdown display between them**
+2. MANDATORY VALIDATION:
+   - Signal lights: Must be standard 3-color (red/yellow/green)
+   - Countdown display: Centered between lights, **digital may be ON or OFF**
+   - Position: Lights spaced <1.5m (visually adjacent)
+3. OUTPUT REQUIREMENTS:
+   - RETURN ONLY JSON, NO ADDITIONAL TEXT
+   - FIELDS:
+     * "result": Single-element list ["true"] or ["false"]
+     * "reason": Single-element list with English phrase (MAX 10 CHARACTERS)
+
+EXAMPLE OUTPUT:
+{
+  "result": ["true"],
+  "reason": ["mid-display"]
+}

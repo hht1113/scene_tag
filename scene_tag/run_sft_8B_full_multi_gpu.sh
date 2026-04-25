@@ -34,7 +34,7 @@ echo "[INFO] 已激活 conda 环境: $CONDA_ENV_NAME (python: $(which python))"
 # ========================= 基础配置 =========================
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-CONFIG_FILE="${SCRIPT_DIR}/train_qwen3vl_sft_multi_gpu.yaml"
+CONFIG_FILE="${SCRIPT_DIR}/train_qwen3vl_8B_full_sft_8gpu.yaml"
 
 cd "$PROJECT_DIR"
 
@@ -55,7 +55,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
 fi
 
 # 检查数据集文件
-DATASET_FILE="${PROJECT_DIR}/data/qwen3_sft_train_segment_upsample.json"
+DATASET_FILE="${PROJECT_DIR}/data/qwen3_sft_train_segment_add_tags_upsample.json"
 if [ ! -f "$DATASET_FILE" ]; then
     echo "[ERROR] 数据集文件不存在: $DATASET_FILE"
     exit 1

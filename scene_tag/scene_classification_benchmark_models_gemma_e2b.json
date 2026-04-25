@@ -1,0 +1,25 @@
+[
+  {
+    "name": "gemma4-e2b",
+    "api_base": "http://127.0.0.1:8000/v1",
+    "model_name": "gemma-4-E2B-it",
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "generation_config": "vllm"
+    },
+    "enabled": true
+  },
+  {
+    "name": "qwen3.5-397b",
+    "api_base": "http://10.10.64.144:2754/v1",
+    "model_name": "Qwen3.5-397B-A17B",
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "enabled": true
+  }
+]

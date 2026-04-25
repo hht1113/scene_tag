@@ -50,7 +50,10 @@ from pathlib import Path
 from typing import List, Dict, Optional, Tuple
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# 绕过系统 HTTP 代理，直接连接本地 vLLM 服务
+# 绕过系统 HTTP 代理，直接连接 vLLM 服务
+import os as _os
+_os.environ["no_proxy"] = _os.environ.get("no_proxy", "") + ",10.10.64.144"
+_os.environ["NO_PROXY"] = _os.environ.get("NO_PROXY", "") + ",10.10.64.144"
 NO_PROXY = {"http": None, "https": None}
 
 
@@ -569,6 +572,7 @@ class AnnotationClient:
         resolution: Tuple[int, int] = (256, 256),
         request_timeout: int = 300,
         max_retries: int = 3,
+        api_key: Optional[str] = None,
     ):
         """
         Args:
@@ -580,6 +584,7 @@ class AnnotationClient:
             resolution: 目标分辨率
             request_timeout: API 请求超时（秒），视觉模型推理较慢
             max_retries: 失败重试次数
+            api_key: API Key (Bearer token)
         """
         self.api_base = api_base.rstrip("/")
         self.model_name = model_name
@@ -589,6 +594,7 @@ class AnnotationClient:
         self.resolution = resolution
         self.request_timeout = request_timeout
         self.max_retries = max_retries
+        self.api_key = api_key
 
         print(f"\n标注客户端配置:")
         print(f"  API 地址:     {self.api_base}")
@@ -690,9 +696,13 @@ class AnnotationClient:
 
         for attempt in range(1, self.max_retries + 1):
             try:
+                headers = {"Content-Type": "application/json"}
+                if self.api_key:
+                    headers["Authorization"] = f"Bearer {self.api_key}"
                 response = requests.post(
                     f"{self.api_base}/chat/completions",
                     json=request_body,
+                    headers=headers,
                     timeout=self.request_timeout,
                     proxies=NO_PROXY,
                 )
@@ -738,21 +748,31 @@ class AnnotationClient:
         """
         segments = []
 
-        pattern = (
+        pattern_with_conf = (
             r"<driving_maneuver>([^<]+)</driving_maneuver>\s+"
             r"from\s+<start_time>([\d.]+)</start_time>\s+"
-            r"to\s+<end_time>([\d.]+)</end_time>\s+seconds\s+"
+            r"to\s+<end_time>([\d.]+)</end_time>\s+seconds\s*"
             r"\(confidence:\s*(\d+)%\)"
         )
+        pattern_no_conf = (
+            r"<driving_maneuver>([^<]+)</driving_maneuver>\s+"
+            r"from\s+<start_time>([\d.]+)</start_time>\s+"
+            r"to\s+<end_time>([\d.]+)</end_time>\s+seconds"
+        )
 
-        for match in re.finditer(pattern, raw_text):
+        matches = list(re.finditer(pattern_with_conf, raw_text))
+        has_confidence = bool(matches)
+        if not matches:
+            matches = list(re.finditer(pattern_no_conf, raw_text))
+
+        for match in matches:
             label = match.group(1).strip()
             start = int(round(float(match.group(2))))
             end = int(round(float(match.group(3))))
-            conf = int(match.group(4))
+            conf = int(match.group(4)) if has_confidence else 80
 
-            # 验证标签合法性
-            if label not in CATEGORY_LABELS + ["else"]:
+            # 验证标签合法性（如果有标签白名单）
+            if CATEGORY_LABELS and label not in CATEGORY_LABELS + ["else", "not_applicable"]:
                 print(f"  警告: 无效标签 '{label}'，跳过")
                 continue
 
@@ -971,7 +991,7 @@ def check_server(api_base: str) -> bool:
         else:
             health_url = base_url + "/health"
 
-        resp = requests.get(health_url, timeout=10, proxies=NO_PROXY)
+        resp = requests.get(health_url, timeout=10, proxies=NO_PROXY, verify=False)
         return resp.status_code == 200
     except Exception:
         return False
@@ -1062,6 +1082,14 @@ def parse_args():
         help="抽帧帧率（默认 2.0 fps）",
     )
 
+    # ===== Prompt 参数 =====
+    parser.add_argument(
+        "--prompt_file",
+        type=str,
+        default=None,
+        help="外部 prompt 文件路径（覆盖内置 SYSTEM_PROMPT）",
+    )
+
     # ===== 标注参数 =====
     parser.add_argument(
         "--min_confidence",
@@ -1074,6 +1102,12 @@ def parse_args():
         type=int,
         default=300,
         help="单次 API 请求超时时间（秒，默认 300）",
+    )
+    parser.add_argument(
+        "--api_key",
+        type=str,
+        default=None,
+        help="API Key (Bearer token). Can also set ARK_API_KEY env var.",
     )
 
     # ===== 批量处理参数 =====
@@ -1117,7 +1151,24 @@ def main():
             sys.exit(1)
         print(f"-> 服务连接成功!\n")
 
+        # ===== Step 1.5: 加载外部 prompt（如果指定）=====
+        if args.prompt_file:
+            print(f"加载外部 prompt: {args.prompt_file}")
+            with open(args.prompt_file, "r", encoding="utf-8") as f:
+                external_prompt = f.read()
+            global SYSTEM_PROMPT, CATEGORY_LABELS
+            SYSTEM_PROMPT = external_prompt
+            import re as _re
+            extracted = _re.findall(r"^\s+(\w+_\w+)\s+\(", external_prompt, _re.MULTILINE)
+            if extracted:
+                CATEGORY_LABELS = extracted
+                print(f"  提取到 {len(CATEGORY_LABELS)} 个标签")
+            else:
+                CATEGORY_LABELS = []
+                print("  警告: 未从 prompt 中提取到标签名，将跳过标签校验")
+
         # ===== Step 2: 创建标注客户端 =====
+        api_key = args.api_key or os.environ.get("ARK_API_KEY")
         client = AnnotationClient(
             api_base=args.api_base,
             model_name=args.model_name,
@@ -1126,6 +1177,7 @@ def main():
             max_frames=args.max_frames,
             resolution=target_res,
             request_timeout=args.request_timeout,
+            api_key=api_key,
         )
 
         # ===== Step 3: 执行标注 =====

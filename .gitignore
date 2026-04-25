@@ -182,4 +182,13 @@ generated_predictions.jsonl
 predictions_score.json
 saves/
 infer_results/
-dig_result/
+dig_result/# mining results & logs
+scene_tag/logs/
+scene_tag/logs_batch2/
+scene_tag/results/
+scene_tag/results_*/
+scene_tag/generated_videos/
+scene_tag/__pycache__/
+scene_tag/ab_eval/__pycache__/
+scene_tag/*.png
+*.log

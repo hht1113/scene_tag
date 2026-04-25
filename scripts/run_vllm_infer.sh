@@ -1,26 +1,47 @@
 #!/bin/bash
+###############################################################################
+# 多标签 v3 测试集推理脚本
+#
+# 模型:   30B multilabel_v3 — checkpoint-282 (3 epoch 完整训练)
+# 数据集: qwen3_sft_test_dataset_segment_multilabel_v3 (测试集)
+# 单卡推理
+###############################################################################
 
-# 创建保存结果的目录（如果不存在）
 mkdir -p /root/workspace/LLaMA-Factory/infer_results
 
 cd /root/workspace/LLaMA-Factory
 
+export DISABLE_VERSION_CHECK=1
+export CUDA_VISIBLE_DEVICES=${GPU_ID:-3}
+
+CHECKPOINT="/mnt/pfs/houhaotian/saves/Qwen3-VL-30B-A3B-Instruct/full/sft_segment_multilabel_v3_8gpu/checkpoint-282"
+DATASET="qwen3_sft_test_dataset_segment_multilabel_v3"
+SAVE_NAME="/root/workspace/LLaMA-Factory/infer_results/test_multilabel_v3_30B_checkpoint282.jsonl"
+
+echo "============================================================"
+echo "  多标签 v3 测试集推理"
+echo "  模型:   $CHECKPOINT"
+echo "  数据集: $DATASET"
+echo "  GPU:    $CUDA_VISIBLE_DEVICES"
+echo "  开始:   $(date '+%Y-%m-%d %H:%M:%S')"
+echo "============================================================"
+
 python scripts/vllm_infer.py \
-    --model_name_or_path "/mnt/pfs/qwen3/Qwen3-VL-32B-Instruct" \
-    --dataset "qwen3_sft_test_dataset_segment_upsample" \
+    --model_name_or_path "$CHECKPOINT" \
+    --dataset "$DATASET" \
     --template "qwen3_vl_nothink" \
-    --save_name "/root/workspace/LLaMA-Factory/infer_results/12tags_Qwen3-VL-32B_SFT_segment_upsample.jsonl" \
-    --cutoff_len 15000 \
+    --save_name "$SAVE_NAME" \
+    --cutoff_len 20000 \
     --max_new_tokens 512 \
     --batch_size 1 \
     --video_fps 2.0 \
     --video_maxlen 40 \
-    --image_max_pixels 65536
+    --image_max_pixels 65536 \
+    --temperature 0.01 \
+    --top_p 0.95 \
+    --enable_thinking false
 
-# 说明：
-# 全参微调的模型权重直接保存在 output_dir，不需要 adapter_name_or_path
-# video_fps 是抽帧的目标帧率，不输入默认是 2
-# video_maxlen 是最大帧数，不输入默认是 128
-# cutoff_len 60s视频，对于1fps，应该要在25000；2fps要在45000
-# image_max_pixels 是单张图像的最大像素数，默认65536（256*256），和训练保持一致
-# --adapter_name_or_path "/root/workspace/LLaMA-Factory/saves/Qwen3-VL-8B-Instruct/full/sft_segment_upsample_8gpu/checkpoint-58" \
+echo "============================================================"
+echo "  完成: $(date '+%Y-%m-%d %H:%M:%S')"
+echo "  结果: $SAVE_NAME"
+echo "============================================================"

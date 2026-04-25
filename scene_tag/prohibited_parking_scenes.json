@@ -1,0 +1,232 @@
+[
+  {
+    "scene_id": "PP_01_01",
+    "category_id": 1,
+    "category_name": "明确交通法规禁止区域",
+    "scene_name": "禁停标志标线路段",
+    "scene_name_en": "NoStopSignZone",
+    "description": "设有禁止停车标志/标线的路段（如黄实线、网格线、禁停标志下）",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市道路，路边有明显的禁止停车标志和黄色实线禁停标线。一辆自动驾驶车辆沿道路行驶，路面可见黄色网格线区域，路边立有红色圆形禁停标志。车辆减速接近该区域但未停车，继续驶过禁停路段。"
+  },
+  {
+    "scene_id": "PP_01_02",
+    "category_id": 1,
+    "category_name": "明确交通法规禁止区域",
+    "scene_name": "公交专用车道及站台区域",
+    "scene_name_en": "BusLaneAndStation",
+    "description": "公交专用车道内及站台区域（除非明确允许且非运营时段）",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市主干道，路面有醒目的'公交专用'文字标记和黄色公交车道线。公交站台设有候车亭，一辆公交车正在靠站。自动驾驶车辆沿公交车道旁的社会车道行驶，经过公交站台区域。"
+  },
+  {
+    "scene_id": "PP_01_03",
+    "category_id": 1,
+    "category_name": "明确交通法规禁止区域",
+    "scene_name": "消防通道出入口",
+    "scene_name_en": "FireLaneEntrance",
+    "description": "消防通道出入口及两侧规定范围内",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市小区或商业建筑旁，地面喷涂有红色或黄色'消防通道 禁止停车'字样，两侧设有禁停标志。消防通道宽阔且无车辆停放。自动驾驶车辆缓慢经过消防通道出入口。"
+  },
+  {
+    "scene_id": "PP_01_04",
+    "category_id": 1,
+    "category_name": "明确交通法规禁止区域",
+    "scene_name": "人行横道及两端5米",
+    "scene_name_en": "CrosswalkZone",
+    "description": "人行横道（斑马线）及两端5米范围内",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市道路路口，前方有清晰的白色斑马线人行横道。几名行人正在通过斑马线。自动驾驶车辆在斑马线前减速停车让行，等行人通过后缓慢驶过斑马线区域。"
+  },
+  {
+    "scene_id": "PP_01_05",
+    "category_id": 1,
+    "category_name": "明确交通法规禁止区域",
+    "scene_name": "交叉路口及特殊路段50米内",
+    "scene_name_en": "IntersectionAndSpecialRoad",
+    "description": "交叉路口及铁路道口、急弯路、宽度不足4米的窄路、桥梁、陡坡、隧道以及距离上述地点50米以内的路段",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市交叉路口，多条道路交汇，路面有导向箭头和停止线。信号灯可见。周围车辆正常通行。自动驾驶车辆接近路口，在停止线前等待绿灯通行，穿过路口后继续行驶。"
+  },
+  {
+    "scene_id": "PP_02_01",
+    "category_id": 2,
+    "category_name": "高风险安全隐患区域",
+    "scene_name": "高速公路及快速路主路",
+    "scene_name_en": "ExpresswayMainRoad",
+    "description": "高速公路、城市快速路主路（应急车道仅限紧急故障使用，且需按规定摆放警示标志）",
+    "risk_note": "极易引发高速追尾、二次事故；威胁自身及他车安全",
+    "video_prompt_cn": "中国高速公路场景，双向多车道，中央有绿色隔离带。路面有白色虚线分道标记。车辆高速行驶，右侧可见应急车道和白色实线。自动驾驶车辆在主路车道高速行驶，前方有车辆正常通行。"
+  },
+  {
+    "scene_id": "PP_02_02",
+    "category_id": 2,
+    "category_name": "高风险安全隐患区域",
+    "scene_name": "隧道内",
+    "scene_name_en": "InsideTunnel",
+    "description": "隧道内（除非紧急故障）",
+    "risk_note": "极易引发高速追尾、二次事故；威胁自身及他车安全",
+    "video_prompt_cn": "中国城市或高速公路隧道内部，两侧为混凝土墙壁，顶部有照明灯带。路面有车道线标记，隧道内光线较暗。自动驾驶车辆在隧道内匀速行驶，前方可见其他车辆尾灯。"
+  },
+  {
+    "scene_id": "PP_02_03",
+    "category_id": 2,
+    "category_name": "高风险安全隐患区域",
+    "scene_name": "长下坡路段",
+    "scene_name_en": "LongDownhill",
+    "description": "长下坡路段",
+    "risk_note": "极易引发高速追尾、二次事故；威胁自身及他车安全",
+    "video_prompt_cn": "中国山区或城市高架道路长下坡路段，路面向前方明显倾斜下行。道路两侧有护栏和反光标志。前方道路在远处弯曲消失。自动驾驶车辆控制车速缓慢下坡行驶。"
+  },
+  {
+    "scene_id": "PP_02_04",
+    "category_id": 2,
+    "category_name": "高风险安全隐患区域",
+    "scene_name": "视距不良区域",
+    "scene_name_en": "PoorVisibilityZone",
+    "description": "视距不良区域（如急弯后、坡顶、大型障碍物遮挡视线处）",
+    "risk_note": "极易引发高速追尾、二次事故；威胁自身及他车安全",
+    "video_prompt_cn": "中国道路急弯路段，前方视线被弯道内侧的建筑物或绿化带遮挡，无法看到弯道后方情况。道路有弯道警示标志和减速标线。自动驾驶车辆减速驶过急弯路段。"
+  },
+  {
+    "scene_id": "PP_02_05",
+    "category_id": 2,
+    "category_name": "高风险安全隐患区域",
+    "scene_name": "非机动车道或人行道",
+    "scene_name_en": "NonMotorLaneOrSidewalk",
+    "description": "非机动车道/人行道（除非当地法规明确允许且车辆尺寸符合）",
+    "risk_note": "极易引发高速追尾、二次事故；威胁自身及他车安全",
+    "video_prompt_cn": "中国城市道路，左侧为机动车道，右侧有明显分隔的非机动车道和人行道。非机动车道上有自行车和电动车骑行。人行道上有行人步行。自动驾驶车辆在机动车道正常行驶，经过非机动车道和人行道区域。"
+  },
+  {
+    "scene_id": "PP_03_01",
+    "category_id": 3,
+    "category_name": "影响公共安全与秩序区域",
+    "scene_name": "消防栓周边5米",
+    "scene_name_en": "FireHydrantZone",
+    "description": "消防栓、消火栓周边规定范围内（通常5米）",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市道路旁，路边可见红色消防栓，地面标有禁停标线。消防栓周围区域无车辆停放。自动驾驶车辆沿道路行驶经过消防栓位置。"
+  },
+  {
+    "scene_id": "PP_03_02",
+    "category_id": 3,
+    "category_name": "影响公共安全与秩序区域",
+    "scene_name": "医院急救中心出入口",
+    "scene_name_en": "HospitalEntrance",
+    "description": "医院、急救中心主要出入口及应急通道",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市医院大门前，可见医院标牌和红十字标志。医院出入口有车辆进出通道，地面标有急救通道标记。有救护车停在急诊入口。自动驾驶车辆经过医院大门前方道路。"
+  },
+  {
+    "scene_id": "PP_03_03",
+    "category_id": 3,
+    "category_name": "影响公共安全与秩序区域",
+    "scene_name": "学校幼儿园出入口",
+    "scene_name_en": "SchoolEntrance",
+    "description": "学校、幼儿园上学/放学时段主要出入口附近",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市学校或幼儿园大门前，上学/放学时段，大量家长和学生聚集在校门口。道路上有'注意学生'警示标志和减速带。校门口有交通协管员。自动驾驶车辆缓慢经过学校门口。"
+  },
+  {
+    "scene_id": "PP_03_04",
+    "category_id": 3,
+    "category_name": "影响公共安全与秩序区域",
+    "scene_name": "大型活动场所出入口",
+    "scene_name_en": "EventVenueEntrance",
+    "description": "大型活动场所/场馆出入口及周边管制区域（活动期间）",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市体育场馆或大型活动中心前方，活动期间人流密集。场馆出入口有临时围栏和安保人员。道路上有交通管制标志和隔离设施。自动驾驶车辆沿管制区域外围道路缓慢行驶。"
+  },
+  {
+    "scene_id": "PP_03_05",
+    "category_id": 3,
+    "category_name": "影响公共安全与秩序区域",
+    "scene_name": "地铁站公交枢纽出入口",
+    "scene_name_en": "MetroAndTransitHub",
+    "description": "地铁站、大型公交枢纽主要出入口及出租车/网约车专用上客区",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市地铁站出入口附近，大量乘客进出地铁口。路边有出租车候客区标志和划线。公交车停靠在附近公交站。道路上行人和非机动车密集。自动驾驶车辆缓慢经过地铁站出入口区域。"
+  },
+  {
+    "scene_id": "PP_03_06",
+    "category_id": 3,
+    "category_name": "影响公共安全与秩序区域",
+    "scene_name": "小区门口多车聚集",
+    "scene_name_en": "ResidentialGateCrowded",
+    "description": "多台车集中在小区门口",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市居民小区大门前，多辆私家车停放或等候在小区出入口两侧。道路变窄，通行空间受限。有行人和电动车在车辆间穿行。自动驾驶车辆缓慢通过拥挤的小区门口区域。"
+  },
+  {
+    "scene_id": "PP_04_01",
+    "category_id": 4,
+    "category_name": "特定功能受限区域",
+    "scene_name": "军事及重要机关周边",
+    "scene_name_en": "MilitaryAndGovZone",
+    "description": "军事管理区、重要国家机关、外交机构周边敏感区域",
+    "risk_note": "涉及国家安全；车辆可能失联或无法精确定位，导致失控风险",
+    "video_prompt_cn": "中国城市道路旁，可见围墙内有重要机关建筑，门口有执勤岗亭和警卫。道路两侧设有禁停标志和监控摄像头。道路整洁宽阔，车辆较少。自动驾驶车辆正常速度驶过该区域。"
+  },
+  {
+    "scene_id": "PP_04_02",
+    "category_id": 4,
+    "category_name": "特定功能受限区域",
+    "scene_name": "信号屏蔽或GPS不稳定区域",
+    "scene_name_en": "GPSUnstableZone",
+    "description": "信号屏蔽或GPS定位严重不稳定区域（如某些地下设施周边、强电磁干扰区）",
+    "risk_note": "涉及国家安全；车辆可能失联或无法精确定位，导致失控风险",
+    "video_prompt_cn": "中国城市高架桥下或大型建筑群密集区域，周围有高楼和立交桥遮挡天空。道路上方有密集的高架结构。GPS信号可能受影响。自动驾驶车辆在高楼峡谷中缓慢行驶。"
+  },
+  {
+    "scene_id": "PP_05_01",
+    "category_id": 5,
+    "category_name": "易引发拥堵或冲突区域",
+    "scene_name": "主干道仅剩一条车道",
+    "scene_name_en": "SingleLaneMainRoad",
+    "description": "主干道仅剩一条车道的路段",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市主干道因施工或事故导致多条车道封闭，仅剩一条车道可通行。道路两侧有锥桶和警示带隔离封闭区域。车辆排队缓慢通过单车道路段。自动驾驶车辆跟随前车缓慢通过。"
+  },
+  {
+    "scene_id": "PP_05_02",
+    "category_id": 5,
+    "category_name": "易引发拥堵或冲突区域",
+    "scene_name": "交通流量极大路口",
+    "scene_name_en": "HighTrafficIntersection",
+    "description": "交通流量极大的路口附近",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市繁忙路口，各方向车流量极大。路口有多相位信号灯控制，但车辆仍排长队等候。行人和非机动车也在路口穿行。自动驾驶车辆在拥挤的路口排队等待通行。"
+  },
+  {
+    "scene_id": "PP_05_03",
+    "category_id": 5,
+    "category_name": "易引发拥堵或冲突区域",
+    "scene_name": "出租车网约车密集候客区",
+    "scene_name_en": "TaxiRideshareWaitingArea",
+    "description": "出租车/网约车密集候客区",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市商圈或车站附近，大量出租车和网约车停靠在路边候客。车辆双闪灯闪烁，乘客在路边上下车。道路通行空间被大量候客车辆挤压。自动驾驶车辆缓慢通过候客区。"
+  },
+  {
+    "scene_id": "PP_05_04",
+    "category_id": 5,
+    "category_name": "易引发拥堵或冲突区域",
+    "scene_name": "装卸货专用车位",
+    "scene_name_en": "LoadingUnloadingZone",
+    "description": "装卸货专用车位（除非明确允许无人车使用且未被占用）",
+    "risk_note": "",
+    "video_prompt_cn": "中国城市商业区道路旁，路边划有装卸货专用车位标记，有货车正在装卸货物。搬运工人在车辆和建筑之间往返。道路部分被货车占用。自动驾驶车辆绕过装卸区域行驶。"
+  },
+  {
+    "scene_id": "PP_05_05",
+    "category_id": 5,
+    "category_name": "易引发拥堵或冲突区域",
+    "scene_name": "园区出入口",
+    "scene_name_en": "IndustrialParkEntrance",
+    "description": "园区出入口（工业园区、科技园区等出入口）",
+    "risk_note": "高亮标注，重点关注",
+    "video_prompt_cn": "中国城市产业园区或科技园区大门前，早晚高峰时段车辆排队进出园区。门口有道闸和保安岗亭，车辆需刷卡或登记进入。道路上有减速带。自动驾驶车辆缓慢接近园区出入口。"
+  }
+]

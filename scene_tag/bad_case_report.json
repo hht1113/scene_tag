@@ -1,0 +1,1161 @@
+{
+  "summary": {
+    "total": 320,
+    "correct": 211,
+    "errors": 109,
+    "potential_multi_label": 33,
+    "real_errors": 76,
+    "original_accuracy": 0.659375,
+    "adjusted_accuracy": 0.7625
+  },
+  "confusion_pairs": {
+    "TrafficLight_LeftTurnStopOrGo ↔ TrafficLight_StraightStopOrGo": {
+      "count": 11,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_StandardVehicleCutIn ↔ LaneCruising_Straight": {
+      "count": 10,
+      "is_potential_multi_label": true,
+      "reason": "直行巡航中遇到车辆加塞"
+    },
+    "DynamicInteraction_VehicleInLaneCrossing ↔ LaneChange_NavForIntersection": {
+      "count": 8,
+      "is_potential_multi_label": true,
+      "reason": "在路口换道时可能同时有车辆横穿"
+    },
+    "LaneChange_AvoidStaticVehicle ↔ LaneCruising_Straight": {
+      "count": 8,
+      "is_potential_multi_label": true,
+      "reason": "换道前后的直行巡航阶段"
+    },
+    "LaneChange_AvoidSlowVRU ↔ LaneChange_AvoidStaticVehicle": {
+      "count": 7,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "Intersection_StandardUTurn ↔ LaneChange_AvoidStaticVehicle": {
+      "count": 6,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_VRUInLaneCrossing ↔ DynamicInteraction_VehicleInLaneCrossing": {
+      "count": 6,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_VRUInLaneCrossing ↔ TrafficLight_StraightStopOrGo": {
+      "count": 5,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "Intersection_StandardUTurn ↔ TrafficLight_LeftTurnStopOrGo": {
+      "count": 5,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "LaneChange_AvoidStaticVehicle ↔ LaneChange_NavForIntersection": {
+      "count": 4,
+      "is_potential_multi_label": true,
+      "reason": "在路口附近换道避让静态车辆，可以同时属于两个标签"
+    },
+    "DynamicInteraction_StandardVehicleCutIn ↔ LaneChange_AvoidStaticVehicle": {
+      "count": 4,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_VehicleInLaneCrossing ↔ Intersection_StandardUTurn": {
+      "count": 3,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "StartStop_ParkRoadside ↔ StartStop_StartFromMainRoad": {
+      "count": 3,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_VRUInLaneCrossing ↔ TrafficLight_LeftTurnStopOrGo": {
+      "count": 2,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "LaneChange_AvoidSlowVRU ↔ TrafficLight_StraightStopOrGo": {
+      "count": 2,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_VRUInLaneCrossing ↔ LaneChange_AvoidSlowVRU": {
+      "count": 2,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "LaneChange_NavForIntersection ↔ LaneCruising_Straight": {
+      "count": 2,
+      "is_potential_multi_label": true,
+      "reason": "换道前后有直行巡航的阶段"
+    },
+    "DynamicInteraction_VehicleInLaneCrossing ↔ LaneCruising_Straight": {
+      "count": 2,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_VRUInLaneCrossing ↔ LaneChange_AvoidStaticVehicle": {
+      "count": 2,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_VRUInLaneCrossing ↔ LaneCruising_Straight": {
+      "count": 2,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_VehicleInLaneCrossing ↔ TrafficLight_StraightStopOrGo": {
+      "count": 2,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_StandardVehicleCutIn ↔ LaneChange_NavForIntersection": {
+      "count": 2,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_VehicleInLaneCrossing ↔ TrafficLight_LeftTurnStopOrGo": {
+      "count": 1,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_StandardVehicleCutIn ↔ DynamicInteraction_VehicleInLaneCrossing": {
+      "count": 1,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "LaneChange_AvoidSlowVRU ↔ TrafficLight_LeftTurnStopOrGo": {
+      "count": 1,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "LaneChange_AvoidStaticVehicle ↔ TrafficLight_StraightStopOrGo": {
+      "count": 1,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_VehicleInLaneCrossing ↔ StartStop_StartFromMainRoad": {
+      "count": 1,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_StandardVehicleCutIn ↔ TrafficLight_StraightStopOrGo": {
+      "count": 1,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "Intersection_StandardUTurn ↔ TrafficLight_StraightStopOrGo": {
+      "count": 1,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "LaneChange_AvoidStaticVehicle ↔ StartStop_ParkRoadside": {
+      "count": 1,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "DynamicInteraction_VehicleInLaneCrossing ↔ LaneChange_AvoidStaticVehicle": {
+      "count": 1,
+      "is_potential_multi_label": true,
+      "reason": "车辆横穿后变成静态障碍需要换道避让"
+    },
+    "LaneChange_AvoidSlowVRU ↔ LaneChange_NavForIntersection": {
+      "count": 1,
+      "is_potential_multi_label": false,
+      "reason": ""
+    },
+    "LaneChange_AvoidStaticVehicle ↔ StartStop_StartFromMainRoad": {
+      "count": 1,
+      "is_potential_multi_label": false,
+      "reason": ""
+    }
+  },
+  "bad_cases": [
+    {
+      "index": 3,
+      "gt_label": "LaneCruising_Straight",
+      "pred_label": "DynamicInteraction_StandardVehicleCutIn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5024/2025-12-24_12-56-26/clips/20251224125709_00005/sensor/camera/front_left_1/image/video/slices/slice_29_49.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5024/2025-12-24_12-56-26/clips/20251224125709_00005/sensor/camera/front_left_1/image/video_29_49",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "直行巡航中遇到车辆加塞"
+    },
+    {
+      "index": 9,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneChange_AvoidSlowVRU",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5021/2025-12-22_11-26-05/clips/20251222112651_00013/sensor/camera/front_left_1/image/video/slices/slice_26_46.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5021/2025-12-22_11-26-05/clips/20251222112651_00013/sensor/camera/front_left_1/image/video_26_46",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 10,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5610/2025-12-18_15-03-03/clips/20251218150351_00003/sensor/camera/front_left_1/image/video/slices/slice_12_32.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5610/2025-12-18_15-03-03/clips/20251218150351_00003/sensor/camera/front_left_1/image/video_12_32",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "在路口附近换道避让静态车辆，可以同时属于两个标签"
+    },
+    {
+      "index": 11,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5024/2025-12-01_13-48-19/clips/20251201134854_00023/sensor/camera/front_left_1/image/video/slices/slice_25_45.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5024/2025-12-01_13-48-19/clips/20251201134854_00023/sensor/camera/front_left_1/image/video_25_45",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "在路口换道时可能同时有车辆横穿"
+    },
+    {
+      "index": 14,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "TrafficLight_LeftTurnStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0212/2025-12-26_23-30-43/clips/20251226233136_00006/sensor/camera/front_left_1/image/video/slices/slice_14_34.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X3S0212/2025-12-26_23-30-43/clips/20251226233136_00006/sensor/camera/front_left_1/image/video_14_34",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 15,
+      "gt_label": "TrafficLight_LeftTurnStopOrGo",
+      "pred_label": "DynamicInteraction_VRUInLaneCrossing",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5620/2025-11-27_13-05-57/clips/20251127130632_00017/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5620/2025-11-27_13-05-57/clips/20251127130632_00017/sensor/camera/front_left_1/image/video_3_23",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 17,
+      "gt_label": "Intersection_StandardUTurn",
+      "pred_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00062/sensor/camera/front_left_1/image/video/slices/slice_12_32.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00062/sensor/camera/front_left_1/image/video_12_32",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 18,
+      "gt_label": "LaneChange_AvoidSlowVRU",
+      "pred_label": "LaneChange_AvoidStaticVehicle",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00041/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00041/sensor/camera/front_left_1/image/video_40_60",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 27,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "Intersection_StandardUTurn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5616/2025-12-20_13-24-50/clips/20251220132541_00018/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5616/2025-12-20_13-24-50/clips/20251220132541_00018/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 30,
+      "gt_label": "LaneCruising_Straight",
+      "pred_label": "DynamicInteraction_StandardVehicleCutIn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5625/2025-11-27_15-12-19/clips/20251127151255_00007/sensor/camera/front_left_1/image/video/slices/slice_12_32.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5625/2025-11-27_15-12-19/clips/20251127151255_00007/sensor/camera/front_left_1/image/video_12_32",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "直行巡航中遇到车辆加塞"
+    },
+    {
+      "index": 31,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "Intersection_StandardUTurn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5617/2025-12-23_10-08-39/clips/20251223100923_00027/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5617/2025-12-23_10-08-39/clips/20251223100923_00027/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 33,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "Intersection_StandardUTurn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00030/sensor/camera/front_left_1/image/video/slices/slice_33_53.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00030/sensor/camera/front_left_1/image/video_33_53",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 36,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00028/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00028/sensor/camera/front_left_1/image/video_13_33",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "在路口换道时可能同时有车辆横穿"
+    },
+    {
+      "index": 39,
+      "gt_label": "LaneChange_AvoidSlowVRU",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00049/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00049/sensor/camera/front_left_1/image/video_38_58",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 41,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "DynamicInteraction_StandardVehicleCutIn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_14-35-00/clips/20251205143533_00013/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-05_14-35-00/clips/20251205143533_00013/sensor/camera/front_left_1/image/video_40_60",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 42,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneChange_AvoidSlowVRU",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00004/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00004/sensor/camera/front_left_1/image/video_13_33",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 43,
+      "gt_label": "LaneChange_AvoidSlowVRU",
+      "pred_label": "DynamicInteraction_VRUInLaneCrossing",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5613/2025-12-18_13-03-17/clips/20251218130400_00025/sensor/camera/front_left_1/image/video/slices/slice_14_34.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5613/2025-12-18_13-03-17/clips/20251218130400_00025/sensor/camera/front_left_1/image/video_14_34",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 46,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00029/sensor/camera/front_left_1/image/video/slices/slice_6_26.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00029/sensor/camera/front_left_1/image/video_6_26",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "在路口换道时可能同时有车辆横穿"
+    },
+    {
+      "index": 49,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "DynamicInteraction_VRUInLaneCrossing",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0200/2025-11-26_10-49-31/clips/20251126105008_00020/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X3S0200/2025-11-26_10-49-31/clips/20251126105008_00020/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 52,
+      "gt_label": "LaneCruising_Straight",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00019/sensor/camera/front_left_1/image/video/slices/slice_23_43.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00019/sensor/camera/front_left_1/image/video_23_43",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "换道前后有直行巡航的阶段"
+    },
+    {
+      "index": 54,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5624/2025-12-21_23-40-14/clips/20251221234057_00011/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5624/2025-12-21_23-40-14/clips/20251221234057_00011/sensor/camera/front_left_1/image/video_3_23",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "在路口换道时可能同时有车辆横穿"
+    },
+    {
+      "index": 58,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "Intersection_StandardUTurn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_13-50-00/clips/20251214135037_00007/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-14_13-50-00/clips/20251214135037_00007/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 61,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5024/2025-12-20_13-37-57/clips/20251220133840_00002/sensor/camera/front_left_1/image/video/slices/slice_15_35.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5024/2025-12-20_13-37-57/clips/20251220133840_00002/sensor/camera/front_left_1/image/video_15_35",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "在路口换道时可能同时有车辆横穿"
+    },
+    {
+      "index": 67,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5024/2025-12-18_13-35-47/clips/20251218133632_00013/sensor/camera/front_left_1/image/video/slices/slice_16_36.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5024/2025-12-18_13-35-47/clips/20251218133632_00013/sensor/camera/front_left_1/image/video_16_36",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 68,
+      "gt_label": "LaneChange_AvoidSlowVRU",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0203/2025-11-28_10-36-40/clips/20251128103715_00018/sensor/camera/front_left_1/image/video/slices/slice_39_59.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X3S0203/2025-11-28_10-36-40/clips/20251128103715_00018/sensor/camera/front_left_1/image/video_39_59",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 69,
+      "gt_label": "StartStop_ParkRoadside",
+      "pred_label": "StartStop_StartFromMainRoad",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0206/2025-11-27_11-24-43/clips/20251127112515_00014/sensor/camera/front_left_1/image/video/slices/slice_33_53.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X3S0206/2025-11-27_11-24-43/clips/20251127112515_00014/sensor/camera/front_left_1/image/video_33_53",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 74,
+      "gt_label": "DynamicInteraction_VRUInLaneCrossing",
+      "pred_label": "LaneChange_AvoidStaticVehicle",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5610/2025-12-18_13-09-50/clips/20251218131038_00026/sensor/camera/front_left_1/image/video/slices/slice_19_39.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5610/2025-12-18_13-09-50/clips/20251218131038_00026/sensor/camera/front_left_1/image/video_19_39",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 77,
+      "gt_label": "DynamicInteraction_VRUInLaneCrossing",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00021/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00021/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 82,
+      "gt_label": "DynamicInteraction_VRUInLaneCrossing",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-12-22_03-44-50/clips/20251222034534_00003/sensor/camera/front_left_1/image/video/slices/slice_2_22.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5621/2025-12-22_03-44-50/clips/20251222034534_00003/sensor/camera/front_left_1/image/video_2_22",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 88,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0202/2025-11-28_11-08-40/clips/20251128110914_00015/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X3S0202/2025-11-28_11-08-40/clips/20251128110914_00015/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "在路口附近换道避让静态车辆，可以同时属于两个标签"
+    },
+    {
+      "index": 90,
+      "gt_label": "DynamicInteraction_VRUInLaneCrossing",
+      "pred_label": "LaneChange_AvoidStaticVehicle",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5620/2025-12-23_15-23-38/clips/20251223152424_00007/sensor/camera/front_left_1/image/video/slices/slice_16_36.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5620/2025-12-23_15-23-38/clips/20251223152424_00007/sensor/camera/front_left_1/image/video_16_36",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 96,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "DynamicInteraction_VRUInLaneCrossing",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_13-50-00/clips/20251214135037_00011/sensor/camera/front_left_1/image/video/slices/slice_23_43.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-14_13-50-00/clips/20251214135037_00011/sensor/camera/front_left_1/image/video_23_43",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 103,
+      "gt_label": "TrafficLight_LeftTurnStopOrGo",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0200/2025-11-24_15-42-20/clips/20251124154253_00004/sensor/camera/front_left_1/image/video/slices/slice_22_42.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X3S0200/2025-11-24_15-42-20/clips/20251124154253_00004/sensor/camera/front_left_1/image/video_22_42",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 105,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5629/2025-12-20_23-30-34/clips/20251220233122_00009/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5629/2025-12-20_23-30-34/clips/20251220233122_00009/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 112,
+      "gt_label": "TrafficLight_LeftTurnStopOrGo",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_13-50-00/clips/20251214135037_00003/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-14_13-50-00/clips/20251214135037_00003/sensor/camera/front_left_1/image/video_13_33",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 114,
+      "gt_label": "LaneCruising_Straight",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_15-35-02/clips/20251217153545_00016/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_15-35-02/clips/20251217153545_00016/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "换道前后有直行巡航的阶段"
+    },
+    {
+      "index": 116,
+      "gt_label": "DynamicInteraction_StandardVehicleCutIn",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_10-37-35/clips/20251214103811_00013/sensor/camera/front_left_1/image/video/slices/slice_33_53.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-14_10-37-35/clips/20251214103811_00013/sensor/camera/front_left_1/image/video_33_53",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 117,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "DynamicInteraction_StandardVehicleCutIn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5611/2025-12-03_13-08-39/clips/20251203130913_00011/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5611/2025-12-03_13-08-39/clips/20251203130913_00011/sensor/camera/front_left_1/image/video_32_52",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 121,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "Intersection_StandardUTurn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5021/2025-12-25_14-18-17/clips/20251225141900_00004/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5021/2025-12-25_14-18-17/clips/20251225141900_00004/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 123,
+      "gt_label": "LaneChange_AvoidSlowVRU",
+      "pred_label": "TrafficLight_LeftTurnStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00035/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00035/sensor/camera/front_left_1/image/video_40_60",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 124,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "DynamicInteraction_VRUInLaneCrossing",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_13-50-00/clips/20251214135037_00012/sensor/camera/front_left_1/image/video/slices/slice_33_53.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-14_13-50-00/clips/20251214135037_00012/sensor/camera/front_left_1/image/video_33_53",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 126,
+      "gt_label": "LaneChange_AvoidSlowVRU",
+      "pred_label": "LaneChange_AvoidStaticVehicle",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_11-07-29/clips/20251217110811_00001/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_11-07-29/clips/20251217110811_00001/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 127,
+      "gt_label": "DynamicInteraction_StandardVehicleCutIn",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00030/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00030/sensor/camera/front_left_1/image/video_40_60",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "直行巡航中遇到车辆加塞"
+    },
+    {
+      "index": 131,
+      "gt_label": "LaneCruising_Straight",
+      "pred_label": "DynamicInteraction_StandardVehicleCutIn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5610/2025-12-26_23-09-23/clips/20251226231006_00022/sensor/camera/front_left_1/image/video/slices/slice_27_47.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5610/2025-12-26_23-09-23/clips/20251226231006_00022/sensor/camera/front_left_1/image/video_27_47",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "直行巡航中遇到车辆加塞"
+    },
+    {
+      "index": 132,
+      "gt_label": "TrafficLight_StraightStopOrGo",
+      "pred_label": "LaneChange_AvoidStaticVehicle",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00013/sensor/camera/front_left_1/image/video/slices/slice_24_44.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00013/sensor/camera/front_left_1/image/video_24_44",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 136,
+      "gt_label": "DynamicInteraction_StandardVehicleCutIn",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_15-35-02/clips/20251217153545_00002/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_15-35-02/clips/20251217153545_00002/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "直行巡航中遇到车辆加塞"
+    },
+    {
+      "index": 138,
+      "gt_label": "TrafficLight_StraightStopOrGo",
+      "pred_label": "DynamicInteraction_VRUInLaneCrossing",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00020/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00020/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 139,
+      "gt_label": "TrafficLight_LeftTurnStopOrGo",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-04_13-03-37/clips/20251204130409_00040/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-04_13-03-37/clips/20251204130409_00040/sensor/camera/front_left_1/image/video_3_23",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 142,
+      "gt_label": "DynamicInteraction_VRUInLaneCrossing",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5632/2025-12-25_22-54-45/clips/20251225225541_00004/sensor/camera/front_left_1/image/video/slices/slice_29_49.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5632/2025-12-25_22-54-45/clips/20251225225541_00004/sensor/camera/front_left_1/image/video_29_49",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 148,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "StartStop_StartFromMainRoad",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5620/2025-12-01_11-27-38/clips/20251201112813_00046/sensor/camera/front_left_1/image/video/slices/slice_4_24.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5620/2025-12-01_11-27-38/clips/20251201112813_00046/sensor/camera/front_left_1/image/video_4_24",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 152,
+      "gt_label": "DynamicInteraction_StandardVehicleCutIn",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0197/2025-11-26_16-26-54/clips/20251126162726_00018/sensor/camera/front_left_1/image/video/slices/slice_16_36.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X3S0197/2025-11-26_16-26-54/clips/20251126162726_00018/sensor/camera/front_left_1/image/video_16_36",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 153,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00084/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00084/sensor/camera/front_left_1/image/video_40_60",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "换道前后的直行巡航阶段"
+    },
+    {
+      "index": 157,
+      "gt_label": "TrafficLight_LeftTurnStopOrGo",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00030/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00030/sensor/camera/front_left_1/image/video_13_33",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 158,
+      "gt_label": "DynamicInteraction_VRUInLaneCrossing",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-18-44/clips/20251216131919_00006/sensor/camera/front_left_1/image/video/slices/slice_33_53.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-16_13-18-44/clips/20251216131919_00006/sensor/camera/front_left_1/image/video_33_53",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 159,
+      "gt_label": "LaneCruising_Straight",
+      "pred_label": "DynamicInteraction_StandardVehicleCutIn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5629/2025-12-17_23-59-57/clips/20251218000040_00003/sensor/camera/front_left_1/image/video/slices/slice_28_48.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5629/2025-12-17_23-59-57/clips/20251218000040_00003/sensor/camera/front_left_1/image/video_28_48",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "直行巡航中遇到车辆加塞"
+    },
+    {
+      "index": 161,
+      "gt_label": "TrafficLight_LeftTurnStopOrGo",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_22-15-43/clips/20251205221620_00009/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-05_22-15-43/clips/20251205221620_00009/sensor/camera/front_left_1/image/video_40_60",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 163,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "DynamicInteraction_VRUInLaneCrossing",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_15-35-02/clips/20251217153545_00009/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_15-35-02/clips/20251217153545_00009/sensor/camera/front_left_1/image/video_32_52",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 170,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-12-20_13-09-47/clips/20251220131032_00056/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5621/2025-12-20_13-09-47/clips/20251220131032_00056/sensor/camera/front_left_1/image/video_8_28",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "在路口换道时可能同时有车辆横穿"
+    },
+    {
+      "index": 171,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_11-07-29/clips/20251217110811_00005/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_11-07-29/clips/20251217110811_00005/sensor/camera/front_left_1/image/video_13_33",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "在路口附近换道避让静态车辆，可以同时属于两个标签"
+    },
+    {
+      "index": 175,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5021/2025-12-24_14-26-26/clips/20251224142710_00004/sensor/camera/front_left_1/image/video/slices/slice_34_54.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5021/2025-12-24_14-26-26/clips/20251224142710_00004/sensor/camera/front_left_1/image/video_34_54",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "换道前后的直行巡航阶段"
+    },
+    {
+      "index": 179,
+      "gt_label": "DynamicInteraction_StandardVehicleCutIn",
+      "pred_label": "LaneChange_AvoidStaticVehicle",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0211/2025-11-25_13-43-20/clips/20251125134352_00012/sensor/camera/front_left_1/image/video/slices/slice_23_43.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X3S0211/2025-11-25_13-43-20/clips/20251125134352_00012/sensor/camera/front_left_1/image/video_23_43",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 183,
+      "gt_label": "Intersection_StandardUTurn",
+      "pred_label": "TrafficLight_LeftTurnStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5632/2025-11-30_23-02-25/clips/20251130230300_00003/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5632/2025-11-30_23-02-25/clips/20251130230300_00003/sensor/camera/front_left_1/image/video_38_58",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 185,
+      "gt_label": "LaneCruising_Straight",
+      "pred_label": "LaneChange_AvoidStaticVehicle",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00022/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00022/sensor/camera/front_left_1/image/video_13_33",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "换道前后的直行巡航阶段"
+    },
+    {
+      "index": 187,
+      "gt_label": "DynamicInteraction_StandardVehicleCutIn",
+      "pred_label": "LaneChange_AvoidStaticVehicle",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_15-32-32/clips/20251128153304_00021/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-11-28_15-32-32/clips/20251128153304_00021/sensor/camera/front_left_1/image/video_38_58",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 188,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "Intersection_StandardUTurn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00011/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00011/sensor/camera/front_left_1/image/video_3_23",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 197,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneChange_AvoidSlowVRU",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5612/2025-12-26_13-57-17/clips/20251226135801_00009/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5612/2025-12-26_13-57-17/clips/20251226135801_00009/sensor/camera/front_left_1/image/video_32_52",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 198,
+      "gt_label": "TrafficLight_LeftTurnStopOrGo",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-09_10-45-47/clips/20251209104618_00002/sensor/camera/front_left_1/image/video/slices/slice_21_41.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-09_10-45-47/clips/20251209104618_00002/sensor/camera/front_left_1/image/video_21_41",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 199,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5614/2025-12-19_10-58-44/clips/20251219105930_00015/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5614/2025-12-19_10-58-44/clips/20251219105930_00015/sensor/camera/front_left_1/image/video_32_52",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "换道前后的直行巡航阶段"
+    },
+    {
+      "index": 200,
+      "gt_label": "DynamicInteraction_StandardVehicleCutIn",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5024/2025-12-18_15-20-40/clips/20251218152123_00006/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5024/2025-12-18_15-20-40/clips/20251218152123_00006/sensor/camera/front_left_1/image/video_32_52",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 201,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00007/sensor/camera/front_left_1/image/video/slices/slice_29_49.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00007/sensor/camera/front_left_1/image/video_29_49",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 206,
+      "gt_label": "Intersection_StandardUTurn",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5618/2025-12-18_15-08-05/clips/20251218150848_00009/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5618/2025-12-18_15-08-05/clips/20251218150848_00009/sensor/camera/front_left_1/image/video_8_28",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 212,
+      "gt_label": "Intersection_StandardUTurn",
+      "pred_label": "TrafficLight_LeftTurnStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00043/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00043/sensor/camera/front_left_1/image/video_32_52",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 220,
+      "gt_label": "Intersection_StandardUTurn",
+      "pred_label": "TrafficLight_LeftTurnStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5609/2025-12-26_11-14-50/clips/20251226111533_00009/sensor/camera/front_left_1/image/video/slices/slice_26_46.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5609/2025-12-26_11-14-50/clips/20251226111533_00009/sensor/camera/front_left_1/image/video_26_46",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 222,
+      "gt_label": "LaneCruising_Straight",
+      "pred_label": "DynamicInteraction_StandardVehicleCutIn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_14-28-36/clips/20251205142910_00001/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-05_14-28-36/clips/20251205142910_00001/sensor/camera/front_left_1/image/video_38_58",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "直行巡航中遇到车辆加塞"
+    },
+    {
+      "index": 223,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "Intersection_StandardUTurn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-18-44/clips/20251216131919_00002/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-16_13-18-44/clips/20251216131919_00002/sensor/camera/front_left_1/image/video_8_28",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 226,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00010/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00010/sensor/camera/front_left_1/image/video_38_58",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "换道前后的直行巡航阶段"
+    },
+    {
+      "index": 227,
+      "gt_label": "DynamicInteraction_VRUInLaneCrossing",
+      "pred_label": "TrafficLight_LeftTurnStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5626/2025-11-27_13-53-06/clips/20251127135342_00010/sensor/camera/front_left_1/image/video/slices/slice_26_46.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5626/2025-11-27_13-53-06/clips/20251127135342_00010/sensor/camera/front_left_1/image/video_26_46",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 228,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "StartStop_ParkRoadside",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-25_14-35-22/clips/20251225143612_00021/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-25_14-35-22/clips/20251225143612_00021/sensor/camera/front_left_1/image/video_32_52",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 230,
+      "gt_label": "TrafficLight_LeftTurnStopOrGo",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_11-07-29/clips/20251217110811_00011/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_11-07-29/clips/20251217110811_00011/sensor/camera/front_left_1/image/video_8_28",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 238,
+      "gt_label": "DynamicInteraction_StandardVehicleCutIn",
+      "pred_label": "LaneChange_AvoidStaticVehicle",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_10-37-35/clips/20251214103811_00036/sensor/camera/front_left_1/image/video/slices/slice_28_48.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-14_10-37-35/clips/20251214103811_00036/sensor/camera/front_left_1/image/video_28_48",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 241,
+      "gt_label": "DynamicInteraction_VRUInLaneCrossing",
+      "pred_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00022/sensor/camera/front_left_1/image/video/slices/slice_28_48.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00022/sensor/camera/front_left_1/image/video_28_48",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 242,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "LaneChange_AvoidStaticVehicle",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5019/2025-12-03_14-11-07/clips/20251203141141_00013/sensor/camera/front_left_1/image/video/slices/slice_14_34.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5019/2025-12-03_14-11-07/clips/20251203141141_00013/sensor/camera/front_left_1/image/video_14_34",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "车辆横穿后变成静态障碍需要换道避让"
+    },
+    {
+      "index": 246,
+      "gt_label": "LaneChange_AvoidSlowVRU",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5608/2025-12-20_15-20-53/clips/20251220152140_00012/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5608/2025-12-20_15-20-53/clips/20251220152140_00012/sensor/camera/front_left_1/image/video_32_52",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 247,
+      "gt_label": "Intersection_StandardUTurn",
+      "pred_label": "TrafficLight_LeftTurnStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5605/2025-12-03_11-29-01/clips/20251203112935_00019/sensor/camera/front_left_1/image/video/slices/slice_16_36.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5605/2025-12-03_11-29-01/clips/20251203112935_00019/sensor/camera/front_left_1/image/video_16_36",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 248,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_13-50-00/clips/20251214135037_00011/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-14_13-50-00/clips/20251214135037_00011/sensor/camera/front_left_1/image/video_8_28",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 249,
+      "gt_label": "DynamicInteraction_VRUInLaneCrossing",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5624/2025-12-22_10-09-28/clips/20251222101012_00013/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5624/2025-12-22_10-09-28/clips/20251222101012_00013/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 250,
+      "gt_label": "TrafficLight_LeftTurnStopOrGo",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5024/2025-12-23_13-08-15/clips/20251223130900_00021/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5024/2025-12-23_13-08-15/clips/20251223130900_00021/sensor/camera/front_left_1/image/video_38_58",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 254,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00051/sensor/camera/front_left_1/image/video/slices/slice_31_51.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00051/sensor/camera/front_left_1/image/video_31_51",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "在路口换道时可能同时有车辆横穿"
+    },
+    {
+      "index": 255,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "Intersection_StandardUTurn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_22-15-43/clips/20251205221620_00013/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-05_22-15-43/clips/20251205221620_00013/sensor/camera/front_left_1/image/video_13_33",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 265,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "DynamicInteraction_VRUInLaneCrossing",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5019/2025-12-25_02-46-07/clips/20251225024650_00011/sensor/camera/front_left_1/image/video/slices/slice_10_30.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5019/2025-12-25_02-46-07/clips/20251225024650_00011/sensor/camera/front_left_1/image/video_10_30",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 275,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00008/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00008/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "在路口附近换道避让静态车辆，可以同时属于两个标签"
+    },
+    {
+      "index": 276,
+      "gt_label": "TrafficLight_LeftTurnStopOrGo",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0202/2025-11-29_13-40-32/clips/20251129134109_00042/sensor/camera/front_left_1/image/video/slices/slice_37_57.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X3S0202/2025-11-29_13-40-32/clips/20251129134109_00042/sensor/camera/front_left_1/image/video_37_57",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 277,
+      "gt_label": "TrafficLight_LeftTurnStopOrGo",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00076/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00076/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 278,
+      "gt_label": "DynamicInteraction_VehicleInLaneCrossing",
+      "pred_label": "LaneChange_NavForIntersection",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5021/2025-12-20_16-18-04/clips/20251220161844_00006/sensor/camera/front_left_1/image/video/slices/slice_23_43.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5021/2025-12-20_16-18-04/clips/20251220161844_00006/sensor/camera/front_left_1/image/video_23_43",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "在路口换道时可能同时有车辆横穿"
+    },
+    {
+      "index": 280,
+      "gt_label": "LaneCruising_Straight",
+      "pred_label": "DynamicInteraction_StandardVehicleCutIn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5021/2025-12-23_13-41-41/clips/20251223134224_00019/sensor/camera/front_left_1/image/video/slices/slice_31_51.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5021/2025-12-23_13-41-41/clips/20251223134224_00019/sensor/camera/front_left_1/image/video_31_51",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "直行巡航中遇到车辆加塞"
+    },
+    {
+      "index": 282,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5630/2025-12-01_23-06-02/clips/20251201230636_00007/sensor/camera/front_left_1/image/video/slices/slice_12_32.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5630/2025-12-01_23-06-02/clips/20251201230636_00007/sensor/camera/front_left_1/image/video_12_32",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "换道前后的直行巡航阶段"
+    },
+    {
+      "index": 284,
+      "gt_label": "TrafficLight_LeftTurnStopOrGo",
+      "pred_label": "TrafficLight_StraightStopOrGo",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0206/2025-12-26_23-25-13/clips/20251226232605_00044/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X3S0206/2025-12-26_23-25-13/clips/20251226232605_00044/sensor/camera/front_left_1/image/video_40_60",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 285,
+      "gt_label": "LaneCruising_Straight",
+      "pred_label": "DynamicInteraction_StandardVehicleCutIn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5620/2025-12-24_14-44-27/clips/20251224144511_00008/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5620/2025-12-24_14-44-27/clips/20251224144511_00008/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "直行巡航中遇到车辆加塞"
+    },
+    {
+      "index": 296,
+      "gt_label": "LaneChange_AvoidSlowVRU",
+      "pred_label": "LaneChange_AvoidStaticVehicle",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5619/2025-12-18_13-50-18/clips/20251218135101_00013/sensor/camera/front_left_1/image/video/slices/slice_16_36.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5619/2025-12-18_13-50-18/clips/20251218135101_00013/sensor/camera/front_left_1/image/video_16_36",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 300,
+      "gt_label": "StartStop_ParkRoadside",
+      "pred_label": "StartStop_StartFromMainRoad",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00025/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00025/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 301,
+      "gt_label": "StartStop_StartFromMainRoad",
+      "pred_label": "LaneChange_AvoidStaticVehicle",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-25_14-18-40/clips/20251225141926_00007/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-25_14-18-40/clips/20251225141926_00007/sensor/camera/front_left_1/image/video_0_20",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 306,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00004/sensor/camera/front_left_1/image/video/slices/slice_33_53.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00004/sensor/camera/front_left_1/image/video_33_53",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "换道前后的直行巡航阶段"
+    },
+    {
+      "index": 308,
+      "gt_label": "DynamicInteraction_StandardVehicleCutIn",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5618/2025-12-25_13-34-31/clips/20251225133516_00002/sensor/camera/front_left_1/image/video/slices/slice_2_22.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5618/2025-12-25_13-34-31/clips/20251225133516_00002/sensor/camera/front_left_1/image/video_2_22",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "直行巡航中遇到车辆加塞"
+    },
+    {
+      "index": 309,
+      "gt_label": "LaneChange_AvoidSlowVRU",
+      "pred_label": "DynamicInteraction_VRUInLaneCrossing",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_13-50-00/clips/20251214135037_00002/sensor/camera/front_left_1/image/video/slices/slice_28_48.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-14_13-50-00/clips/20251214135037_00002/sensor/camera/front_left_1/image/video_28_48",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 311,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_11-07-29/clips/20251217110811_00010/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-17_11-07-29/clips/20251217110811_00010/sensor/camera/front_left_1/image/video_3_23",
+      "is_potential_multi_label": true,
+      "multi_label_reason": "换道前后的直行巡航阶段"
+    },
+    {
+      "index": 312,
+      "gt_label": "TrafficLight_LeftTurnStopOrGo",
+      "pred_label": "Intersection_StandardUTurn",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5625/2025-11-28_15-05-23/clips/20251128150559_00004/sensor/camera/front_left_1/image/video/slices/slice_33_53.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5625/2025-11-28_15-05-23/clips/20251128150559_00004/sensor/camera/front_left_1/image/video_33_53",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 314,
+      "gt_label": "StartStop_ParkRoadside",
+      "pred_label": "StartStop_StartFromMainRoad",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5634/2025-12-17_11-19-02/clips/20251217111949_00030/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5634/2025-12-17_11-19-02/clips/20251217111949_00030/sensor/camera/front_left_1/image/video_38_58",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 315,
+      "gt_label": "LaneChange_AvoidStaticVehicle",
+      "pred_label": "LaneChange_AvoidSlowVRU",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5625/2025-12-18_13-16-01/clips/20251218131646_00015/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5625/2025-12-18_13-16-01/clips/20251218131646_00015/sensor/camera/front_left_1/image/video_13_33",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    },
+    {
+      "index": 318,
+      "gt_label": "DynamicInteraction_VRUInLaneCrossing",
+      "pred_label": "LaneCruising_Straight",
+      "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-06_00-47-31/clips/20251206004806_00030/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+      "slice_key": "bos:/neolix-raw/raw_clips/X6S5006/2025-12-06_00-47-31/clips/20251206004806_00030/sensor/camera/front_left_1/image/video_40_60",
+      "is_potential_multi_label": false,
+      "multi_label_reason": ""
+    }
+  ]
+}

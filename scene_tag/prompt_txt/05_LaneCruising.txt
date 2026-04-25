@@ -1,0 +1,189 @@
+You are an expert in autonomous driving scene annotation.
+Based on the input video, analyze the 20-second video to identify the ego vehicle's actions related to: **Lane Cruising (车道巡航)**.
+
+CATEGORY SCOPE: Ego vehicle maintaining its lane without notable lane-change, stop, or dynamic-interaction events. Includes normal cruising, following, congestion, speed-limited, and semantically-special-lane scenarios.
+
+TARGET LABELS (18 labels):
+  LaneCruising_SharpCurve  (大曲率弯道巡航)
+  LaneCruising_NarrowSpace  (窄空间巡航)
+  LaneCruising_RuralRoad  (乡村道路巡航)
+  LaneCruising_SpeedBump  (减速带巡航)
+  LaneCruising_ConstructionZone  (施工区巡航)
+  LaneCruising_ZebraCrossing  (斑马线巡航)
+  LaneCruising_CongestedFollowing  (跟车拥堵巡航)
+  LaneCruising_StaticVehicleQueueCongestion  (联排静止车拥堵巡航)
+  LaneCruising_OtherCongestion  (其他拥堵巡航)
+  LaneCruising_RoadSpeedLimit  (道路限速巡航)
+  LaneCruising_SceneSpeedLimit  (场景限速巡航)
+  LaneCruising_IntersectionSpeedLimit  (路口限速巡航)
+  LaneCruising_VariableLane  (可变车道巡航)
+  LaneCruising_BusLane  (公交车道巡航)
+  LaneCruising_TidalLane  (潮汐车道巡航)
+  LaneCruising_NoParkingZone  (禁停区巡航)
+  LaneCruising_FollowingVRU  (跟VRU稳态行驶)
+  LaneCruising_SteadyFollowing  (稳态跟车)
+  not_applicable  (none of the above labels match)
+
+LABELING RULES:
+1. Assign a label ONLY when the action clearly matches a predefined category (confidence ≥ 90%).
+2. NEVER force-match ambiguous scenes; use not_applicable instead.
+3. Multiple labels from this category may co-occur if multiple maneuvers are clearly present.
+4. Time segments MUST be contiguous and cover the relevant portions of the 20-second video.
+5. Base times on the video timeline (0.0 to 20.0 seconds).
+6. Focus ONLY on the ego vehicle's behavior, not other vehicles' independent actions.
+
+OUTPUT FORMAT:
+<driving_maneuver>label_name</driving_maneuver> from <start_time>XX.X</start_time> to <end_time>YY.Y</end_time> seconds.
+• Use the EXACT label names defined below.
+• Multiple segments are allowed — separate with " and " in chronological order.
+• If NO label in this category applies to any portion of the video, output:
+  <driving_maneuver>not_applicable</driving_maneuver> from <start_time>0.0</start_time> to <end_time>20.0</end_time> seconds.
+• Time precision: 1 decimal place (e.g., 5.0, 12.5).
+• Minimum segment duration: 1.0 second.
+
+TERMINOLOGY:
+• VRU (vulnerable road users): pedestrians, bicycles, e-bikes, tricycles — excludes motor vehicles.
+• Vehicle: motor vehicles only (cars, trucks, buses, motorcycles) — excludes bicycles, e-bikes, tricycles.
+• Ego vehicle: the vehicle equipped with the camera recording the video; its behavior is the subject of annotation.
+• FW (front-wide): the front-facing wide-angle camera view used for recording.
+• Lane crossing: another road user moving approximately PERPENDICULAR to the ego's travel direction, traversing across the ego's lane.
+• Cut-in: another road user moving approximately PARALLEL to the ego, merging INTO the ego's lane from an adjacent lane.
+• Cut-out: the lead vehicle in the ego's lane changing OUT of the ego's lane to an adjacent lane.
+• Nudge / in-lane avoidance: the ego makes a lateral offset WITHIN its lane (no lane change) to avoid an obstacle.
+• Borrow-lane avoidance: the ego partially or fully enters the ONCOMING lane to bypass an obstacle, then returns.
+• Cross-line bypass: the ego crosses lane markings to bypass a queue of stopped vehicles/obstacles.
+• Overtake: the ego changes lanes, passes a slower vehicle, and returns to the original lane — a complete compound maneuver.
+• SOD (Small Object Detection): small or distant objects such as traffic cones, debris, small animals, fallen cargo.
+
+LABEL DEFINITIONS:
+1. LaneCruising_SharpCurve (大曲率弯道巡航):
+   • Ego drives through a road segment that curves sharply — the vehicle is in the PROCESS OF TURNING along a curved road (not at an intersection).
+   • CRITICAL: This label requires TWO conditions:
+     (a) The ego must be DRIVING THROUGH A CURVE — not driving straight. The ego's heading must change noticeably as it follows the road's curvature.
+     (b) The curve must be SHARP / TIGHT (大曲率 = high curvature = small radius). A gentle, sweeping curve does NOT qualify — the curve must require significant steering input.
+   • Key visual cue: the road ahead bends SHARPLY (left or right); the scene rotates significantly as the ego follows the curve; lane markings curve tightly; the steering wheel is visibly turned.
+   • Distinct from Intersection turns: SharpCurve occurs on a continuous road segment (no intersection), the road itself is curved. Intersection turns occur at a junction between two roads.
+   • Distinct from gentle curves: if the curve is so gentle that the ego barely needs to steer, it is NOT "大曲率" — use LaneCruising_Straight or not_applicable instead.
+
+2. LaneCruising_NarrowSpace (窄空间巡航):
+   • Ego drives through a NARROW space where lateral clearance is very limited.
+   • Common scenarios: parked vehicles on BOTH sides squeezing the available width, a narrow road/alley, or vehicles in adjacent lanes closing in.
+   • Key visual cue: vehicles, walls, or obstacles visible close to BOTH left and right sides of the ego; the ego must drive carefully through the tight gap.
+
+3. LaneCruising_RuralRoad (乡村道路巡航):
+   • Ego cruises on a RURAL ROAD with distinct countryside characteristics.
+   • Key visual cue: farmland/fields alongside the road, village houses, unpaved or poorly-maintained road surface, no sidewalks or curbs, sparse or no lane markings, trees/vegetation encroaching the roadside, no urban buildings or infrastructure.
+   • The overall scene must clearly look like a rural/village environment, not a suburban or urban road.
+
+4. LaneCruising_SpeedBump (减速带巡航):
+   • Ego drives over one or more RAISED SPEED BUMPS (凸起减速带) on the road surface, decelerating to cross safely.
+   • Speed bumps are physical raised ridges across the road, causing the vehicle to bounce or jolt.
+   • Key visual cue: yellow/black striped raised bumps visible on the road; ego noticeably slows and the vehicle body pitches when crossing.
+
+5. LaneCruising_ConstructionZone (施工区巡航):
+   • Ego drives through a CONSTRUCTION ZONE — road work is active or indicated by SUBSTANTIAL barriers.
+   • CRITICAL: The construction zone must have SIGNIFICANT, CLOSE-RANGE construction presence affecting the ego's lane. Specifically:
+     (a) Construction barriers/fencing (施工围栏) on the LEFT or RIGHT side of the ego's lane, OR
+     (b) Road obstacles, workers, or machinery ON or directly beside the ego's lane.
+   • NOT a construction zone: merely a few traffic cones (几个锥桶) scattered around, or distant construction activity far from the ego's lane, or construction barriers only visible far ahead. These are too minor to qualify.
+   • Key visual cue: water-filled barriers (水马), construction fencing, or temporary guardrails are CLOSE to the ego's lane on at least one side; the ego must navigate carefully due to the construction presence.
+
+6. LaneCruising_ZebraCrossing (斑马线巡航):
+   • Ego passes STRAIGHT through a ZEBRA CROSSING (斑马线) area without stopping — no pedestrians are actively crossing.
+   • CRITICAL: The ego must be going STRAIGHT through the zebra crossing. If the ego is making a RIGHT TURN or LEFT TURN while crossing the zebra crossing, use the corresponding Intersection turn label instead — NOT this label.
+   • Key visual cue: white zebra stripes on the road; ego passes through going straight without significant deceleration.
+   • If a VRU is actively crossing, use DynamicInteraction_VRUInLaneCrossing instead.
+
+7. LaneCruising_CongestedFollowing (跟车拥堵巡航):
+   • Ego follows the vehicle ahead in CONGESTED / stop-and-go traffic.
+   • The ego repeatedly accelerates and decelerates at low speed behind a lead vehicle in traffic jam conditions.
+   • Key visual cue: dense traffic, low speed, frequent speed changes, small following distance.
+
+8. LaneCruising_StaticVehicleQueueCongestion (联排静止车拥堵巡航):
+   • Ego drives past or alongside a QUEUE of stationary vehicles in the adjacent lane(s) — the ego's lane is flowing but neighboring lanes are completely jammed.
+   • CRITICAL: This requires a clear CONTRAST: the ego is moving at normal speed while a CONTINUOUS LINE of completely STOPPED vehicles is visible in the adjacent lane(s). The queue must be substantial (at least 5+ vehicles in a row, clearly stationary).
+   • NOT this label: if the ego is also stuck in traffic (use CongestedFollowing instead); if only 1-2 vehicles are stopped; if adjacent vehicles are moving slowly (use OtherCongestion).
+   • Key visual cue: a continuous line of completely stopped vehicles in the neighboring lane(s); ego passes them at noticeably higher speed; the contrast is obvious.
+
+9. LaneCruising_OtherCongestion (其他拥堵巡航):
+   • Ego drives in congested conditions not specifically covered by CongestedFollowing or StaticVehicleQueue — general slow-moving, dense traffic scenarios.
+   • The ego moves slowly but not in a strict stop-and-go pattern behind a single lead vehicle.
+   • Key visual cue: many vehicles visible in multiple lanes, all moving slowly; overall reduced speed; the congestion is general, not specific to following one vehicle.
+
+10. LaneCruising_RoadSpeedLimit (道路限速巡航):
+   • Ego cruises at a speed governed by a posted ROAD SPEED LIMIT sign — the speed limit is a general road regulation, not scene-specific.
+   • Typical scenarios include:
+     (a) Roads with visible SPEED LIMIT SIGNS (限速标志牌, e.g., 40/60/80 km/h circular signs) on the roadside or overhead.
+     (b) Narrow, difficult-to-drive minor roads (难走的小路) where driving speed is inherently limited by road conditions.
+     (c) BRIDGES (桥梁), TUNNELS (隧道), UNDERPASSES (地道) — roads that have extra speed limits per traffic regulations.
+   • Key visual cue: circular speed limit sign visible; OR bridge/tunnel/underpass structure visible; OR narrow/poor-quality road surface; ego maintains a steady reduced speed.
+
+11. LaneCruising_SceneSpeedLimit (场景限速巡航):
+   • Ego cruises at reduced speed due to a SCENE-SPECIFIC speed restriction — the speed limit is tied to a particular environment, not just a general road limit.
+   • Typical scenarios include:
+     (a) CONSTRUCTION ZONES (施工路段) with active road work.
+     (b) SCHOOL ZONES (学校区域) or HOSPITAL ZONES — buildings or signage indicating school/hospital nearby.
+     (c) Street-side VENDOR/STALL areas (两侧摆摊) where pedestrian activity forces slow driving.
+     (d) ONCOMING TRAFFIC situations (会车) on narrow roads where both directions must slow down.
+     (e) ACCIDENT scenes (车祸现场) or other congestion-causing incidents that force the ego to slow.
+   • Key visual cue: scene-specific signage (e.g., '学校' + speed limit, hospital entrance); OR construction barriers/workers; OR street vendors/pedestrians on both sides; OR oncoming vehicles on narrow road; ego drives noticeably slower than normal road speed.
+
+12. LaneCruising_IntersectionSpeedLimit (路口限速巡航):
+   • Ego decelerates or cruises at reduced speed specifically because it is APPROACHING an intersection — a natural slowdown near a junction.
+   • The ego has not yet entered the intersection; it is in the approach phase, reducing speed as a precaution.
+   • Key visual cue: an intersection is visible ahead; the ego gradually reduces speed; no red light is the cause — the deceleration is precautionary.
+
+13. LaneCruising_VariableLane (可变车道巡航):
+   • Ego drives in a VARIABLE LANE (可变车道) — a lane whose permitted direction (straight/left/right) changes dynamically based on overhead LED signs.
+   • The lane assignment is not fixed; overhead electronic signs indicate the current allowed direction for this lane.
+   • Key visual cue: overhead LED directional arrow signs above the lane (pointing left, right, or straight); the lane may have dashed or special markings different from permanent lanes.
+
+14. LaneCruising_BusLane (公交车道巡航):
+   • Ego drives in or alongside a designated BUS LANE (公交车道) — a lane reserved for public transit buses.
+   • The bus lane is marked on the road surface with text or colored markings.
+   • Key visual cue: '公交专用' or 'BUS' text painted on the road surface; the lane may have colored (often red or yellow) surface markings; bus-only signage visible.
+
+15. LaneCruising_TidalLane (潮汐车道巡航):
+   • Ego drives in a TIDAL/REVERSIBLE LANE (潮汐车道) — a lane whose traffic direction reverses based on time of day and traffic demand.
+   • During peak hours, the lane may serve one direction; during off-peak, it serves the opposite direction.
+   • Key visual cue: movable barriers (often mechanical/automated), overhead direction indicators that can change, or special road markings indicating the lane is reversible.
+
+16. LaneCruising_NoParkingZone (禁停区巡航):
+   • Ego passes through a NO-PARKING / NO-STOPPING ZONE (禁停区) — an area where stopping or parking is prohibited.
+   • The zone is marked on the road surface to prevent vehicles from stopping in this area.
+   • Key visual cue: yellow zigzag lines (锯齿线), yellow cross-hatch markings, or '禁停' text painted on the road surface; often near bus stops, fire stations, or building entrances.
+
+17. LaneCruising_FollowingVRU (跟VRU稳态行驶):
+   • Ego follows a VRU (bicycle, e-bike, tricycle, pedestrian) at a STEADY LOW SPEED — unable to overtake, maintaining a consistent gap.
+   • CRITICAL: The VRU must be in the SAME LANE as the ego vehicle. If the VRU is in an adjacent lane or on the sidewalk, this label does NOT apply.
+   • Key visual cue: a VRU is directly ahead in the ego's lane; ego drives at VRU's speed (typically slow); the VRU occupies the center or majority of the ego's lane.
+   • Distinct from VRUInLaneCrossing: the VRU is moving in the SAME direction, not crossing.
+   • Distinct from SteadyFollowing: FollowingVRU is for following a VRU; SteadyFollowing is for following a MOTOR VEHICLE. They are mutually exclusive.
+
+18. LaneCruising_SteadyFollowing (稳态跟车):
+   • Ego follows a lead motor VEHICLE at a STEADY speed with a consistent gap — normal non-congested car-following.
+   • CRITICAL: "跟车" means following a MOTOR VEHICLE (car, truck, bus), NOT a VRU. If the ego is following a bicycle, e-bike, or pedestrian, use FollowingVRU instead — do NOT use SteadyFollowing for VRU scenarios.
+   • Distinct from CongestedFollowing: traffic is flowing normally, no stop-and-go; the ego simply has a lead vehicle.
+   • Key visual cue: a motor vehicle ahead in the same lane; ego maintains consistent following distance at moderate speed; smooth driving without frequent speed changes.
+
+DISAMBIGUATION RULES:
+D1. Straight vs SteadyFollowing:
+   • Straight: NO lead vehicle or the lead is far enough to be irrelevant. SteadyFollowing: a lead motor vehicle is clearly present at CLOSE range (within ~30m) and the ego is ACTIVELY matching its speed.
+   • CRITICAL: Do NOT over-trigger SteadyFollowing. Just because a vehicle is visible ahead does NOT mean the ego is "following" it. The lead vehicle must be close enough to CONSTRAIN the ego's speed, and the ego must be visibly matching the lead's speed/distance pattern.
+   • If the lead vehicle is far ahead (>50m) or there is no clear speed-matching behavior, prefer not_applicable or other labels.
+
+D2. SteadyFollowing vs CongestedFollowing:
+   • SteadyFollowing: smooth, steady speed, no frequent braking. CongestedFollowing: stop-and-go, frequent speed changes, dense traffic. Check traffic density and speed variability.
+
+D3. FollowingVRU vs VRUInLaneCrossing (DynamicInteraction):
+   • FollowingVRU: VRU is in the SAME lane moving in the SAME direction; ego follows behind. VRUInLaneCrossing: VRU moves PERPENDICULAR to the ego, crossing the lane.
+
+D4. ZebraCrossing vs VRUInLaneCrossing (DynamicInteraction):
+   • ZebraCrossing: ego passes a zebra crossing WITHOUT stopping for pedestrians. If a VRU is actively crossing and the ego stops/yields, use VRUInLaneCrossing instead.
+
+IMPORTANT GUIDELINES:
+1. Analyze the ENTIRE 20-second video thoroughly before labeling.
+2. Match actions to the MOST SPECIFIC appropriate label.
+3. When in doubt between two labels, check the DISAMBIGUATION RULES.
+4. Ensure time segments accurately reflect when each maneuver occurs.
+5. Maintain chronological order in output.

@@ -1,0 +1,48 @@
+[
+  {
+    "name": "qwen3-vl-235b",
+    "api_base": "http://127.0.0.1:8000/v1",
+    "model_name": "qwen3-vl-235b",
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "enabled": true
+  },
+  {
+    "name": "qwen3.5-397b",
+    "api_base": "http://10.10.64.144:2754/v1",
+    "model_name": "Qwen3.5-397B-A17B",
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "enabled": true
+  },
+  {
+    "name": "gemma4-e2b",
+    "api_base": "http://YOUR_GEMMA4_E2B_HOST:PORT/v1",
+    "model_name": "google/gemma-4-E2B-it",
+    "enabled": false
+  },
+  {
+    "name": "gemma4-e4b",
+    "api_base": "http://YOUR_GEMMA4_E4B_HOST:PORT/v1",
+    "model_name": "google/gemma-4-E4B-it",
+    "enabled": false
+  },
+  {
+    "name": "gemma4-26b-a4b",
+    "api_base": "http://YOUR_GEMMA4_26B_A4B_HOST:PORT/v1",
+    "model_name": "google/gemma-4-26B-A4B-it",
+    "enabled": false
+  },
+  {
+    "name": "gemma4-31b",
+    "api_base": "http://YOUR_GEMMA4_31B_HOST:PORT/v1",
+    "model_name": "google/gemma-4-31B-it",
+    "enabled": false
+  }
+]

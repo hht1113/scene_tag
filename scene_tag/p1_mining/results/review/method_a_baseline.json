@@ -1,0 +1,3302 @@
+[
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0198/2025-11-14_19-16-36/clips/20251114191720_00018/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5614/2025-12-19_10-58-44/clips/20251219105930_00015/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0200/2025-11-26_10-49-31/clips/20251126105008_00003/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SceneSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5625/2025-12-19_14-50-22/clips/20251219145107_00054/sensor/camera/front_left_1/image/video/slices/slice_11_31.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5024/2025-10-23_15-02-54/clips/20251023150326_00011/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0195/2025-12-25_14-03-46/clips/20251225140431_00007/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00049/sensor/camera/front_left_1/image/video/slices/slice_31_51.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0212/2025-12-24_23-32-26/clips/20251224233317_00026/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5620/2025-11-28_14-16-29/clips/20251128141702_00013/sensor/camera/front_left_1/image/video/slices/slice_7_27.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-25_14-23-23/clips/20251025142350_00025/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0200/2025-11-20_16-17-46/clips/20251120161818_00005/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00038/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5620/2025-12-25_14-41-15/clips/20251225144204_00023/sensor/camera/front_left_1/image/video/slices/slice_37_57.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00008/sensor/camera/front_left_1/image/video/slices/slice_28_48.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SceneSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-28_23-30-48/clips/20251028233121_00014/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedRightTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-10-27_15-34-44/clips/20251027153514_00027/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-31_03-11-40/clips/20251031031206_00004/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-09_10-45-47/clips/20251209104618_00010/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-09_14-36-16/clips/20251109143649_00004/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_13-02-08/clips/20251128130241_00013/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00074/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5625/2025-11-29_11-13-30/clips/20251129111405_00018/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5610/2025-10-25_13-12-36/clips/20251025131307_00023/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedRightTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5021/2025-12-22_11-26-05/clips/20251222112651_00013/sensor/camera/front_left_1/image/video/slices/slice_26_46.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00030/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0211/2025-11-28_13-30-29/clips/20251128133102_00010/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5610/2025-11-21_14-55-07/clips/20251121145543_00005/sensor/camera/front_left_1/image/video/slices/slice_6_26.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-01_14-07-19/clips/20251101140747_00037/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_11-37-59/clips/20251214113833_00017/sensor/camera/front_left_1/image/video/slices/slice_33_53.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedRightTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0201/2025-12-02_13-08-24/clips/20251202130857_00005/sensor/camera/front_left_1/image/video/slices/slice_5_25.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0052/2025-11-19_14-29-52/clips/20251119143020_00028/sensor/camera/front_left_1/image/video/slices/slice_10_30.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00032/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightVRUCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5024/2025-11-13_15-28-37/clips/20251113152908_00018/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0211/2025-11-28_13-30-29/clips/20251128133102_00010/sensor/camera/front_left_1/image/video/slices/slice_14_34.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5632/2025-12-19_16-27-18/clips/20251219162801_00010/sensor/camera/front_left_1/image/video/slices/slice_24_44.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0195/2025-11-23_14-38-27/clips/20251123143905_00007/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-11-17_15-10-57/clips/20251117151126_00008/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-27_10-37-56/clips/20251027103828_00066/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_13-02-08/clips/20251128130241_00014/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5616/2025-12-20_14-02-30/clips/20251220140323_00018/sensor/camera/front_left_1/image/video/slices/slice_35_55.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5631/2025-12-23_23-29-41/clips/20251223233026_00016/sensor/camera/front_left_1/image/video/slices/slice_16_36.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-12-20_13-09-47/clips/20251220131032_00084/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00003/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_15-35-02/clips/20251217153545_00003/sensor/camera/front_left_1/image/video/slices/slice_18_38.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_RoadSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0197/2025-11-18_16-04-27/clips/20251118160457_00048/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "TrafficLight_WaitingAreaStopOrGo",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00043/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00027/sensor/camera/front_left_1/image/video/slices/slice_24_44.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5024/2025-10-27_10-18-51/clips/20251027101918_00017/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "DynamicInteraction_SlowVRUCutIn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_15-35-02/clips/20251217153545_00018/sensor/camera/front_left_1/image/video/slices/slice_37_57.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5634/2025-11-26_21-50-14/clips/20251126215049_00056/sensor/camera/front_left_1/image/video/slices/slice_14_34.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5610/2025-11-25_13-48-59/clips/20251125134932_00016/sensor/camera/front_left_1/image/video/slices/slice_34_54.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0198/2025-12-21_22-17-50/clips/20251221221833_00028/sensor/camera/front_left_1/image/video/slices/slice_33_53.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_22-15-43/clips/20251205221620_00013/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedRightTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0195/2025-11-12_16-45-43/clips/20251112164612_00017/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-15_14-53-47/clips/20251115145417_00022/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_11-07-29/clips/20251217110811_00006/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_14-35-00/clips/20251205143533_00001/sensor/camera/front_left_1/image/video/slices/slice_28_48.mp4",
+    "segments": [
+      {
+        "label": "TrafficLight_RightTurnStopOrGo",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5620/2025-12-27_13-20-38/clips/20251227132123_00026/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_RoadSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-10-27_15-34-44/clips/20251027153514_00011/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00035/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0202/2025-11-30_13-24-56/clips/20251130132530_00016/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_15-32-32/clips/20251128153304_00016/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00055/sensor/camera/front_left_1/image/video/slices/slice_36_56.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0195/2025-11-09_14-38-25/clips/20251109143902_00001/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_11-31-32/clips/20251217113215_00004/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5626/2025-12-20_13-03-09/clips/20251220130358_00038/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-26_13-06-34/clips/20251026130701_00019/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0203/2025-12-01_11-17-23/clips/20251201111756_00030/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-11-01_02-33-43/clips/20251101023411_00032/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-11-22_21-15-17/clips/20251122211602_00020/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-25_10-32-15/clips/20251025103245_00003/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightRightVehicleCutIn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-18-44/clips/20251216131919_00008/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00013/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightVRUCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-04_13-03-37/clips/20251204130409_00040/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5624/2025-12-01_11-19-16/clips/20251201111950_00020/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-04_11-01-14/clips/20251204110146_00035/sensor/camera/front_left_1/image/video/slices/slice_33_53.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_10-37-35/clips/20251214103811_00039/sensor/camera/front_left_1/image/video/slices/slice_23_43.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-03_15-11-35/clips/20251103151202_00007/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5624/2025-12-22_10-09-28/clips/20251222101012_00001/sensor/camera/front_left_1/image/video/slices/slice_23_43.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5618/2025-12-25_13-34-31/clips/20251225133516_00002/sensor/camera/front_left_1/image/video/slices/slice_2_22.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00022/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5634/2025-12-26_12-58-30/clips/20251226125916_00006/sensor/camera/front_left_1/image/video/slices/slice_19_39.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-05_16-23-22/clips/20251105162348_00002/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-22_22-21-35/clips/20251122222209_00019/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5610/2025-10-24_09-33-37/clips/20251024093406_00003/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-04_11-01-14/clips/20251204110146_00026/sensor/camera/front_left_1/image/video/slices/slice_14_34.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00007/sensor/camera/front_left_1/image/video/slices/slice_23_43.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5613/2025-12-02_13-05-40/clips/20251202130616_00002/sensor/camera/front_left_1/image/video/slices/slice_21_41.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-11-29_14-14-06/clips/20251129141439_00021/sensor/camera/front_left_1/image/video/slices/slice_37_57.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00008/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0197/2025-11-23_15-33-47/clips/20251123153419_00040/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00077/sensor/camera/front_left_1/image/video/slices/slice_6_26.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0197/2025-11-15_14-30-32/clips/20251115143103_00073/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00009/sensor/camera/front_left_1/image/video/slices/slice_23_43.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5629/2025-12-20_23-30-34/clips/20251220233122_00009/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5606/2025-11-27_14-29-13/clips/20251127142950_00009/sensor/camera/front_left_1/image/video/slices/slice_36_56.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00041/sensor/camera/front_left_1/image/video/slices/slice_4_24.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00023/sensor/camera/front_left_1/image/video/slices/slice_28_48.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0214/2025-11-28_13-52-04/clips/20251128135237_00020/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_11-04-20/clips/20251201110456_00041/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-09_10-45-47/clips/20251209104618_00004/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-11-01_02-33-43/clips/20251101023411_00006/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "TrafficLight_RightTurnStopOrGo",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00047/sensor/camera/front_left_1/image/video/slices/slice_30_50.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00077/sensor/camera/front_left_1/image/video/slices/slice_22_42.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0198/2025-11-17_17-04-11/clips/20251117170444_00010/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "DynamicInteraction_SlowVRUCutIn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5632/2025-11-26_22-44-43/clips/20251126224519_00022/sensor/camera/front_left_1/image/video/slices/slice_7_27.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0196/2025-11-12_18-42-14/clips/20251112184242_00035/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-27_14-23-25/clips/20251027142356_00011/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-23_01-02-01/clips/20251123010234_00015/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5608/2025-12-20_11-16-50/clips/20251220111733_00008/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightVRUCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-26_13-06-34/clips/20251026130701_00012/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5624/2025-11-28_13-58-03/clips/20251128135842_00004/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0201/2025-12-21_22-04-11/clips/20251221220455_00002/sensor/camera/front_left_1/image/video/slices/slice_9_29.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightVRUCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-18-44/clips/20251216131919_00001/sensor/camera/front_left_1/image/video/slices/slice_28_48.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-12-01_13-04-54/clips/20251201130528_00031/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0197/2025-11-22_17-15-06/clips/20251122171542_00007/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SceneSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00004/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0199/2025-11-25_15-35-11/clips/20251125153548_00007/sensor/camera/front_left_1/image/video/slices/slice_15_35.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00015/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightVRUCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-12-20_13-09-47/clips/20251220131032_00069/sensor/camera/front_left_1/image/video/slices/slice_26_46.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_11-37-59/clips/20251214113833_00020/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-26_10-28-18/clips/20251026102846_00014/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-11-22_22-30-42/clips/20251122223124_00009/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "TrafficLight_WaitingAreaStopOrGo",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5019/2025-11-23_22-13-21/clips/20251123221356_00006/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_10-48-40/clips/20251128104913_00006/sensor/camera/front_left_1/image/video/slices/slice_25_45.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0198/2025-11-14_14-37-22/clips/20251114143749_00008/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5606/2025-11-29_12-11-00/clips/20251129121134_00044/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5624/2025-12-21_23-21-29/clips/20251221232212_00005/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_13-02-08/clips/20251128130241_00010/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00016/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedRightTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-11-29_13-08-37/clips/20251129130912_00012/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-23_21-48-07/clips/20251123214840_00002/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0196/2025-11-28_18-58-14/clips/20251128185850_00042/sensor/camera/front_left_1/image/video/slices/slice_6_26.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5608/2025-12-25_16-02-52/clips/20251225160340_00001/sensor/camera/front_left_1/image/video/slices/slice_36_56.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5622/2025-12-22_11-23-54/clips/20251222112437_00006/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5634/2025-12-24_04-16-12/clips/20251224041656_00006/sensor/camera/front_left_1/image/video/slices/slice_30_50.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_14-35-00/clips/20251205143533_00004/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5625/2025-11-27_15-12-19/clips/20251127151255_00007/sensor/camera/front_left_1/image/video/slices/slice_12_32.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5620/2025-12-27_12-57-35/clips/20251227125820_00006/sensor/camera/front_left_1/image/video/slices/slice_29_49.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-03_15-11-35/clips/20251103151202_00010/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-11-01_13-50-44/clips/20251101135115_00001/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-01_03-11-00/clips/20251101031130_00002/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SceneSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5605/2025-11-18_15-35-49/clips/20251118153618_00006/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "DynamicInteraction_VehicleReverseCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0197/2025-11-09_14-44-21/clips/20251109144449_00025/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00022/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_15-32-32/clips/20251128153304_00006/sensor/camera/front_left_1/image/video/slices/slice_17_37.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5021/2025-12-22_11-26-05/clips/20251222112651_00001/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-04_15-03-13/clips/20251204150345_00007/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00016/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-23_01-02-01/clips/20251123010234_00015/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "TrafficLight_RightTurnStopOrGo",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0198/2025-11-14_19-16-36/clips/20251114191720_00025/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5628/2025-12-02_00-49-52/clips/20251202005025_00013/sensor/camera/front_left_1/image/video/slices/slice_21_41.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-20_13-13-20/clips/20251220131407_00002/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00008/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SceneSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-29_10-50-32/clips/20251129105104_00014/sensor/camera/front_left_1/image/video/slices/slice_26_46.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-04_13-03-37/clips/20251204130409_00049/sensor/camera/front_left_1/image/video/slices/slice_11_31.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00048/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_14-01-47/clips/20251128140220_00033/sensor/camera/front_left_1/image/video/slices/slice_19_39.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_RoadSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0052/2025-11-20_14-07-10/clips/20251120140742_00022/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightVRUCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5628/2025-12-02_22-44-25/clips/20251202224504_00009/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0205/2025-12-24_23-26-59/clips/20251224232747_00011/sensor/camera/front_left_1/image/video/slices/slice_7_27.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-12-01_15-06-24/clips/20251201150657_00008/sensor/camera/front_left_1/image/video/slices/slice_11_31.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0214/2025-12-28_23-11-02/clips/20251228231145_00016/sensor/camera/front_left_1/image/video/slices/slice_39_59.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5611/2025-12-03_15-15-21/clips/20251203151558_00005/sensor/camera/front_left_1/image/video/slices/slice_37_57.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightVRUCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00037/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00002/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00025/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4",
+    "segments": [
+      {
+        "label": "Intersection_CongestedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-06_00-47-31/clips/20251206004806_00023/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "TrafficLight_WaitingAreaStopOrGo",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0197/2025-11-23_15-33-47/clips/20251123153419_00020/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5623/2025-12-19_13-05-40/clips/20251219130623_00028/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5624/2025-11-25_14-52-24/clips/20251125145300_00045/sensor/camera/front_left_1/image/video/slices/slice_6_26.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0196/2025-11-15_16-03-21/clips/20251115160354_00015/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00013/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00013/sensor/camera/front_left_1/image/video/slices/slice_24_44.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-04_13-03-37/clips/20251204130409_00040/sensor/camera/front_left_1/image/video/slices/slice_11_31.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5629/2025-12-20_22-52-19/clips/20251220225304_00001/sensor/camera/front_left_1/image/video/slices/slice_37_57.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-01_14-07-19/clips/20251101140747_00042/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "TrafficLight_RightTurnStopOrGo",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_11-37-59/clips/20251214113833_00015/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedRightTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0200/2025-11-26_10-49-31/clips/20251126105008_00019/sensor/camera/front_left_1/image/video/slices/slice_19_39.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SceneSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0052/2025-12-01_11-26-29/clips/20251201112703_00002/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-25_10-32-15/clips/20251025103245_00008/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0201/2025-12-01_13-22-43/clips/20251201132321_00004/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5613/2025-12-18_15-15-07/clips/20251218151550_00003/sensor/camera/front_left_1/image/video/slices/slice_20_40.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SceneSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0052/2025-12-10_23-47-45/clips/20251210234819_00015/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5021/2025-12-23_13-41-41/clips/20251223134224_00019/sensor/camera/front_left_1/image/video/slices/slice_31_51.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-24_11-11-18/clips/20251024111145_00041/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00009/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5021/2025-12-24_14-26-26/clips/20251224142710_00005/sensor/camera/front_left_1/image/video/slices/slice_7_27.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedRightTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5622/2025-11-29_12-57-55/clips/20251129125829_00020/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_13-50-00/clips/20251214135037_00003/sensor/camera/front_left_1/image/video/slices/slice_23_43.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0197/2025-12-24_21-14-55/clips/20251224211549_00007/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_RoadSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0196/2025-11-15_16-03-21/clips/20251115160354_00005/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_15-32-32/clips/20251128153304_00014/sensor/camera/front_left_1/image/video/slices/slice_9_29.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00026/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00015/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightVRUCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_11-37-59/clips/20251214113833_00001/sensor/camera/front_left_1/image/video/slices/slice_18_38.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightVRUCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_14-01-47/clips/20251128140220_00037/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00050/sensor/camera/front_left_1/image/video/slices/slice_16_36.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0200/2025-11-28_14-13-04/clips/20251128141336_00027/sensor/camera/front_left_1/image/video/slices/slice_22_42.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightVRUCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-25_12-58-40/clips/20251025125907_00025/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0206/2025-11-27_11-24-43/clips/20251127112515_00014/sensor/camera/front_left_1/image/video/slices/slice_33_53.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00006/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0202/2025-12-01_13-26-26/clips/20251201132700_00006/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5024/2025-12-19_13-27-42/clips/20251219132827_00023/sensor/camera/front_left_1/image/video/slices/slice_2_22.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5624/2025-12-20_11-32-14/clips/20251220113257_00014/sensor/camera/front_left_1/image/video/slices/slice_11_31.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5625/2025-12-18_11-40-43/clips/20251218114126_00007/sensor/camera/front_left_1/image/video/slices/slice_18_38.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00040/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00039/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SceneSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-11-29_16-19-11/clips/20251129161946_00013/sensor/camera/front_left_1/image/video/slices/slice_6_26.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0200/2025-11-26_10-49-31/clips/20251126105008_00020/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-25_11-18-21/clips/20251025111847_00014/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-13_13-36-32/clips/20251113133701_00003/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5625/2025-12-20_13-34-00/clips/20251220133443_00004/sensor/camera/front_left_1/image/video/slices/slice_28_48.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0200/2025-12-23_23-18-06/clips/20251223231849_00006/sensor/camera/front_left_1/image/video/slices/slice_20_40.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5605/2025-11-18_15-35-49/clips/20251118153618_00008/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5623/2025-12-19_13-05-40/clips/20251219130623_00028/sensor/camera/front_left_1/image/video/slices/slice_21_41.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0196/2025-11-18_16-33-11/clips/20251118163339_00011/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-29_00-09-44/clips/20251029001014_00008/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00050/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0210/2025-12-25_00-07-15/clips/20251225000803_00037/sensor/camera/front_left_1/image/video/slices/slice_5_25.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0197/2025-11-27_14-27-12/clips/20251127142745_00033/sensor/camera/front_left_1/image/video/slices/slice_39_59.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-12-19_10-06-13/clips/20251219100659_00018/sensor/camera/front_left_1/image/video/slices/slice_4_24.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-04_13-03-37/clips/20251204130409_00008/sensor/camera/front_left_1/image/video/slices/slice_23_43.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00034/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_15-35-02/clips/20251217153545_00008/sensor/camera/front_left_1/image/video/slices/slice_14_34.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00075/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_RoadSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0201/2025-12-21_02-26-27/clips/20251221022710_00025/sensor/camera/front_left_1/image/video/slices/slice_39_59.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-02_13-30-59/clips/20251102133137_00009/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0198/2025-11-27_17-19-11/clips/20251127171944_00012/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00019/sensor/camera/front_left_1/image/video/slices/slice_1_21.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5611/2025-12-19_13-27-25/clips/20251219132809_00015/sensor/camera/front_left_1/image/video/slices/slice_39_59.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0198/2025-11-14_19-16-36/clips/20251114191720_00028/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightVRUCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_11-37-59/clips/20251214113833_00015/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5623/2025-12-18_15-03-10/clips/20251218150355_00008/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-29_00-43-11/clips/20251029004340_00004/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0204/2025-11-26_10-48-17/clips/20251126104850_00038/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-17_14-59-47/clips/20251117150017_00005/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00051/sensor/camera/front_left_1/image/video/slices/slice_23_43.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5625/2025-12-20_14-14-50/clips/20251220141534_00004/sensor/camera/front_left_1/image/video/slices/slice_26_46.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0197/2025-12-02_17-05-39/clips/20251202170614_00002/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-12-20_13-09-47/clips/20251220131032_00045/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5626/2025-11-22_15-30-42/clips/20251122153119_00014/sensor/camera/front_left_1/image/video/slices/slice_6_26.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-29_10-50-32/clips/20251129105104_00020/sensor/camera/front_left_1/image/video/slices/slice_25_45.mp4",
+    "segments": [
+      {
+        "label": "TrafficLight_RightTurnStopOrGo",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-04_15-03-13/clips/20251204150345_00006/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0195/2025-11-23_16-02-30/clips/20251123160309_00010/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5620/2025-12-01_11-27-38/clips/20251201112813_00046/sensor/camera/front_left_1/image/video/slices/slice_4_24.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SceneSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5610/2025-10-24_10-51-28/clips/20251024105157_00002/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-10-27_15-34-44/clips/20251027153514_00017/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5629/2025-12-18_23-56-15/clips/20251218235700_00015/sensor/camera/front_left_1/image/video/slices/slice_5_25.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_15-35-02/clips/20251217153545_00011/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0199/2025-12-19_22-16-25/clips/20251219221736_00028/sensor/camera/front_left_1/image/video/slices/slice_31_51.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SceneSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-04_13-03-37/clips/20251204130409_00044/sensor/camera/front_left_1/image/video/slices/slice_35_55.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5631/2025-12-21_02-16-27/clips/20251221021710_00018/sensor/camera/front_left_1/image/video/slices/slice_25_45.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0204/2025-12-18_23-42-24/clips/20251218234310_00008/sensor/camera/front_left_1/image/video/slices/slice_26_46.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5604/2025-11-08_14-52-44/clips/20251108145315_00001/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0197/2025-11-17_14-44-44/clips/20251117144512_00014/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_14-01-47/clips/20251128140220_00026/sensor/camera/front_left_1/image/video/slices/slice_9_29.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-20_13-01-49/clips/20251220130236_00007/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0200/2025-11-21_13-26-28/clips/20251121132703_00026/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00016/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_14-01-47/clips/20251128140220_00032/sensor/camera/front_left_1/image/video/slices/slice_17_37.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0195/2025-11-12_16-45-43/clips/20251112164612_00002/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_11-31-32/clips/20251217113215_00002/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-12-20_13-09-47/clips/20251220131032_00055/sensor/camera/front_left_1/image/video/slices/slice_18_38.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0198/2025-11-15_16-06-02/clips/20251115160630_00008/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-04_11-01-14/clips/20251204110146_00048/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_11-31-32/clips/20251217113215_00007/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5610/2025-12-02_13-15-42/clips/20251202131615_00034/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00076/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5622/2025-12-19_16-16-37/clips/20251219161721_00025/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5610/2025-10-24_13-08-03/clips/20251024130831_00008/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00024/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00038/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0202/2025-12-22_23-32-44/clips/20251222233340_00003/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00033/sensor/camera/front_left_1/image/video/slices/slice_18_38.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5638/2025-12-01_01-16-41/clips/20251201011715_00014/sensor/camera/front_left_1/image/video/slices/slice_12_32.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_Congestion",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0196/2025-11-19_16-18-25/clips/20251119161855_00001/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0197/2025-11-14_13-44-55/clips/20251114134523_00034/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightVRUCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0052/2025-12-01_13-47-25/clips/20251201134801_00023/sensor/camera/front_left_1/image/video/video_segment_003.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5024/2025-11-07_14-40-35/clips/20251107144101_00012/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SceneSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5624/2025-11-27_15-29-08/clips/20251127152941_00021/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00012/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0198/2025-11-14_19-16-36/clips/20251114191720_00011/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5610/2025-12-19_10-15-12/clips/20251219101556_00011/sensor/camera/front_left_1/image/video/slices/slice_27_47.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-11-22_22-30-42/clips/20251122223124_00019/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "TrafficLight_WaitingAreaStopOrGo",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-26_10-28-18/clips/20251026102846_00004/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "IntersectionInteraction_StraightVRUCrossing",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5024/2025-12-01_13-48-19/clips/20251201134854_00023/sensor/camera/front_left_1/image/video/slices/slice_25_45.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0196/2025-11-15_16-03-21/clips/20251115160354_00001/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00004/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5610/2025-10-24_11-13-54/clips/20251024111423_00015/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedLeftTurn",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5628/2025-12-02_00-49-52/clips/20251202005025_00024/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5625/2025-11-28_10-41-18/clips/20251128104153_00012/sensor/camera/front_left_1/image/video/slices/slice_22_42.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5009/2025-11-07_14-05-38/clips/20251107140607_00004/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SceneSpeedLimit",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0198/2025-11-09_13-29-56/clips/20251109133024_00041/sensor/camera/front_left_1/image/video/video_segment_002.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-30_02-16-39/clips/20251030021708_00010/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "Intersection_ProtectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5609/2025-12-29_23-17-57/clips/20251229231844_00022/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-22_23-15-51/clips/20251122231624_00020/sensor/camera/front_left_1/image/video/video_segment_001.mp4",
+    "segments": [
+      {
+        "label": "else",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5625/2025-12-18_13-16-01/clips/20251218131646_00006/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5632/2025-12-04_15-18-39/clips/20251204151912_00033/sensor/camera/front_left_1/image/video/slices/slice_12_32.mp4",
+    "segments": [
+      {
+        "label": "LaneCruising_SharpCurve",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  },
+  {
+    "video_path": "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5624/2025-12-01_09-38-42/clips/20251201093918_00004/sensor/camera/front_left_1/image/video/slices/slice_23_43.mp4",
+    "segments": [
+      {
+        "label": "Intersection_UnprotectedStraight",
+        "start": 0,
+        "end": 20,
+        "confidence": 95
+      }
+    ]
+  }
+]

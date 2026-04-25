@@ -1,0 +1,1064 @@
+{
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5024/2025-10-27_10-18-51/clips/20251027101918_00017/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "unsure"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0198/2025-11-17_17-04-11/clips/20251117170444_00010/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "unsure"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00032/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00013/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5608/2025-12-20_11-16-50/clips/20251220111733_00008/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0201/2025-12-21_22-04-11/clips/20251221220455_00002/sensor/camera/front_left_1/image/video/slices/slice_9_29.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00015/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0052/2025-11-20_14-07-10/clips/20251120140742_00022/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5611/2025-12-03_15-15-21/clips/20251203151558_00005/sensor/camera/front_left_1/image/video/slices/slice_37_57.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00015/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_11-37-59/clips/20251214113833_00001/sensor/camera/front_left_1/image/video/slices/slice_18_38.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0200/2025-11-28_14-13-04/clips/20251128141336_00027/sensor/camera/front_left_1/image/video/slices/slice_22_42.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0198/2025-11-14_19-16-36/clips/20251114191720_00028/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0197/2025-11-14_13-44-55/clips/20251114134523_00034/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-26_10-28-18/clips/20251026102846_00004/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-28_23-30-48/clips/20251028233121_00014/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5610/2025-10-25_13-12-36/clips/20251025131307_00023/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_11-37-59/clips/20251214113833_00017/sensor/camera/front_left_1/image/video/slices/slice_33_53.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_22-15-43/clips/20251205221620_00013/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00016/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_11-37-59/clips/20251214113833_00015/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5021/2025-12-24_14-26-26/clips/20251224142710_00005/sensor/camera/front_left_1/image/video/slices/slice_7_27.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0205/2025-12-24_23-26-59/clips/20251224232747_00011/sensor/camera/front_left_1/image/video/slices/slice_7_27.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5610/2025-11-25_13-48-59/clips/20251125134932_00016/sensor/camera/front_left_1/image/video/slices/slice_34_54.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0195/2025-11-12_16-45-43/clips/20251112164612_00017/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00008/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5624/2025-11-28_13-58-03/clips/20251128135842_00004/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_14-35-00/clips/20251205143533_00004/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00022/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00013/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00006/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5625/2025-12-20_13-34-00/clips/20251220133443_00004/sensor/camera/front_left_1/image/video/slices/slice_28_48.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0198/2025-11-27_17-19-11/clips/20251127171944_00012/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00019/sensor/camera/front_left_1/image/video/slices/slice_1_21.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5623/2025-12-18_15-03-10/clips/20251218150355_00008/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0198/2025-11-15_16-06-02/clips/20251115160630_00008/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-30_02-16-39/clips/20251030021708_00010/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5610/2025-10-24_11-13-54/clips/20251024111423_00015/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-27_10-37-56/clips/20251027103828_00066/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0198/2025-12-21_22-17-50/clips/20251221221833_00028/sensor/camera/front_left_1/image/video/slices/slice_33_53.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00035/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5624/2025-12-01_11-19-16/clips/20251201111950_00020/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5613/2025-12-02_13-05-40/clips/20251202130616_00002/sensor/camera/front_left_1/image/video/slices/slice_21_41.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-11-29_14-14-06/clips/20251129141439_00021/sensor/camera/front_left_1/image/video/slices/slice_37_57.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0196/2025-11-12_18-42-14/clips/20251112184242_00035/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5622/2025-12-22_11-23-54/clips/20251222112437_00006/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5620/2025-12-27_12-57-35/clips/20251227125820_00006/sensor/camera/front_left_1/image/video/slices/slice_29_49.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-12-01_15-06-24/clips/20251201150657_00008/sensor/camera/front_left_1/image/video/slices/slice_11_31.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0202/2025-12-01_13-26-26/clips/20251201132700_00006/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5623/2025-12-19_13-05-40/clips/20251219130623_00028/sensor/camera/front_left_1/image/video/slices/slice_21_41.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5610/2025-10-24_10-51-28/clips/20251024105157_00002/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5610/2025-12-02_13-15-42/clips/20251202131615_00034/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5620/2025-11-28_14-16-29/clips/20251128141702_00013/sensor/camera/front_left_1/image/video/slices/slice_7_27.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-25_14-23-23/clips/20251025142350_00025/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_14-11-39/clips/20251217141225_00038/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5620/2025-12-25_14-41-15/clips/20251225144204_00023/sensor/camera/front_left_1/image/video/slices/slice_37_57.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-10-27_15-34-44/clips/20251027153514_00027/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-09_10-45-47/clips/20251209104618_00010/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-09_14-36-16/clips/20251109143649_00004/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_13-02-08/clips/20251128130241_00013/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5625/2025-11-29_11-13-30/clips/20251129111405_00018/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-01_14-07-19/clips/20251101140747_00037/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0052/2025-11-19_14-29-52/clips/20251119143020_00028/sensor/camera/front_left_1/image/video/slices/slice_10_30.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0195/2025-11-23_14-38-27/clips/20251123143905_00007/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-11-17_15-10-57/clips/20251117151126_00008/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5631/2025-12-23_23-29-41/clips/20251223233026_00016/sensor/camera/front_left_1/image/video/slices/slice_16_36.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_13-25-39/clips/20251217132623_00003/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-15_14-53-47/clips/20251115145417_00022/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_11-07-29/clips/20251217110811_00006/sensor/camera/front_left_1/image/video/slices/slice_8_28.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0195/2025-11-09_14-38-25/clips/20251109143902_00001/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5626/2025-12-20_13-03-09/clips/20251220130358_00038/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-11-22_21-15-17/clips/20251122211602_00020/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5638/2025-12-01_01-16-41/clips/20251201011715_00014/sensor/camera/front_left_1/image/video/slices/slice_12_32.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0202/2025-12-22_23-32-44/clips/20251222233340_00003/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5604/2025-11-08_14-52-44/clips/20251108145315_00001/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-04_15-03-13/clips/20251204150345_00006/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0204/2025-11-26_10-48-17/clips/20251126104850_00038/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_11-37-59/clips/20251214113833_00015/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0200/2025-11-20_16-17-46/clips/20251120161818_00005/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0211/2025-11-28_13-30-29/clips/20251128133102_00010/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0211/2025-11-28_13-30-29/clips/20251128133102_00010/sensor/camera/front_left_1/image/video/slices/slice_14_34.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5632/2025-12-19_16-27-18/clips/20251219162801_00010/sensor/camera/front_left_1/image/video/slices/slice_24_44.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5621/2025-12-20_13-09-47/clips/20251220131032_00084/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-10-27_15-34-44/clips/20251027153514_00011/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-03_15-11-35/clips/20251103151202_00007/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-03_15-11-35/clips/20251103151202_00010/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_15-32-32/clips/20251128153304_00014/sensor/camera/front_left_1/image/video/slices/slice_9_29.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-14_12-50-29/clips/20251214125102_00026/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00075/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0197/2025-12-24_21-14-55/clips/20251224211549_00007/sensor/camera/front_left_1/image/video/slices/slice_38_58.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_14-01-47/clips/20251128140220_00033/sensor/camera/front_left_1/image/video/slices/slice_19_39.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_15-35-02/clips/20251217153545_00003/sensor/camera/front_left_1/image/video/slices/slice_18_38.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0200/2025-11-26_10-49-31/clips/20251126105008_00003/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00008/sensor/camera/front_left_1/image/video/slices/slice_28_48.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0197/2025-11-22_17-15-06/clips/20251122171542_00007/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5608/2025-11-01_03-11-00/clips/20251101031130_00002/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-16_13-33-38/clips/20251216133412_00008/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0200/2025-11-26_10-49-31/clips/20251126105008_00019/sensor/camera/front_left_1/image/video/slices/slice_19_39.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5613/2025-12-18_15-15-07/clips/20251218151550_00003/sensor/camera/front_left_1/image/video/slices/slice_20_40.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00039/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5620/2025-12-01_11-27-38/clips/20251201112813_00046/sensor/camera/front_left_1/image/video/slices/slice_4_24.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0199/2025-12-19_22-16-25/clips/20251219221736_00028/sensor/camera/front_left_1/image/video/slices/slice_31_51.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5024/2025-11-07_14-40-35/clips/20251107144101_00012/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5009/2025-11-07_14-05-38/clips/20251107140607_00004/sensor/camera/front_left_1/image/video/video_segment_002.mp4": {
+    "segments": {
+      "0": "correct"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_13-02-08/clips/20251128130241_00014/sensor/camera/front_left_1/image/video/slices/slice_40_60.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5616/2025-12-20_14-02-30/clips/20251220140323_00018/sensor/camera/front_left_1/image/video/slices/slice_35_55.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00043/sensor/camera/front_left_1/image/video/slices/slice_32_52.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-05_13-00-54/clips/20251205130127_00027/sensor/camera/front_left_1/image/video/slices/slice_24_44.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-17_15-35-02/clips/20251217153545_00018/sensor/camera/front_left_1/image/video/slices/slice_37_57.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X3S0202/2025-11-30_13-24-56/clips/20251130132530_00016/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-11-28_15-32-32/clips/20251128153304_00016/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5024/2025-10-23_15-02-54/clips/20251023150326_00011/sensor/camera/front_left_1/image/video/video_segment_003.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0195/2025-12-25_14-03-46/clips/20251225140431_00007/sensor/camera/front_left_1/image/video/slices/slice_0_20.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00049/sensor/camera/front_left_1/image/video/slices/slice_31_51.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X3S0212/2025-12-24_23-32-26/clips/20251224233317_00026/sensor/camera/front_left_1/image/video/slices/slice_13_33.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/mnt/pfs/houhaotian/junction_videos_segment/raw_clips/X6S5609/2025-10-31_03-11-40/clips/20251031031206_00004/sensor/camera/front_left_1/image/video/video_segment_001.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5006/2025-12-08_13-14-57/clips/20251208131530_00074/sensor/camera/front_left_1/image/video/slices/slice_3_23.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  },
+  "/root/workspace/downloaded_videos_for_segment/sliced_videos/raw_clips/X6S5021/2025-12-22_11-26-05/clips/20251222112651_00013/sensor/camera/front_left_1/image/video/slices/slice_26_46.mp4": {
+    "segments": {
+      "0": "wrong"
+    },
+    "comment": "",
+    "modifications": {},
+    "added_segments": [],
+    "deleted_segments": []
+  }
+}

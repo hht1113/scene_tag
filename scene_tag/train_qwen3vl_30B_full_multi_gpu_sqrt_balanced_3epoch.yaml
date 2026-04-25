@@ -1,0 +1,56 @@
+### model — 从 add_tags_dynamic 2epoch 检查点继续训练
+model_name_or_path: /mnt/pfs/houhaotian/saves/Qwen3-VL-30B-A3B-Instruct/full/sft_segment_add_tags_dynamic_8gpu
+trust_remote_code: true
+flash_attn: auto
+image_max_pixels: 589824
+image_min_pixels: 1024
+video_max_pixels: 65536
+video_min_pixels: 256
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+deepspeed: examples/deepspeed/ds_z3.json
+
+### freeze
+freeze_vision_tower: true
+freeze_multi_modal_projector: false
+freeze_language_model: false
+
+### dataset — sqrt 温度重采样平衡数据集 (10121 样本, Max/Min=4.4x)
+dataset: qwen3_sft_train_dataset_segment_add_tags_sqrt_balanced
+dataset_dir: data
+template: qwen3_vl_nothink
+enable_thinking: false
+cutoff_len: 20000
+max_samples: 100000
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: /mnt/pfs/houhaotian/saves/Qwen3-VL-30B-A3B-Instruct/full/sft_sqrt_balanced_3epoch
+logging_steps: 5
+save_strategy: epoch
+save_total_limit: 3
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: none
+
+### train
+# 8卡 A100-80GB + DeepSpeed ZeRO-3 (overlap_comm=true, 无offload)
+# 有效batch_size = 1 × 4 × 8 = 32
+# 10121 样本 / 32 = ~316 步/epoch, 3 epoch = ~948 步
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 4
+learning_rate: 5.0e-6
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.05
+max_grad_norm: 1.0
+optim: adamw_torch
+bf16: true
+ddp_timeout: 180000000
+include_num_input_tokens_seen: true

@@ -30,7 +30,7 @@ preprocessing_num_workers: 16
 dataloader_num_workers: 4
 
 ### output
-output_dir: /mnt/pfs/houhaotian/saves/Qwen3-VL-30B-A3B-Instruct/full/sft_segment_upsample_8gpu
+output_dir: /mnt/pfs/houhaotian/saves/Qwen3-VL-30B-A3B-Instruct/full/sft_segment_upsample_8gpu_0317
 logging_steps: 5
 save_steps: 100
 save_total_limit: 2

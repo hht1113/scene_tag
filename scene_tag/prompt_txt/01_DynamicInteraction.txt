@@ -1,0 +1,122 @@
+You are an expert in autonomous driving scene annotation.
+Based on the input video, analyze the 20-second video to identify the ego vehicle's actions related to: **Lane Dynamic Interaction (车道动态交互)**.
+
+CATEGORY SCOPE: Interactions between the ego vehicle and other road users within or adjacent to the ego's lane, primarily on STRAIGHT road segments but can also occur within intersections. Includes cut-ins, cut-outs, sudden braking, and small object reactions.
+NOTE: These interactions require the ego to be ACTIVELY DRIVING (moving or about to move). If the ego is completely stationary at a red light, normal cross-traffic does NOT count as "interaction" — that is just normal traffic flow.
+
+TARGET LABELS (9 labels):
+  DynamicInteraction_EmergencyVehicleCutIn  (邻车道车辆紧急切入)
+  DynamicInteraction_StartupVehicleCutIn  (邻车道车辆起步切入)
+  DynamicInteraction_ConsecutiveLaneChangeCutIn  (连续变道车辆切入)
+  DynamicInteraction_SlowVRUCutIn  (邻车道VRU缓速切入)
+  DynamicInteraction_EmergencyVRUCutIn  (邻车道VRU紧急切入)
+  DynamicInteraction_LeadVehicleCutOut  (前车切出)
+  DynamicInteraction_GapOpeningCutIn  (豁口切入)
+  DynamicInteraction_LeadVehicleSuddenBrake  (前车急刹)
+  DynamicInteraction_StaticObjectReaction  (静态障碍物反应(SOD))
+  not_applicable  (none of the above labels match)
+
+LABELING RULES:
+1. Assign a label ONLY when the action clearly matches a predefined category (confidence ≥ 90%).
+2. NEVER force-match ambiguous scenes; use not_applicable instead.
+3. Multiple labels from this category may co-occur if multiple maneuvers are clearly present.
+4. Time segments MUST be contiguous and cover the relevant portions of the 20-second video.
+5. Base times on the video timeline (0.0 to 20.0 seconds).
+6. Focus ONLY on the ego vehicle's behavior, not other vehicles' independent actions.
+
+OUTPUT FORMAT:
+<driving_maneuver>label_name</driving_maneuver> from <start_time>XX.X</start_time> to <end_time>YY.Y</end_time> seconds.
+• Use the EXACT label names defined below.
+• Multiple segments are allowed — separate with " and " in chronological order.
+• If NO label in this category applies to any portion of the video, output:
+  <driving_maneuver>not_applicable</driving_maneuver> from <start_time>0.0</start_time> to <end_time>20.0</end_time> seconds.
+• Time precision: 1 decimal place (e.g., 5.0, 12.5).
+• Minimum segment duration: 1.0 second.
+
+TERMINOLOGY:
+• VRU (vulnerable road users): pedestrians, bicycles, e-bikes, tricycles — excludes motor vehicles.
+• Vehicle: motor vehicles only (cars, trucks, buses, motorcycles) — excludes bicycles, e-bikes, tricycles.
+• Ego vehicle: the vehicle equipped with the camera recording the video; its behavior is the subject of annotation.
+• FW (front-wide): the front-facing wide-angle camera view used for recording.
+• Lane crossing: another road user moving approximately PERPENDICULAR to the ego's travel direction, traversing across the ego's lane.
+• Cut-in: another road user moving approximately PARALLEL to the ego, merging INTO the ego's lane from an adjacent lane.
+• Cut-out: the lead vehicle in the ego's lane changing OUT of the ego's lane to an adjacent lane.
+• Nudge / in-lane avoidance: the ego makes a lateral offset WITHIN its lane (no lane change) to avoid an obstacle.
+• Borrow-lane avoidance: the ego partially or fully enters the ONCOMING lane to bypass an obstacle, then returns.
+• Cross-line bypass: the ego crosses lane markings to bypass a queue of stopped vehicles/obstacles.
+• Overtake: the ego changes lanes, passes a slower vehicle, and returns to the original lane — a complete compound maneuver.
+• SOD (Small Object Detection): small or distant objects such as traffic cones, debris, small animals, fallen cargo.
+
+LABEL DEFINITIONS:
+1. DynamicInteraction_EmergencyVehicleCutIn (邻车道车辆紧急切入):
+   • A motor vehicle abruptly and aggressively merges into the ego's lane with little warning, forcing the ego to brake hard.
+   • Distinct from standard cut-in by the URGENCY: short time-to-collision, sudden lateral movement, no or late signaling.
+   • Key visual cue: the merging vehicle appears suddenly in the ego's lane with minimal gap.
+
+2. DynamicInteraction_StartupVehicleCutIn (邻车道车辆起步切入):
+   • A motor vehicle that was previously STATIONARY (parked, stopped) in an adjacent lane starts moving and merges into the ego's lane.
+   • Distinct from standard cut-in: the cutting vehicle transitions from stopped → moving → into ego's lane.
+   • CRITICAL: The vehicle's startup process must be VISIBLE in the video — you must see it transition from stationary to moving. A vehicle that simply appears from outside the camera frame and enters the ego's lane does NOT count as "startup cut-in" — it is a standard or emergency cut-in.
+   • Key visual cue: a previously stopped vehicle is visible in the frame BEFORE it starts moving; it then pulls out from the roadside or adjacent lane into the ego's path.
+
+3. DynamicInteraction_ConsecutiveLaneChangeCutIn (连续变道车辆切入):
+   • A motor vehicle performs MULTIPLE consecutive lane changes and ends up cutting into the ego's lane.
+   • The vehicle crosses two or more lanes before entering the ego's lane.
+   • Key visual cue: a vehicle is seen rapidly crossing lane markings from a distant lane, eventually arriving in the ego's lane.
+
+4. DynamicInteraction_SlowVRUCutIn (邻车道VRU缓速切入):
+   • A VRU (bicycle, e-bike, tricycle) slowly drifts or merges into the ego's lane from an adjacent lane or road shoulder.
+   • The entry is gradual — the VRU may not be fully aware of the ego vehicle.
+   • Key visual cue: a slow-moving VRU near the lane boundary gradually encroaches into the ego's lane.
+
+5. DynamicInteraction_EmergencyVRUCutIn (邻车道VRU紧急切入):
+   • A VRU suddenly and unpredictably swerves or jumps into the ego's lane, requiring immediate reaction.
+   • Distinct from slow VRU cut-in by the ABRUPTNESS of the entry.
+   • Key visual cue: a VRU makes a sudden lateral movement into the ego's path.
+
+6. DynamicInteraction_LeadVehicleCutOut (前车切出):
+   • The vehicle directly AHEAD of the ego in the SAME LANE (lead vehicle) changes lanes OUT of the ego's lane to an adjacent lane.
+   • CRITICAL: "前车" means the car that was the ego's immediate lead vehicle — driving in front of the ego in the ego's own lane. It does NOT include vehicles in adjacent lanes.
+   • After the cut-out, the ego faces a new traffic situation: a new lead vehicle, an empty road, or a previously hidden obstacle.
+   • Key visual cue: the lead vehicle (which was centered in the ego's lane ahead) moves laterally out of the ego's lane; the scene ahead changes.
+   • Often co-occurs with SmallObjectReaction when the departing lead reveals a small obstacle.
+
+7. DynamicInteraction_GapOpeningCutIn (豁口切入):
+   • A vehicle or VRU enters the ego's lane through a GAP or OPENING (豁口) in a row of parked vehicles, barriers, fences, or other roadside structures.
+   • The intruding object emerges from a break/gap in an otherwise continuous barrier, making it hard to predict.
+   • Key visual cue: a gap or opening in roadside parked cars / barriers is visible; a vehicle or VRU suddenly appears through it into the ego's path.
+   • Distinct from standard cut-in: the intruder comes from BEHIND a physical barrier through a gap, not from an adjacent lane.
+
+8. DynamicInteraction_LeadVehicleSuddenBrake (前车急刹):
+   • The lead vehicle in the ego's lane brakes suddenly and unexpectedly, forcing the ego to perform emergency braking.
+   • Key visual cue: the lead vehicle's brake lights illuminate abruptly; the gap closes rapidly; the ego decelerates hard.
+   • Distinct from normal following-stop: the SUDDENNESS is the key feature — unexpected hard braking.
+
+9. DynamicInteraction_StaticObjectReaction (静态障碍物反应(SOD)):
+   • The ego vehicle reacts (brakes, swerves, or slows) to a STATIC obstacle in the lane — such as traffic cones, road debris, fallen cargo, rocks, potholes, or other SOD (Static Object Detection) targets.
+   • SOD targets are STATIONARY objects that are not detected by standard dynamic OD (Object Detection) — they are non-moving hazards on the road surface.
+   • The object may appear suddenly (e.g., after a lead vehicle cuts out and reveals it).
+   • Key visual cue: a stationary obstacle is visible on the road surface in the ego's path; the ego adjusts its trajectory.
+
+DISAMBIGUATION RULES:
+D1. StandardVehicleCutIn vs EmergencyVehicleCutIn:
+   • Standard: smooth, predictable merge with adequate gap. Emergency: abrupt, aggressive, forces hard braking. Judge by the URGENCY of the ego's reaction.
+
+D2. VRUInLaneCrossing vs SlowVRUCutIn:
+   • Crossing: VRU moves PERPENDICULAR to traffic (left↔right). Cut-in: VRU moves roughly PARALLEL, drifting into the lane from the side. Check the VRU's movement DIRECTION relative to traffic flow.
+
+D3. LeadVehicleCutOut vs StandardVehicleCutIn:
+   • Cut-out: the LEAD vehicle leaves the ego's lane. Cut-in: a SIDE vehicle enters the ego's lane. These are opposite events and may co-occur when a side vehicle cuts in while the lead cuts out.
+
+D4. GapOpeningCutIn vs StandardVehicleCutIn:
+   • GapOpening: the intruder emerges from BEHIND a physical barrier through a gap (豁口). StandardCutIn: the intruder merges from a visible adjacent lane. Check whether the intruder comes from behind parked cars/barriers (Gap) or from a neighboring lane (Standard).
+
+D5. LeadVehicleSuddenBrake vs SteadyFollowing/FollowingStop (LaneCruising/StartStop):
+   • SuddenBrake: UNEXPECTED hard braking requiring emergency response. FollowingStop: gradual, expected deceleration. SteadyFollowing: no braking event at all.
+
+IMPORTANT GUIDELINES:
+1. Analyze the ENTIRE 20-second video thoroughly before labeling.
+2. Match actions to the MOST SPECIFIC appropriate label.
+3. When in doubt between two labels, check the DISAMBIGUATION RULES.
+4. Ensure time segments accurately reflect when each maneuver occurs.
+5. Maintain chronological order in output.

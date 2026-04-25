@@ -1,0 +1,77 @@
+You are an expert in autonomous driving scene annotation.
+Based on the input video, analyze the 20-second video to identify the ego vehicle's actions related to: **Lane Approach (车道贴近)**.
+
+CATEGORY SCOPE: Another road user in an adjacent or oncoming lane approaches close to the ego vehicle — creating a proximity concern on STRAIGHT road segments (not at intersections).
+
+TARGET LABELS (4 labels):
+  LaneApproach_AdjacentVRU  (邻车道VRU贴近)
+  LaneApproach_AdjacentVehicle  (邻车道车辆贴近)
+  LaneApproach_OncomingVRU  (逆向车道VRU贴近)
+  LaneApproach_OncomingVehicle  (逆向车道车辆贴近)
+  not_applicable  (none of the above labels match)
+
+LABELING RULES:
+1. Assign a label ONLY when the action clearly matches a predefined category (confidence ≥ 90%).
+2. NEVER force-match ambiguous scenes; use not_applicable instead.
+3. Multiple labels from this category may co-occur if multiple maneuvers are clearly present.
+4. Time segments MUST be contiguous and cover the relevant portions of the 20-second video.
+5. Base times on the video timeline (0.0 to 20.0 seconds).
+6. Focus ONLY on the ego vehicle's behavior, not other vehicles' independent actions.
+
+OUTPUT FORMAT:
+<driving_maneuver>label_name</driving_maneuver> from <start_time>XX.X</start_time> to <end_time>YY.Y</end_time> seconds.
+• Use the EXACT label names defined below.
+• Multiple segments are allowed — separate with " and " in chronological order.
+• If NO label in this category applies to any portion of the video, output:
+  <driving_maneuver>not_applicable</driving_maneuver> from <start_time>0.0</start_time> to <end_time>20.0</end_time> seconds.
+• Time precision: 1 decimal place (e.g., 5.0, 12.5).
+• Minimum segment duration: 1.0 second.
+
+TERMINOLOGY:
+• VRU (vulnerable road users): pedestrians, bicycles, e-bikes, tricycles — excludes motor vehicles.
+• Vehicle: motor vehicles only (cars, trucks, buses, motorcycles) — excludes bicycles, e-bikes, tricycles.
+• Ego vehicle: the vehicle equipped with the camera recording the video; its behavior is the subject of annotation.
+• FW (front-wide): the front-facing wide-angle camera view used for recording.
+• Lane crossing: another road user moving approximately PERPENDICULAR to the ego's travel direction, traversing across the ego's lane.
+• Cut-in: another road user moving approximately PARALLEL to the ego, merging INTO the ego's lane from an adjacent lane.
+• Cut-out: the lead vehicle in the ego's lane changing OUT of the ego's lane to an adjacent lane.
+• Nudge / in-lane avoidance: the ego makes a lateral offset WITHIN its lane (no lane change) to avoid an obstacle.
+• Borrow-lane avoidance: the ego partially or fully enters the ONCOMING lane to bypass an obstacle, then returns.
+• Cross-line bypass: the ego crosses lane markings to bypass a queue of stopped vehicles/obstacles.
+• Overtake: the ego changes lanes, passes a slower vehicle, and returns to the original lane — a complete compound maneuver.
+• SOD (Small Object Detection): small or distant objects such as traffic cones, debris, small animals, fallen cargo.
+
+LABEL DEFINITIONS:
+1. LaneApproach_AdjacentVRU (邻车道VRU贴近):
+   • A VRU in an ADJACENT lane (same direction) moves close to the ego vehicle — their lateral distance is small enough to warrant caution.
+   • The VRU is NOT cutting in (not entering the ego's lane) but is riding/walking close to the lane boundary.
+   • Key visual cue: a VRU in the neighboring lane is visible near the lane line, close to the ego.
+
+2. LaneApproach_AdjacentVehicle (邻车道车辆贴近):
+   • A motor vehicle in an ADJACENT lane (same direction) drives close to the ego — small lateral clearance.
+   • The vehicle is NOT cutting in but is close to the lane boundary.
+   • Key visual cue: a vehicle in the neighboring lane drives uncomfortably close to the ego.
+
+3. LaneApproach_OncomingVRU (逆向车道VRU贴近):
+   • A VRU in the ONCOMING direction approaches close to the ego on a straight road — e.g., a cyclist riding against traffic, a pedestrian walking on the road toward the ego.
+   • The VRU is moving TOWARD the ego (head-on or near-head-on), creating a proximity hazard.
+   • Key visual cue: a VRU is visible ahead, getting closer, moving toward the ego; the lateral distance is small; the ego may need to adjust position.
+
+4. LaneApproach_OncomingVehicle (逆向车道车辆贴近):
+   • A motor vehicle in the ONCOMING direction approaches close to the ego on a straight road — the oncoming vehicle passes with very small lateral clearance.
+   • Common on narrow roads where two-way traffic has limited width, or when the oncoming vehicle drifts toward the center line.
+   • Key visual cue: an oncoming vehicle is visible ahead approaching the ego; it passes very close with minimal lateral gap; the ego may shift slightly to maintain distance.
+
+DISAMBIGUATION RULES:
+D1. LaneApproach vs DynamicInteraction CutIn:
+   • LaneApproach: the other road user stays in THEIR lane but is CLOSE. CutIn: the other road user actually enters the ego's lane. If the road user crosses the lane boundary, use a CutIn label.
+
+D2. LaneApproach vs IntersectionInteraction Approach:
+   • LaneApproach: occurs on straight road segments BETWEEN intersections. IntersectionInteraction_*Approach: occurs WITHIN intersections. Check the location.
+
+IMPORTANT GUIDELINES:
+1. Analyze the ENTIRE 20-second video thoroughly before labeling.
+2. Match actions to the MOST SPECIFIC appropriate label.
+3. When in doubt between two labels, check the DISAMBIGUATION RULES.
+4. Ensure time segments accurately reflect when each maneuver occurs.
+5. Maintain chronological order in output.

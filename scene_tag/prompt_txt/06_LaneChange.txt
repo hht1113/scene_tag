@@ -1,0 +1,160 @@
+You are an expert in autonomous driving scene annotation.
+Based on the input video, analyze the 20-second video to identify the ego vehicle's actions related to: **Lane Change and Bypass (变道/绕行)**.
+
+CATEGORY SCOPE: Ego vehicle changing lanes or detouring — motivated by navigation, avoidance, efficiency, borrowing the oncoming lane, cross-line bypassing, overtaking, or suppressed lane changes.
+
+TARGET LABELS (16 labels):
+  LaneChange_ShortConsecutiveNav  (短距离连续导航变道)
+  LaneChange_CongestedNav  (拥堵导航变道)
+  LaneChange_AvoidStaticObstacle  (静态障碍物避让)
+  LaneChange_BorrowLaneAvoidSlowVRU  (慢速VRU避让（借道）)
+  LaneChange_BorrowLaneAvoidStaticVehicle  (静态障碍车避让（借道）)
+  LaneChange_BorrowLaneAvoidStaticObstacle  (静态障碍物避让（借道）)
+  LaneChange_BorrowOncomingLaneAvoidVehicle  (对向车道障碍车借道避让)
+  LaneChange_CrossLineBypassStaticVehicles  (联排静止车跨线绕行)
+  LaneChange_CrossLineBypassStaticObstacles  (联排静态障碍物跨线绕行)
+  LaneChange_SlowVehicleEfficiency  (慢速车效率变道)
+  LaneChange_SlowVRUEfficiency  (慢速VRU效率变道)
+  LaneChange_StaticObstacleEfficiency  (静止障碍物效率变道)
+  LaneChange_CongestedQueueSuppressed  (拥堵排队抑制变道)
+  LaneChange_NonMotorLaneSuppressed  (非机动车道抑制变道)
+  LaneChange_BusStopSuppressed  (公交停泊港抑制变道)
+  LaneChange_Overtake  (超车)
+  not_applicable  (none of the above labels match)
+
+LABELING RULES:
+1. Assign a label ONLY when the action clearly matches a predefined category (confidence ≥ 90%).
+2. NEVER force-match ambiguous scenes; use not_applicable instead.
+3. Multiple labels from this category may co-occur if multiple maneuvers are clearly present.
+4. Time segments MUST be contiguous and cover the relevant portions of the 20-second video.
+5. Base times on the video timeline (0.0 to 20.0 seconds).
+6. Focus ONLY on the ego vehicle's behavior, not other vehicles' independent actions.
+
+OUTPUT FORMAT:
+<driving_maneuver>label_name</driving_maneuver> from <start_time>XX.X</start_time> to <end_time>YY.Y</end_time> seconds.
+• Use the EXACT label names defined below.
+• Multiple segments are allowed — separate with " and " in chronological order.
+• If NO label in this category applies to any portion of the video, output:
+  <driving_maneuver>not_applicable</driving_maneuver> from <start_time>0.0</start_time> to <end_time>20.0</end_time> seconds.
+• Time precision: 1 decimal place (e.g., 5.0, 12.5).
+• Minimum segment duration: 1.0 second.
+
+TERMINOLOGY:
+• VRU (vulnerable road users): pedestrians, bicycles, e-bikes, tricycles — excludes motor vehicles.
+• Vehicle: motor vehicles only (cars, trucks, buses, motorcycles) — excludes bicycles, e-bikes, tricycles.
+• Ego vehicle: the vehicle equipped with the camera recording the video; its behavior is the subject of annotation.
+• FW (front-wide): the front-facing wide-angle camera view used for recording.
+• Lane crossing: another road user moving approximately PERPENDICULAR to the ego's travel direction, traversing across the ego's lane.
+• Cut-in: another road user moving approximately PARALLEL to the ego, merging INTO the ego's lane from an adjacent lane.
+• Cut-out: the lead vehicle in the ego's lane changing OUT of the ego's lane to an adjacent lane.
+• Nudge / in-lane avoidance: the ego makes a lateral offset WITHIN its lane (no lane change) to avoid an obstacle.
+• Borrow-lane avoidance: the ego partially or fully enters the ONCOMING lane to bypass an obstacle, then returns.
+• Cross-line bypass: the ego crosses lane markings to bypass a queue of stopped vehicles/obstacles.
+• Overtake: the ego changes lanes, passes a slower vehicle, and returns to the original lane — a complete compound maneuver.
+• SOD (Small Object Detection): small or distant objects such as traffic cones, debris, small animals, fallen cargo.
+
+LABEL DEFINITIONS:
+1. LaneChange_ShortConsecutiveNav (短距离连续导航变道):
+   • Ego performs MULTIPLE lane changes in quick succession for navigation purposes — e.g., crossing several lanes to reach an exit.
+   • Key visual cue: ego crosses 2+ lanes in a short distance before a turn/exit.
+   • NOTE: Requires navigation intent — FW video alone may not confirm this.
+
+2. LaneChange_CongestedNav (拥堵导航变道):
+   • Ego changes lanes in CONGESTED traffic for navigation purposes — must merge through slow traffic to reach the correct lane.
+   • Key visual cue: ego changes lanes in dense, slow-moving traffic before a turn/exit.
+   • NOTE: Requires navigation intent — FW video alone may not confirm this.
+
+3. LaneChange_AvoidStaticObstacle (静态障碍物避让):
+   • Ego avoids a STATIONARY NON-VEHICLE OBSTACLE in the lane — e.g., fallen cargo, construction barriers, large debris, trash bins.
+   • Key visual cue: a non-vehicle obstacle blocks part of the lane; ego adjusts path.
+   • Distinct from AvoidStaticVehicle: the obstacle is NOT a motor vehicle.
+
+4. LaneChange_BorrowLaneAvoidSlowVRU (慢速VRU避让（借道）):
+   • Ego enters the ONCOMING lane (借道) to bypass a slow-moving VRU, then returns to its original lane.
+   • Distinct from in-lane avoidance: the ego actually crosses the center line into the opposing lane.
+   • Key visual cue: ego crosses the center/dividing line to go around a VRU, then returns.
+
+5. LaneChange_BorrowLaneAvoidStaticVehicle (静态障碍车避让（借道）):
+   • Ego enters the ONCOMING lane (借道) to bypass a stationary motor vehicle blocking the lane, then returns to its original lane.
+   • The ego crosses the center/dividing line into the opposite-direction lane to go around a parked or broken-down vehicle.
+   • Key visual cue: ego crosses the center line, drives briefly in the oncoming lane past a stopped vehicle, then returns to its own lane.
+
+6. LaneChange_BorrowLaneAvoidStaticObstacle (静态障碍物避让（借道）):
+   • Ego enters the ONCOMING lane (借道) to bypass a stationary NON-VEHICLE obstacle (construction barriers, fallen debris, large objects), then returns.
+   • The obstacle is not a motor vehicle — it is a physical object blocking the lane.
+   • Key visual cue: ego crosses the center line to go around a non-vehicle obstacle on the road, then returns to its own lane.
+
+7. LaneChange_BorrowOncomingLaneAvoidVehicle (对向车道障碍车借道避让):
+   • Ego borrows the ONCOMING lane specifically to avoid an obstacle vehicle while navigating potential oncoming traffic.
+   • Emphasis on the interaction with ONCOMING vehicles during the borrow-lane maneuver.
+   • Key visual cue: ego is in the oncoming lane and must coordinate with approaching vehicles.
+
+8. LaneChange_CrossLineBypassStaticVehicles (联排静止车跨线绕行):
+   • Ego crosses lane markings to bypass a ROW/QUEUE of stationary vehicles (联排) — multiple parked or queued vehicles blocking the lane in a line.
+   • The ego must cross lane markings (not just nudge within the lane) to go around the entire queue.
+   • Key visual cue: a continuous line of stopped/parked cars occupies the ego's lane; ego crosses lane markings and drives around the entire queue before returning.
+   • Distinct from single-vehicle avoidance: this involves MULTIPLE vehicles in a row.
+
+9. LaneChange_CrossLineBypassStaticObstacles (联排静态障碍物跨线绕行):
+   • Ego crosses lane markings to bypass a ROW of stationary non-vehicle obstacles — such as a line of construction barriers, traffic cones, water-filled barriers, or other sequential obstacles.
+   • Multiple obstacles are arranged in a line, blocking the lane for an extended stretch.
+   • Key visual cue: a series of barriers/cones/obstacles arranged along the lane; ego crosses lane markings to bypass the entire row.
+
+10. LaneChange_SlowVehicleEfficiency (慢速车效率变道):
+   • Ego changes lanes to OVERTAKE a slow-moving vehicle for EFFICIENCY — the ego is not avoiding a hazard, but seeking faster travel.
+   • Distinct from avoidance: the motivation is speed, not safety.
+   • Key visual cue: a slower vehicle is ahead; ego changes lanes to pass; no immediate hazard.
+
+11. LaneChange_SlowVRUEfficiency (慢速VRU效率变道):
+   • Ego changes lanes to pass a slow-moving VRU (bicycle, e-bike, tricycle) for EFFICIENCY — not an emergency avoidance, but a proactive lane change for better traffic flow.
+   • The VRU is not an immediate hazard, but following it would significantly reduce the ego's speed.
+   • Key visual cue: a slow VRU ahead in the ego's lane; ego changes to an adjacent lane to maintain speed; no urgency or hard braking involved.
+   • Distinct from AvoidSlowVRU: efficiency change is to the ADJACENT lane; avoidance may be an in-lane nudge.
+
+12. LaneChange_StaticObstacleEfficiency (静止障碍物效率变道):
+   • Ego changes lanes proactively to avoid a static obstacle visible ahead — the obstacle is not an imminent threat but would require slowing down if the ego stayed in the lane.
+   • The lane change is a PROACTIVE efficiency decision, not a last-second emergency maneuver.
+   • Key visual cue: a static obstacle (not a vehicle) visible ahead in the lane; ego changes lanes early to maintain speed; the maneuver is smooth and planned.
+
+13. LaneChange_CongestedQueueSuppressed (拥堵排队抑制变道):
+   • Ego SUPPRESSES / does NOT change lanes despite wanting to — queuing in congestion prevents the lane change.
+   • This is a NON-ACTION label: the ego stays in its lane because changing is not possible.
+   • NOTE: Requires planning/decision information — FW video alone cannot confirm intent to change lanes.
+
+14. LaneChange_NonMotorLaneSuppressed (非机动车道抑制变道):
+   • Ego SUPPRESSES / does NOT change lanes because the adjacent lane is a NON-MOTOR-VEHICLE lane (非机动车道) — changing into it would be illegal.
+   • The ego stays in its lane despite potentially wanting to change, because the target lane is reserved for bicycles/e-bikes.
+   • Key visual cue: a bike lane or non-motor lane is visible adjacent to the ego; the ego remains in its lane.
+   • NOTE: Requires planning/decision information — FW video alone cannot confirm the intent to change lanes.
+
+15. LaneChange_BusStopSuppressed (公交停泊港抑制变道):
+   • Ego SUPPRESSES / does NOT change lanes near a BUS STOP BAY (公交停泊港) — changing into the bus bay area would be inappropriate.
+   • A bus stop bay or pull-in area is visible, and the ego avoids entering it.
+   • Key visual cue: a bus stop bay indentation in the road is visible; the ego stays in its lane rather than merging into the bus bay area.
+   • NOTE: Requires planning/decision information.
+
+16. LaneChange_Overtake (超车):
+   • Ego performs a complete OVERTAKE maneuver: changes to an adjacent lane → passes the slower vehicle → returns to the original lane.
+   • This is a COMPOUND action involving at least two lane changes and a passing phase.
+   • Key visual cue: ego moves to the left/right lane, accelerates past a vehicle, then moves back to the original lane.
+   • Distinct from efficiency lane change: overtake includes the RETURN to the original lane.
+
+DISAMBIGUATION RULES:
+D1. AvoidSlowVRU (in-lane) vs BorrowLaneAvoidSlowVRU:
+   • In-lane: ego stays within its lane, just shifts laterally. BorrowLane: ego crosses the center line into the oncoming lane. Check whether the ego crosses the center/dividing line.
+
+D2. AvoidStaticVehicle vs AvoidStaticObstacle:
+   • Vehicle: the obstacle is a motor vehicle (car, truck, bus). Obstacle: the obstacle is NOT a motor vehicle (barriers, debris, cones). Identify the type of obstacle.
+
+D3. Efficiency lane change vs Overtake:
+   • Efficiency: a single lane change to get past a slow object; the ego may stay in the new lane. Overtake: the ego changes lanes, passes, AND returns to the original lane — a complete three-phase maneuver.
+
+D4. Suppressed labels (CongestedQueue/NonMotor/BusStop):
+   • These are NON-ACTION labels requiring planning intent data. They cannot be reliably labeled from FW video alone. Use with caution and supplementary data sources.
+
+IMPORTANT GUIDELINES:
+1. Analyze the ENTIRE 20-second video thoroughly before labeling.
+2. Match actions to the MOST SPECIFIC appropriate label.
+3. When in doubt between two labels, check the DISAMBIGUATION RULES.
+4. Ensure time segments accurately reflect when each maneuver occurs.
+5. Maintain chronological order in output.
